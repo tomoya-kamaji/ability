@@ -1,0 +1,25 @@
++--------+----------+-------------------------------+-----------------------+------------------------------------------------------------------------+------------------------------------------------------+
+| Domain | Method   | URI                           | Name                  | Action                                                                 | Middleware                                           |
++--------+----------+-------------------------------+-----------------------+------------------------------------------------------------------------+------------------------------------------------------+
+|        | GET|HEAD | /                             |                       | Closure                                                                | web                                                  |
+|        | GET|HEAD | _debugbar/assets/javascript   | debugbar.assets.js    | Barryvdh\Debugbar\Controllers\AssetController@js                       | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | GET|HEAD | _debugbar/assets/stylesheets  | debugbar.assets.css   | Barryvdh\Debugbar\Controllers\AssetController@css                      | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | DELETE   | _debugbar/cache/{key}/{tags?} | debugbar.cache.delete | Barryvdh\Debugbar\Controllers\CacheController@delete                   | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | GET|HEAD | _debugbar/clockwork/{id}      | debugbar.clockwork    | Barryvdh\Debugbar\Controllers\OpenHandlerController@clockwork          | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | GET|HEAD | _debugbar/open                | debugbar.openhandler  | Barryvdh\Debugbar\Controllers\OpenHandlerController@handle             | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | GET|HEAD | _debugbar/telescope/{id}      | debugbar.telescope    | Barryvdh\Debugbar\Controllers\TelescopeController@show                 | Barryvdh\Debugbar\Middleware\DebugbarEnabled,Closure |
+|        | GET|HEAD | api/user                      |                       | Closure                                                                | api,auth:api                                         |
+|        | GET|HEAD | contact/create                | contact.create        | App\Http\Controllers\ContactFormController@create                      | web,auth                                             |
+|        | GET|HEAD | contact/index                 | contact.index         | App\Http\Controllers\ContactFormController@index                       | web,auth                                             |
+|        | GET|HEAD | home                          | home                  | App\Http\Controllers\HomeController@index                              | web,auth                                             |
+|        | GET|HEAD | login                         | login                 | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest                                            |
+|        | POST     | login                         |                       | App\Http\Controllers\Auth\LoginController@login                        | web,guest                                            |
+|        | POST     | logout                        | logout                | App\Http\Controllers\Auth\LoginController@logout                       | web                                                  |
+|        | POST     | password/email                | password.email        | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest                                            |
+|        | GET|HEAD | password/reset                | password.request      | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest                                            |
+|        | POST     | password/reset                | password.update       | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest                                            |
+|        | GET|HEAD | password/reset/{token}        | password.reset        | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest                                            |
+|        | GET|HEAD | register                      | register              | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest                                            |
+|        | POST     | register                      |                       | App\Http\Controllers\Auth\RegisterController@register                  | web,guest                                            |
+|        | GET|HEAD | tests/test                    |                       | App\Http\Controllers\TestController@index                              | web                                                  |
++--------+----------+-------------------------------+-----------------------+------------------------------------------------------------------------+------------------------------------------------------+
