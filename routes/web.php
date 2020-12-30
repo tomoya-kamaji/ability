@@ -27,8 +27,8 @@ Route::group(
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
-        Route::get('index', 'ContactFormController@index')->name('application.index');
-        Route::get('create', 'ContactFormController@create')->name('application.create');
+        Route::get('index', 'ApplicationFormController@index')->name('application.index');
+        Route::get('create', 'ApplicationFormController@create')->name('application.create');
     }
 );
 
