@@ -17,13 +17,7 @@ Route::get('/', function () {
 
 Route::get('tests/test', 'TestController@index');
 
-Route::group(
-    ['prefix' => 'contact', 'middleware' => 'auth'],
-    function () {
-        Route::get('index', 'ContactFormController@index')->name('contact.index');
-        Route::get('create', 'ContactFormController@create')->name('contact.create');
-    }
-);
+//ユーザ認証
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
@@ -31,11 +25,6 @@ Route::group(
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
     }
 );
-
-
-
-
-
 
 
 Auth::routes();

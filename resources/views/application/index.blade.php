@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -70,6 +71,7 @@
 
           <p>
             送られてきた変数は{{$contacts}}
+            送られてきたusersは{{$users}}
           </p>
 
           <button type="button" class="btn btn-info rounded-circle p-0" style="width:4rem;height:4rem; position: fixed; bottom: 100px; right: 100px; ">＋</button>
