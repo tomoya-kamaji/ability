@@ -17,11 +17,12 @@ class ApplicationFormController extends Controller
 
     public function index()
     {
-        $contacts = DB::table('contact_froms')->get();
+        $applications = DB::table('applications')->get();
         $user = Auth::user();
 
+
         //bladeファイルを返している
-        return view('Application.index', compact('contacts','user'));
+        return view('Application.index', compact('applications','user'));
     }
 
     /**
