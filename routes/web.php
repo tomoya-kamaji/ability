@@ -23,6 +23,7 @@ Route::group(
     function () {
         Route::get('index', 'ApplicationFormController@index')->name('application.index');
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
+        Route::get('edit', 'ApplicationFormController@edit')->name('application.edit');
     }
 );
 

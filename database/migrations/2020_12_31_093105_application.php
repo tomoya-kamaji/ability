@@ -15,10 +15,8 @@ class Application extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('application_name');
-            $table->text('description');
-            $table->text('image_pass');
-            $table->integer('tag_id')->unsigned();
+            $table->integer('track_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -47,13 +44,8 @@
                             @if($loop->iteration % 4 == 0 || $loop->last)
                         </div>
                         @endif
-
                     @endforeach
-
                     <button type="button" class="btn btn-info rounded-circle p-0" style="width:4rem;height:4rem; position: fixed; bottom: 100px; right: 100px; ">＋</button>
-
-
-
                 </div>
             </div>
         </div>
