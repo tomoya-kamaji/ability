@@ -37,10 +37,10 @@
                                     <h5 class="card-title">{{ $result['trackName'] }}</h5>
                                 </div>
                                 <div class="card-footer">
-                                    {{-- <small class="text-muted">{{ $result['sellerName'] }}</small> --}}
                                     <a href="" class="btn btn-success btn-sm">♡<span class="badge">3</span></a>
                                     <a href="" class="btn btn-success btn-sm">コメント<span class="badge">3</span></a>
-                                    <a href="" class="btn btn-primary">＋</a>
+                                    <a href="{{ route('application.edit', ['id' => $result['trackId']]) }}" class="btn btn-primary">登録</a>
+
                                 </div>
                             </div>
 
@@ -49,11 +49,6 @@
                         @endif
 
                     @endforeach
-
-                    <button type="button" class="btn btn-info rounded-circle p-0" style="width:4rem;height:4rem; position: fixed; bottom: 100px; right: 100px; ">＋</button>
-
-
-
                 </div>
             </div>
         </div>

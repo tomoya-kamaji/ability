@@ -38,7 +38,7 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Http/Helpers/iTunesapi.php"
+            "app/Http/Helpers/iTunesapi.php "
         ],
         "classmap": [
             "database/seeds",
