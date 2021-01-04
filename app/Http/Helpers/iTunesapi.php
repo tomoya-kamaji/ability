@@ -4,7 +4,6 @@ use GuzzleHttp\Client;
 
 class iTunesapi
 {
-
     public static function getRandomNumber($min, $max)
     {
         return rand($min, $max);
@@ -57,5 +56,3 @@ class iTunesapi
         return $posts;
     }
 }
-
-?>

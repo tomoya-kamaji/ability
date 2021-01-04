@@ -4,36 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Application;
+use Illuminate\Support\Facades\DB;
 use Helpers\iTunesapi;
 
-class ApplicationFormController extends Controller
+
+
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-
         $user = Auth::user();
-        $posts = iTunesapi::iTunessearch($search);
-        return view('Application.index', compact('search','user' ,'posts'));
+        $track_ids = DB::table('applications')->where('user_id', $user->id)->pluck('track_id');
+
+        $i = 0;
+        foreach ($track_ids as $track_id) {
+            $posts['results'][$i] = array_shift(iTunesapi::iTuneslookup($track_id)['results']);
+            $i = $i + 1;
+        }
+        return view('user.index', compact('user','posts'));
     }
 
     /**
-         * Show the form for creating a new resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
-
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('contact.create');
+        //
     }
 
     /**
@@ -66,25 +70,9 @@ class ApplicationFormController extends Controller
      */
     public function edit($id)
     {
+        //
         $user = Auth::user();
-        $posts = iTunesapi::iTuneslookup($id);
-        return view('application.edit', compact('user', 'posts'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function register(Request $request)
-    {
-        $application = new Application();
-        $application->track_id = $request->input('track_id');
-        $application->user_id = $request->input('user_id');
-        $application->content = $request->input('content');
-        $application->save();
-        return redirect('application/index');
+        return view('user.edit', compact('user'));
     }
 
     /**

@@ -28,19 +28,19 @@
         <div class="col-md-6">
             <form method="POST" action="{{ route('application.register') }}">
                 @csrf
-                <div class="form-group" name="content">
+                <div class="form-group">
                     <label>メモ</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ex)使いやすい"></textarea>
+                    <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3" placeholder="ex)使いやすい"></textarea>
                     <small class="form-text text-muted">マイページにて変更可能です。</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">オススメ度</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>5：神</option>
-                        <option>4：すごくオススメ</option>
-                        <option>3：オススメ</option>
-                        <option>2：可もなく不可もなく</option>
-                        <option>1：オススメできない</option>
+                    <select class="form-control" name='evaluation' id="exampleFormControlSelect1">
+                        <option value="5">5：神</option>
+                        <option value="4">4：すごくオススメ</option>
+                        <option value="3">3：オススメ</option>
+                        <option value="2">2：可もなく不可もなく</option>
+                        <option value="1">1：オススメできない</option>
                     </select>
                 </div>
                 <input type="hidden" name="track_id" value={{ $result['trackId'] }}></p>

@@ -17,6 +17,8 @@ class Application extends Migration
             $table->bigIncrements('id');
             $table->integer('track_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->text('content');
+            $table->integer('evaluation')->unsigned();
             $table->timestamps();
         });
     }

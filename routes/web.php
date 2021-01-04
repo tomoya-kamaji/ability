@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::get('tests/test', 'TestController@index');
 
-//ユーザ認証
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
@@ -28,6 +27,13 @@ Route::group(
     }
 );
 
+Route::group(
+    ['prefix' => 'user', 'middleware' => 'auth'],
+    function () {
+        Route::get('index', 'UserController@index')->name('user.index');
+        Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
+    }
+);
 
 Auth::routes();
 
