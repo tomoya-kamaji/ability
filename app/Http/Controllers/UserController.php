@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Helpers\iTunesapi;
-
-
-
 
 class UserController extends Controller
 {
@@ -29,6 +27,8 @@ class UserController extends Controller
         }
         return view('user.index', compact('user','posts'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -73,6 +73,18 @@ class UserController extends Controller
         //
         $user = Auth::user();
         return view('user.edit', compact('user'));
+    }
+
+    public function postEdit($id, Request $request)
+    {
+
+        $user = USER::find($id);
+
+        $user->your_name = $request->input('id');
+
+
+        // 再度編集画面へリダイレクト
+        return redirect()->route('users.edit', ['id' => $id]);
     }
 
     /**

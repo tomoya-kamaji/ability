@@ -13,7 +13,7 @@
             {{ session('status') }}
           </div>
           @endif
-          新規登録だよー。
+          新規登録だよ
 
 
         </div>

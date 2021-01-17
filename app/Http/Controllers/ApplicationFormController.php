@@ -83,6 +83,7 @@ class ApplicationFormController extends Controller
         $application->track_id = $request->input('track_id');
         $application->user_id = $request->input('user_id');
         $application->content = $request->input('content');
+        $application->evaluation = $request->input('evaluation');
         $application->save();
         return redirect('application/index');
     }
