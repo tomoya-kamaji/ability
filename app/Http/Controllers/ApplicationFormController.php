@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Helpers\iTunesapi;
 
 class ApplicationFormController extends Controller
 {
@@ -17,19 +17,16 @@ class ApplicationFormController extends Controller
 
     public function index()
     {
-        $applications = DB::table('applications')->get();
         $user = Auth::user();
-
-
-        //bladeファイルを返している
-        return view('Application.index', compact('applications','user'));
+        $posts = iTunesapi::iTunessearch('asana'); //track_id:489969512
+        return view('Application.index', compact('user' ,'posts'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+         * Show the form for creating a new resource.
+         *
+         * @return \Illuminate\Http\Response
+         */
 
     public function create()
     {
@@ -67,6 +64,21 @@ class ApplicationFormController extends Controller
     public function edit($id)
     {
         //
+        $user = Auth::user();
+        $posts = iTunesapi::iTuneslookup(489969512);
+        return view('Application.register', compact('user', 'posts'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function register($id)
+    {
+        //
+
     }
 
     /**
