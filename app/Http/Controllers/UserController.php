@@ -57,9 +57,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(string $name)
     {
-        //
+        $user = User::where('name', $name)->first();
+
+        return view('users.show', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -70,18 +74,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
         $user = Auth::user();
         return view('user.edit', compact('user'));
     }
 
     public function postEdit($id, Request $request)
     {
-
         $user = USER::find($id);
-
         $user->your_name = $request->input('id');
-
 
         // 再度編集画面へリダイレクト
         return redirect()->route('users.edit', ['id' => $id]);

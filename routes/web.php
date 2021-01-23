@@ -35,6 +35,12 @@ Route::group(
     }
 );
 
+//==========ここから追加==========
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'UserController@show')->name('show');
+});
+//==========ここまで追加==========
+
 Auth::routes();
 
 // Route::resource('contacts', 'ContactFormController')->only([
