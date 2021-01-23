@@ -17,16 +17,29 @@ Route::get('/', function () {
 
 Route::get('tests/test', 'TestController@index');
 
-//ユーザ認証
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
         Route::get('index', 'ApplicationFormController@index')->name('application.index');
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
-        Route::get('edit', 'ApplicationFormController@edit')->name('application.edit');
+        Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
+        Route::post('register', 'ApplicationFormController@register')->name('application.register');
     }
 );
 
+Route::group(
+    ['prefix' => 'user', 'middleware' => 'auth'],
+    function () {
+        Route::get('index', 'UserController@index')->name('user.index');
+        Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
+    }
+);
+
+//==========ここから追加==========
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'UserController@show')->name('show');
+});
+//==========ここまで追加==========
 
 Auth::routes();
 

@@ -15,8 +15,13 @@ class Application extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('track_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('track_id')->unsigned();
+            $table->text('trackName');
+            $table->text('artworkURL512');
+            $table->text('artistName');
+            $table->text('content');
+            $table->integer('evaluation')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class Application extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('applications');
     }
 }
