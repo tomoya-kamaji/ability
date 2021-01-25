@@ -62,6 +62,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -96,5 +97,12 @@
                 </div>
             </div>
         </div>
+
+        <div id="app">
+            {{-- <example-component></example-component> --}}
+            <follow-button></follow-button>
+
+        </div>
+        <script src="{{mix('js/app.js')}}"></script>
     </body>
 </html>
