@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Application extends Migration
+class CreateApplicationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Application extends Migration
      */
     public function up()
     {
-        Schema::create('applications', function (Blueprint $table) {
+        Schema::create('application_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('track_id')->unsigned();
+            $table->integer('application_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('content');
             $table->integer('evaluation')->unsigned();
@@ -30,6 +30,6 @@ class Application extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('applications');
+        Schema::dropIfExists('application_user');
     }
 }

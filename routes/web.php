@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ApplicationFormController@index');
 
-Route::get('tests/test', 'TestController@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
@@ -27,19 +28,25 @@ Route::group(
     }
 );
 
-Route::group(
-    ['prefix' => 'user', 'middleware' => 'auth'],
-    function () {
-        Route::get('index', 'UserController@index')->name('user.index');
-        Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
-    }
-);
-
-//==========ここから追加==========
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');
+
+    Route::middleware('auth')->group(function () {
+        Route::put('/{name}/follow', 'UserController@follow')->name('follow');
+        Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
+    });
 });
-//==========ここまで追加==========
+
+
+// Route::group(
+//     ['prefix' => 'user', 'middleware' => 'auth'],
+//     function () {
+//         Route::get('index', 'UserController@index')->name('user.index');
+//         Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
+//     }
+// );
+
+
 
 Auth::routes();
 

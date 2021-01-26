@@ -2,14 +2,9 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: "Helvetica Neue", Helvetica;
+$font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
-
-
-$border-radius: 0.125rem !default;
-$border-radius-lg: 0.125rem !default;
-$border-radius-sm: 0.125rem !default;
 
 // Colors
 $blue: #3490dc;
@@ -22,11 +17,3 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
-
-$theme-colors: (
-    "primary": #303996,
-    "secondary":#D9AA02,
-    "info":#1C2FFF
-);
-
-$enable-rounded: false;
