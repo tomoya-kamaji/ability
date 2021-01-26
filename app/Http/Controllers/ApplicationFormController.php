@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Application;
+use App\Application;
 use Helpers\iTunesapi;
 
 class ApplicationFormController extends Controller
@@ -19,7 +19,6 @@ class ApplicationFormController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-
         $user = Auth::user();
         $posts = iTunesapi::iTunessearch($search);
         return view('Application.index', compact('search','user' ,'posts'));
@@ -81,8 +80,7 @@ class ApplicationFormController extends Controller
     public function register(Request $request)
     {
         $application = new Application();
-        $application->fill($request->all());
-        $application->save();
+        $application->fill($request->all())->save();
 
         return redirect('application/index');
     }

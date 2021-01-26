@@ -43,8 +43,12 @@
                         <option value="1">1：オススメできない</option>
                     </select>
                 </div>
-                <input type="hidden" name="track_id" value={{ $result['trackId'] }}></p>
+                {{-- {{ dd($result) }} --}}
                 <input type="hidden" name="user_id" value={{ $user -> id }}></p>
+                <input type="hidden" name="trackId" value={{ $result['trackId'] }}></p>
+                <input type="hidden" name="artworkUrl512" value={{ $result['artworkUrl512'] }}></p>
+                <input type="hidden" name="artistName" value={{ $result['artistName'] }}></p>
+                <input type="hidden" name="trackName" value={{ $result['trackName'] }}></p>
                 <button type="submit" class="btn btn-primary">登録</button>
             </form>
         </div>

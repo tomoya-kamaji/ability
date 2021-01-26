@@ -33,7 +33,6 @@
                                 <a href="" class="btn btn-success btn-sm">♡<span class="badge">3</span></a>
                                 <a href="" class="btn btn-success btn-sm">コメント<span class="badge">3</span></a>
                                 <a href="{{ route('application.edit', ['id' => $result['trackId']]) }}" class="btn btn-primary">登録</a>
-
                             </div>
                         </div>
 

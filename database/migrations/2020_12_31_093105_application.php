@@ -15,10 +15,10 @@ class Application extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('track_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->text('content');
-            $table->integer('evaluation')->unsigned();
+            $table->integer('trackId')->unsigned();
+            $table->text('trackName');
+            $table->text('artistName');
+            $table->text('artworkURL512');
             $table->timestamps();
         });
     }
