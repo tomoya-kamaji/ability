@@ -67,7 +67,6 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $posts = iTunesapi::iTuneslookup($id);
-        // dd($posts);
         return view('application.edit', compact('user', 'posts'));
     }
 
@@ -81,6 +80,8 @@ class ApplicationFormController extends Controller
     {
         $application = new Application();
         $application->fill($request->all())->save();
+
+        
 
         return redirect('application/index');
     }
