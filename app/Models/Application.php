@@ -18,7 +18,7 @@ class Application extends Model
     //アプリケーションとユーザの関係性
     public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Apps\User');
     }
 
 
