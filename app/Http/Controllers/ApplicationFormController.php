@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Application;
+use App\User;
 use Helpers\iTunesapi;
 
 class ApplicationFormController extends Controller
@@ -21,14 +22,14 @@ class ApplicationFormController extends Controller
         $search = $request->input('search');
         $user = Auth::user();
         $posts = iTunesapi::iTunessearch($search);
-        return view('Application.index', compact('search','user' ,'posts'));
+        return view('Application.index', compact('search', 'user', 'posts'));
     }
 
     /**
-         * Show the form for creating a new resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function create()
     {
@@ -78,10 +79,19 @@ class ApplicationFormController extends Controller
      */
     public function register(Request $request)
     {
-        $application = new Application();
+        //テーブルに存在するかどうかを確かめる
+        //初めてならInsert。2回目ならUpdate
+        $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
 
-        
+        $application->users()->attach(
+            $request->user()->id,
+            [
+                'content' => $request->content,
+                'evaluation' => $request->evaluation
+            ]
+        );
+
 
         return redirect('application/index');
     }
