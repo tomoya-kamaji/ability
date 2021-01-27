@@ -84,6 +84,7 @@ class ApplicationFormController extends Controller
         $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
 
+
         $application->users()->attach(
             $request->user()->id,
             [
@@ -91,8 +92,6 @@ class ApplicationFormController extends Controller
                 'evaluation' => $request->evaluation
             ]
         );
-
-
         return redirect('application/index');
     }
 
