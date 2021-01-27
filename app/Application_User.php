@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,11 +14,6 @@ class Application extends Model
         'evaluation'
     ];
 
-    //アプリケーションとユーザの関係性
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo('Apps\User');
-    }
 
 
 

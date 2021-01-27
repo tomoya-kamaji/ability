@@ -4,10 +4,6 @@ use GuzzleHttp\Client;
 
 class iTunesapi
 {
-    public static function getRandomNumber($min, $max)
-    {
-        return rand($min, $max);
-    }
     /*
     検索ワードを指定して、APIでアプリを取得する。
        in:keyword

@@ -19,11 +19,11 @@
 
                     @foreach ($posts['results'] as $result)
                     @if(($loop->iteration - 1) % 4 == 0 || $loop->first)
-                    <div class="card-deck p-2">
-                        @endif
-                        @include('application.card')
-                        @if($loop->iteration % 4 == 0 || $loop->last)
-                    </div>
+                        <div class="card-deck p-2">
+                            @endif
+                            @include('application.card')
+                            @if($loop->iteration % 4 == 0 || $loop->last)
+                        </div>
                     @endif
                     @endforeach
                 </div>

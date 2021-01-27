@@ -39,6 +39,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * ユーザが登録しているアプリケーションを取得
+     */
+    public function applications(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Application', 'application_user')->withTimestamps();
+    }
+
+
+
     //フォロワーを取得
     public function followers(): BelongsToMany
     {
