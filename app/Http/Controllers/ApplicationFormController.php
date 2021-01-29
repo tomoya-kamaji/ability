@@ -115,6 +115,24 @@ class ApplicationFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+    }
+
+    public function isLikedBy(?User $user): bool
+    {
+        /*
+        コメントが1以上ならtrue
+        コメントが0ならfalse
+        */
+        return $user
+            ? (bool)$this->likes->where('id', $user->id)->count()
+            : false;
+    }
+
+
 }
