@@ -34,11 +34,9 @@
                                     <a href="" class="btn btn-success btn-sm">コメント<span class="badge">3</span></a>
                                 </div>
                             </div>
-
                             @if($loop->iteration % 4 == 0 || $loop->last)
                         </div>
                         @endif
-
                     @endforeach
                 </div>
             </div>

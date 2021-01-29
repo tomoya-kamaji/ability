@@ -22,6 +22,7 @@ class ApplicationFormController extends Controller
         $search = $request->input('search');
         $user = Auth::user();
         $posts = iTunesapi::iTunessearch($search);
+        
         return view('Application.index', compact('search', 'user', 'posts'));
     }
 
@@ -68,6 +69,7 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $posts = iTunesapi::iTuneslookup($id);
+
         return view('application.edit', compact('user', 'posts'));
     }
 
@@ -83,7 +85,6 @@ class ApplicationFormController extends Controller
         //初めてならInsert。2回目ならUpdate
         $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
-
 
         $application->users()->attach(
             $request->user()->id,

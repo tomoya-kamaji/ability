@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\belongsTo;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,12 +44,10 @@ class User extends Authenticatable
     /**
      * ユーザが登録しているアプリケーションを取得
      */
-    public function applications(): BelongsToMany
+    public function application_user(): BelongsToMany
     {
-        return $this->belongsToMany('App\Application', 'application_user')->withTimestamps();
+        return $this->belongsToMany('App\Application', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content'); // 追加;
     }
-
-
 
     //フォロワーを取得
     public function followers(): BelongsToMany

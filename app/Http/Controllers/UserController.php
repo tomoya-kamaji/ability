@@ -17,14 +17,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $track_ids = DB::table('applications')->where('user_id', $user->id)->pluck('track_id');
 
-        $i = 0;
-        foreach ($track_ids as $track_id) {
-            $posts['results'][$i] = array_shift(iTunesapi::iTuneslookup($track_id)['results']);
-            $i = $i + 1;
-        }
+        // $user = Auth::user();
+        // $track_ids = DB::table('applications')->where('user_id', $user->id)->pluck('track_id');
+
+        // $i = 0;
+        // foreach ($track_ids as $track_id) {
+        //     $posts['results'][$i] = array_shift(iTunesapi::iTuneslookup($track_id)['results']);
+        //     $i = $i + 1;
+        // }
         return view('user.index', compact('user','posts'));
     }
 
@@ -61,11 +62,15 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
 
+        // $application = $user->application_user[0]->pivot;
+        $applications = $user->application_user;
+        // dd($application);
+
         return view('users.show', [
             'user' => $user,
+            'applications' => $applications,
         ]);
     }
-
 
     public function follow(Request $request, string $name)
     {
@@ -94,7 +99,7 @@ class UserController extends Controller
         return ['name' => $name];
     }
 
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -106,9 +111,6 @@ class UserController extends Controller
         $user = Auth::user();
         return view('user.edit', compact('user'));
     }
-
-
-
 
     public function postEdit($id, Request $request)
     {
