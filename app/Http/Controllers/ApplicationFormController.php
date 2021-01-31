@@ -22,6 +22,7 @@ class ApplicationFormController extends Controller
         $search = $request->input('search');
         $user = Auth::user();
         $posts = iTunesapi::iTunessearch($search);
+
         return view('Application.index', compact('search', 'user', 'posts'));
     }
 
@@ -117,19 +118,26 @@ class ApplicationFormController extends Controller
     {
     }
 
-    public function likes(): BelongsToMany
+    public function like(Request $request, Application $application)
     {
-        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+        $application->likes()->detach($request->user()->id);
+        $application->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $application->id,
+            'countLikes' => $application->count_likes,
+        ];
     }
 
-    public function isLikedBy(?User $user): bool
+    public function unlike(Request $request, Application $application)
     {
-        /*
-        コメントが1以上ならtrue
-        コメントが0ならfalse
-        */
-        return $user
-            ? (bool)$this->likes->where('id', $user->id)->count()
-            : false;
+        $application->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $application->id,
+            'countLikes' => $application->count_likes,
+        ];
     }
+
+
 }

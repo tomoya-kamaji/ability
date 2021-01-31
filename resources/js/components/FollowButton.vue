@@ -34,6 +34,7 @@
         isFollowedBy: this.initialIsFollowedBy,
       }
     },
+
     computed: {
       buttonColor() {
         return this.isFollowedBy
