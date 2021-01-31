@@ -17,6 +17,10 @@
         </li>
     </ul>
 
+
+
+
+
     <mypage-tab></mypage-tab>
 
     @foreach($applications as $application)
@@ -33,8 +37,6 @@
             </div>
         </div>
     </div>
-
-
 @endforeach
 
 </div>
