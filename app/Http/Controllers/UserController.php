@@ -64,7 +64,6 @@ class UserController extends Controller
 
         // $application = $user->application_user[0]->pivot;
         $applications = $user->application_user;
-        // dd($application);
 
         return view('users.show', [
             'user' => $user,

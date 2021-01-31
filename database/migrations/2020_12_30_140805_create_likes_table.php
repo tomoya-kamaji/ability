@@ -15,7 +15,7 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('track_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->integer('application_id')->references('id')->on('articles')->onDelete('cascade');
             $table->integer('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
