@@ -18,6 +18,7 @@
                         <input type="text" name="email" value="{{ $user->email }}" /><br />
                         <input type="submit" value="更新" />
                     </form>
+                    
                     <!-- 重要な箇所ここまで -->
                     @foreach ($posts['results'] as $result)
                         @if(($loop->iteration - 1) % 4 == 0 || $loop->first)
