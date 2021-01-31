@@ -25,12 +25,13 @@ Route::group(
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
         Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
         Route::post('register', 'ApplicationFormController@register')->name('application.register');
+        Route::put('/{application}/like', 'ApplicationFormController@like')->name('application.like');
+        Route::delete('/{application}/like', 'ApplicationFormController@unlike')->name('application.unlike');
     }
 );
 
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');
-
     Route::middleware('auth')->group(function () {
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');

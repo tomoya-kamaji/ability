@@ -23,7 +23,12 @@ class LikeTableSeeder extends Seeder
 
             ],
             [
-                'application_id' =>  2,
+                'application_id' =>  3,
+                'user_id' => 3,
+
+            ],
+            [
+                'application_id' =>  3,
                 'user_id' => 3,
 
             ],
