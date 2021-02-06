@@ -18,6 +18,7 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索する</button>
                     </form>
 
+
                     @foreach ($posts['results'] as $result)
                         @if(($loop->iteration - 1) % 4 == 0 || $loop->first)
                             <div class="card-deck p-2">

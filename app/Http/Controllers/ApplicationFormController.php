@@ -26,6 +26,7 @@ class ApplicationFormController extends Controller
         return view('Application.index', compact('search', 'user', 'posts'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -138,6 +139,26 @@ class ApplicationFormController extends Controller
             'countLikes' => $application->count_likes,
         ];
     }
+
+    public function count(Request $request, Application $application)
+    {
+        $like = [
+            'isLiked' => $application->isLikedBy(Auth::user()),
+            'countLikes' => $application->count_likes,
+        ];
+
+        return $like;
+    }
+
+    // <application-like
+    //     :initial-is-liked-by='@json($application->isLikedBy(Auth::user()))'
+    //     :initial-count-likes='@json($application->count_likes)'
+    //     :authorized='@json(Auth::check())'
+    //     endpoint="{{ route('application.like', ['application' => $application]) }}">
+    // </application-like>
+
+
+
 
 
 }
