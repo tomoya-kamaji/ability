@@ -8,4 +8,5 @@
     <div class="card-footer">
         <a href="{{ route('application.edit', ['id' => $result['trackId']]) }}" class="btn btn-primary">+</a>
     </div>
+
 </div>

@@ -13,10 +13,6 @@
 
 Route::get('/', 'ApplicationFormController@index');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
@@ -27,10 +23,23 @@ Route::group(
         Route::post('register', 'ApplicationFormController@register')->name('application.register');
         Route::put('/{application}/like', 'ApplicationFormController@like')->name('application.like');
         Route::delete('/{application}/like', 'ApplicationFormController@unlike')->name('application.unlike');
+
     }
 );
 
+///////////
+Route::get('/{application}/count', 'ApplicationFormController@count')->name('count');
+///////////
+
+Route::get('/{name}/application', function () {
+    return App\User::all();
+});
+
+//API用
 Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}/application', function () {
+         return App\User::all();
+    } );
     Route::get('/{name}', 'UserController@show')->name('show');
     Route::middleware('auth')->group(function () {
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');

@@ -61,9 +61,8 @@ class UserController extends Controller
     public function show(string $name)
     {
         $user = User::where('name', $name)->first();
-
-        // $application = $user->application_user[0]->pivot;
         $applications = $user->application_user;
+
         return view('users.show', [
             'user' => $user,
             'applications' => $applications,
