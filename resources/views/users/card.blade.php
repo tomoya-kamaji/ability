@@ -9,14 +9,14 @@
                 <p class="card-text">{{ $application->pivot['content']}}</p>
             </div>
 
-            <application-like
+            {{-- <application-like
                 :initial-is-liked-by='@json($application->isLikedBy(Auth::user()))'
                 :initial-count-likes='@json($application->count_likes)'
                 :authorized='@json(Auth::check())'
                 endpoint="{{ route('application.like', ['application' => $application]) }}"
             >
-            
-            </application-like>
+
+            </application-like> --}}
         </div>
     </div>
 </div>

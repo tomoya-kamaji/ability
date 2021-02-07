@@ -14,6 +14,7 @@
           v-for="application in applications"
           v-bind="application"
           :key="application.id"
+          :authorized="authorized"
         />
       </div>
       <div v-show="currentId === 2">
@@ -36,6 +37,7 @@ export default {
   props: {
     applications: Array,
     user: Object,
+    authorized: Boolean
   },
 
   data() {

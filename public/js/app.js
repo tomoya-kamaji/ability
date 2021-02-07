@@ -2007,10 +2007,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     clickLike: function clickLike() {
-      //   if (!this.authorized) {
-      //     alert("いいね機能はログイン中のみ使用できます");
-      //     return;
-      //   }
+      if (!this.authorized) {
+        alert("いいね機能はログイン中のみ使用できます");
+        return;
+      }
+
       this.isLikedBy ? this.unlike() : this.like();
     },
     like: function like() {
@@ -2062,9 +2063,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    },
-    toBoolean: function toBoolean(data) {
-      return data.toLowerCase() === 'true';
     }
   },
   created: function created() {
@@ -2117,6 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2126,7 +2125,8 @@ __webpack_require__.r(__webpack_exports__);
     id: Number,
     artworkURL512: String,
     trackName: String,
-    pivot: Object
+    pivot: Object,
+    authorized: Boolean
   },
   data: function data() {
     return {
@@ -2334,6 +2334,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2343,7 +2344,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     applications: Array,
-    user: Object
+    user: Object,
+    authorized: Boolean
   },
   data: function data() {
     return {
@@ -38789,24 +38791,26 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        [
-          _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
             _c("h5", { staticClass: "card-title" }, [
               _vm._v(_vm._s(_vm.trackName))
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _vm._v(_vm._s(_vm.pivot.content))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("ApplicationLike", { attrs: { id: _vm.id } })
-        ],
-        1
-      )
+            ]),
+            _vm._v(" "),
+            _c("ApplicationLike", {
+              attrs: { id: _vm.id, authorized: _vm.authorized }
+            })
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
@@ -38948,7 +38952,12 @@ var render = function() {
         _vm._l(_vm.applications, function(application) {
           return _c(
             "Applications",
-            _vm._b({ key: application.id }, "Applications", application, false)
+            _vm._b(
+              { key: application.id, attrs: { authorized: _vm.authorized } },
+              "Applications",
+              application,
+              false
+            )
           )
         }),
         1
