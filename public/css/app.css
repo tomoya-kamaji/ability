@@ -5512,10 +5512,11 @@ a.badge-dark.focus {
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: #e9ecef;
-  border-radius: 0.3rem;
+  background-image: url("../image/background.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  background-size: cover;
 }
 
 @media (min-width: 576px) {
@@ -10943,4 +10944,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

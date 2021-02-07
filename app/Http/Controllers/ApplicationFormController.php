@@ -17,6 +17,7 @@ class ApplicationFormController extends Controller
      */
 
 
+
     public function index(Request $request)
     {
         $search = $request->input('search');

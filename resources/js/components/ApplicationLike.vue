@@ -49,14 +49,19 @@ export default {
 
       this.isLikedBy = false;
       this.countLikes = response.data.countLikes;
-    },  
+    },
   },
 
   created() {
     axios.get("/" + this.id + "/count").then((response) => {
-      this.isLiked = response.data.isLiked;
-      console.log(typeof response.data.isLiked);
+
+      console.log(response.data.isLiked);
+      this.isLikedBy = response.data.isLiked;
+
+
+
       this.countLikes = response.data.countLikes;
+
     });
   },
 };

@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', 'ApplicationFormController@index');
 
 
 Route::group(
