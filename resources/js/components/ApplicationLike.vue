@@ -31,10 +31,10 @@ export default {
 
   methods: {
     clickLike() {
-    //   if (!this.authorized) {
-    //     alert("いいね機能はログイン中のみ使用できます");
-    //     return;
-    //   }
+      if (!this.authorized) {
+        alert("いいね機能はログイン中のみ使用できます");
+        return;
+      }
       this.isLikedBy ? this.unlike() : this.like();
     },
 
@@ -49,12 +49,7 @@ export default {
 
       this.isLikedBy = false;
       this.countLikes = response.data.countLikes;
-    },
-
-    toBoolean(data) {
-        return data.toLowerCase() === 'true';
-    }
-
+    },  
   },
 
   created() {

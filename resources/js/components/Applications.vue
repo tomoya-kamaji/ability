@@ -14,12 +14,13 @@
         <div class="card-body">
           <h5 class="card-title">{{ trackName }}</h5>
           <p class="card-text">{{ pivot.content }}</p>
-        </div>
-        
+
         <ApplicationLike
-          :id='id'
+          :id="id"
+          :authorized="authorized"
         >
         </ApplicationLike>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +36,7 @@ export default {
     artworkURL512: String,
     trackName: String,
     pivot: Object,
+    authorized: Boolean
   },
 
   data() {

@@ -7,6 +7,7 @@
     <user-tab
         :applications="{{ json_encode($applications) }}"
         :user="{{ json_encode($user) }}"
+        :authorized='@json(Auth::check())'
     >
     </user-tab>
 

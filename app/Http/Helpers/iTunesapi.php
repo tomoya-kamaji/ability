@@ -28,6 +28,7 @@ class iTunesapi
         $response = $client->request($method, $url);
         $posts = $response->getBody();
         $posts = json_decode($posts, true);
+
         return $posts;
     }
 
