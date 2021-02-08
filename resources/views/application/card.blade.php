@@ -26,7 +26,7 @@
                 <hr color="#797979">
                 {{-- <p>{{ $result->pivot['content']}}</p> --}}
                 <p>ここにはアプリの説明が入ります</p>
-                <a class="btn btn-primary" href="#">Details</a>
+                <p>ここにはアプリの説明が入ります</p>
             </div>
         </div>
     </div>
