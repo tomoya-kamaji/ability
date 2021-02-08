@@ -8,14 +8,13 @@
                     <div class="row">
                         <h1 class="text-white">ユーザーに評価された”本当に良いアプリ”に出会える！</h1>
                     </div>
-
                     <div class="row">
                         <hr class="my-4">
                     </div>
-
                     <div class="row">
                         <p></p>
                     </div>
+                    {{-- form --}}
                     <form method="GET" action="{{ route('application.index') }}" class="form-control-lg form-inline" >
                         <div class="input-group input-group-lg col-md-8">
                             <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
@@ -47,11 +46,6 @@
                             <p class="text-white">人気のユーザが使用したアプリを閲覧できる</p>
                         </div>
                     </div>
-
-
-                    
-
-
                 </div>
             </div>
         </div>

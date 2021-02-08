@@ -1,12 +1,13 @@
-<div class="card">
-    <img class="card-img-top" src={{ $result['artworkUrl512'] }} alt="写真">
-    <title>{{ $result['trackName'] }}</title>
-
-    <div class="card-body" style="background-color:#e4f0f2">
-        <h5 class="card-title">{{ $result['trackName'] }}</h5>
+<div class="card deck col-md-10 center mx-auto">
+    <div class="row">
+        <div class="col-md-2 d-flex align-items-center">
+            <img src={{ $result['artworkUrl512']}} class="d-block mx-auto" width="100" height="100">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ $result['trackName']}}</h5>
+                {{-- <p class="card-text">{{ $result->pivot['content']}}</p> --}}
+            </div>
+        </div>
     </div>
-    <div class="card-footer">
-        <a href="{{ route('application.edit', ['id' => $result['trackId']]) }}" class="btn btn-primary">+</a>
-    </div>
-
 </div>
