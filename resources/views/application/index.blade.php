@@ -25,6 +25,7 @@
                     <button class="btn btn-outline-success" type="submit">検索</button>
                 </div>
             </form>
+            
 
                 {{-- <form method="GET" action="{{ route('application.index') }}" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" name="search" type="search" placeholder="検索" aria-label="Search" value={{ $search }}>
