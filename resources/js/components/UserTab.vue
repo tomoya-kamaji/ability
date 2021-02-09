@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="nav nav-tabs nav-justified mt-3">
+    <ul class="nav nav-tabs nav-justified">
       <TabItem
         v-for="item in list"
         v-bind="item"
@@ -8,7 +8,7 @@
         v-model="currentId"
       />
     </ul>
-    <div class="tab-content">
+    <div class="tab-content border-primary">
       <div v-show="currentId === 1">
         <Applications
           v-for="application in applications"

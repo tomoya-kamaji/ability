@@ -1,8 +1,9 @@
 <template>
   <li
-    class="nav-item nav-link text-muted"
+    class="nav-item nav-link border-primary"
     @click="$emit('input', id)"
     :class="active"
+
   >
     {{ label }}
   </li>
@@ -18,7 +19,7 @@ export default {
   },
   computed: {
     active() {
-      return this.value === this.id ? "active" : false;
+      return this.value === this.id ? "active bg-primary text-white" : false;
     },
   },
 };

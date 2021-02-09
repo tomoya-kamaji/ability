@@ -2277,6 +2277,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: Number,
@@ -2286,7 +2287,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     active: function active() {
-      return this.value === this.id ? "active" : false;
+      return this.value === this.id ? "active bg-primary text-white" : false;
     }
   }
 });
@@ -38874,7 +38875,7 @@ var render = function() {
   return _c(
     "li",
     {
-      staticClass: "nav-item nav-link text-muted",
+      staticClass: "nav-item nav-link border-primary",
       class: _vm.active,
       on: {
         click: function($event) {
@@ -38910,7 +38911,7 @@ var render = function() {
   return _c("div", [
     _c(
       "ul",
-      { staticClass: "nav nav-tabs nav-justified mt-3" },
+      { staticClass: "nav nav-tabs nav-justified" },
       _vm._l(_vm.list, function(item) {
         return _c(
           "TabItem",
@@ -38934,7 +38935,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content" }, [
+    _c("div", { staticClass: "tab-content border-primary" }, [
       _c(
         "div",
         {
