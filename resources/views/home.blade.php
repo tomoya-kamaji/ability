@@ -1,9 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
+            {{-- <div class="jumbotron" style="background-image: url(http://www.californiafootgolfclub.com/static/img/footgolf-1.jpg); background-size: 100%;"> --}}
                 <div class="container">
                     <div class="row">
                         <h1 class="text-white">ユーザーに評価された”本当に良いアプリ”に出会える！</h1>
