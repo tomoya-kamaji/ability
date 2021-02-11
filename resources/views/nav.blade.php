@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('application.index') }}">アプリ検索<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('application.index') }}">レビューを書く<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
@@ -46,4 +46,3 @@
         </div>
     </div>
 </nav>
-
