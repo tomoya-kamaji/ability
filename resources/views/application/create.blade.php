@@ -15,7 +15,6 @@
           @endif
           新規登録だよ
 
-
         </div>
       </div>
     </div>

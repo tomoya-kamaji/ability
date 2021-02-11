@@ -21,7 +21,10 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{ $result['trackName']}}</h5>
+                <div class="row">
+                    <h5 class="card-title col-md-9">{{ $result['trackName']}}</h5>
+                    <a href="{{ route('application.edit', ['id' => $result['trackId']]) }}" class="btn btn-primary col-md-3">レビュー</a>
+                </div>
                 <hr color="#797979">
                 <p>ここにはアプリの説明が入ります</p>
                 <p>アプリの詳細について</p>

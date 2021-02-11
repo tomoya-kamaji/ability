@@ -3,7 +3,6 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
-            {{-- <div class="jumbotron" style="background-image: url(http://www.californiafootgolfclub.com/static/img/footgolf-1.jpg); background-size: 100%;"> --}}
                 <div class="container">
                     <div class="row">
                         <h1 class="text-white">ユーザーに評価された”本当に良いアプリ”に出会える！</h1>
@@ -14,7 +13,6 @@
                     <div class="row">
                         <p></p>
                     </div>
-                    {{-- form --}}
                     <form method="GET" action="{{ route('application.index') }}" class="form-control-lg form-inline" >
                         <div class="input-group input-group-lg col-md-8">
                             <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
