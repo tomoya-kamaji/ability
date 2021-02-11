@@ -29,7 +29,7 @@
             <form method="POST" action="{{ route('application.register') }}">
                 @csrf
                 <div class="form-group">
-                    <label>レビュー</label>
+                    <label>メモ</label>
                     <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3" placeholder="ex)使いやすい"></textarea>
                     <small class="form-text text-muted">マイページにて変更可能です。</small>
                 </div>
@@ -43,6 +43,7 @@
                         <option value="1">1：オススメできない</option>
                     </select>
                 </div>
+                {{-- {{ dd($result) }} --}}
                 <input type="hidden" name="user_id" value={{ $user -> id }}></p>
                 <input type="hidden" name="trackId" value={{ $result['trackId'] }}></p>
                 <input type="hidden" name="artworkUrl512" value={{ $result['artworkUrl512'] }}></p>
