@@ -10,9 +10,6 @@
                     <div class="row">
                         <hr class="my-4">
                     </div>
-                    <div class="row">
-                        <p></p>
-                    </div>
                     <form method="GET" action="{{ route('application.index') }}" class="form-control-lg form-inline" >
                         <div class="input-group input-group-lg col-md-8">
                             <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">

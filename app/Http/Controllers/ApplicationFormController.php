@@ -22,9 +22,9 @@ class ApplicationFormController extends Controller
     {
         $search = $request->input('search');
         $user = Auth::user();
-        $posts = iTunesapi::iTunessearch($search);
+        $applications = iTunesapi::iTunessearch($search);
 
-        return view('Application.index', compact('search', 'user', 'posts'));
+        return view('Application.index', compact('search', 'user', 'applications'));
     }
 
 
@@ -70,8 +70,8 @@ class ApplicationFormController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $posts = iTunesapi::iTuneslookup($id);
-        return view('application.edit', compact('user', 'posts'));
+        $applications = iTunesapi::iTuneslookup($id);
+        return view('application.edit', compact('user', 'applications'));
     }
 
     /**
