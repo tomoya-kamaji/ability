@@ -16,6 +16,9 @@ export default {
     id:{
       type: Number,
     },
+    initialCountLikes:{
+      type: Number,
+    },
     authorized: {
       type: Boolean,
       default: false,
@@ -25,7 +28,7 @@ export default {
   data() {
     return {
       isLikedBy: Boolean,
-      countLikes: Number,
+      countLikes: this.initialCountLikes,
     };
   },
 
@@ -54,12 +57,8 @@ export default {
 
   created() {
     axios.get("/" + this.id + "/count").then((response) => {
-
       console.log(response.data.isLiked);
       this.isLikedBy = response.data.isLiked;
-
-
-
       this.countLikes = response.data.countLikes;
 
     });

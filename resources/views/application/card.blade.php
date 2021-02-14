@@ -7,11 +7,29 @@
             <div class="card-body">
                 <div class="row">
                     <h5 class="card-title col-md-9">{{ $application['trackName']}}</h5>
-                    <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-3">レビュー</a>
+
+                    <application-like
+                        :id='{{ $application['id']}}'
+                        :initial-count-likes='{{ $application['countlikes']}}'
+                        :authorized='@json(Auth::check())'
+                    >
+                    </application-like>
+
+                    {{-- <application-like
+                        :initial-is-liked-by='@json($application->isLikedBy(Auth::user()))'
+                        :initial-count-likes='@json($application->count_likes)'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('application.like', ['application' => $application]) }}">
+                    </application-like> --}}
                 </div>
+
                 <hr color="#797979">
                 <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $application['description'] }}    </p>
-                <p>レビューの１件目</p>
+
+                <div class="row">
+                    <p class="col-md-4">レビューの１件目</p>
+                    <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-2 offset-6">レビュー</a>
+                </div>
             </div>
         </div>
     </div>

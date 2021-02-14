@@ -1992,6 +1992,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     id: {
       type: Number
     },
+    initialCountLikes: {
+      type: Number
+    },
     authorized: {
       type: Boolean,
       "default": false
@@ -2000,7 +2003,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       isLikedBy: Boolean,
-      countLikes: Number
+      countLikes: this.initialCountLikes
     };
   },
   methods: {
@@ -38802,7 +38805,7 @@ var render = function() {
             _c("p", { staticClass: "card-text" }, [
               _vm._v(_vm._s(_vm.pivot.content))
             ]),
-            _vm._v(" "),
+            _vm._v("\n      " + _vm._s(_vm.id) + "\n      "),
             _c("ApplicationLike", {
               attrs: { id: _vm.id, authorized: _vm.authorized }
             })
@@ -51176,19 +51179,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
-/* harmony import */ var _components_UserTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UserTab */ "./resources/js/components/UserTab.vue");
+/* harmony import */ var _components_ApplicationLike__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ApplicationLike */ "./resources/js/components/ApplicationLike.vue");
+/* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
+/* harmony import */ var _components_UserTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/UserTab */ "./resources/js/components/UserTab.vue");
 
- // import ApplicationLike from './components/ApplicationLike'
+
 
 
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   components: {
-    // ApplicationLike,
-    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_2__["default"],
-    UserTab: _components_UserTab__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ApplicationLike: _components_ApplicationLike__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_3__["default"],
+    UserTab: _components_UserTab__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
