@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
-
+    @yield('css')
 
 </head>
 
@@ -20,7 +20,7 @@
     <div id="app">
         @include('nav')
         @yield('content')
-        
+
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>

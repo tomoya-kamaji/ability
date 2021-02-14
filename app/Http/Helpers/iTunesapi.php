@@ -1,7 +1,8 @@
 <?php
 namespace Helpers;
 use GuzzleHttp\Client;
-
+use Illuminate\Support\Facades\DB;
+use App\Application;
 class iTunesapi
 {
     /*
@@ -28,6 +29,29 @@ class iTunesapi
         $response = $client->request($method, $url);
         $posts = $response->getBody();
         $posts = json_decode($posts, true);
+
+
+
+        $i = 0;
+
+        foreach($posts['results'] as $post){
+            // $application = DB::table('applications')->where('trackid', $posts['results'][0]['trackId'])->first();
+            // $application = DB::table('applications')->where('trackid', $posts['results'][$i]['trackId'])->first();
+
+            $application = Application::where('trackid', $posts['results'][$i]['trackId'])->first();
+            if (is_null($application)) {
+                $posts['results'][$i] = array_merge($posts['results'][$i], array('id' => 0));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => 0));
+            }else{
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('id' => $application->id));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => $application->count_likes));
+            }
+            $i++;
+        }
+
+        // dd($posts);
+
+
 
         return $posts;
     }

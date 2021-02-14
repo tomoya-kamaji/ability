@@ -4,6 +4,7 @@
 <div class="container">
     @include('users.user')
 
+
     <user-tab
         :applications="{{ json_encode($applications) }}"
         :user="{{ json_encode($user) }}"

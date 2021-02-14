@@ -14,7 +14,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ trackName }}</h5>
           <p class="card-text">{{ pivot.content }}</p>
-
+        {{ id }}
         <ApplicationLike
           :id="id"
           :authorized="authorized"
