@@ -3,6 +3,8 @@ namespace Helpers;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use App\Application;
+use Illuminate\Support\Facades\Auth;
+
 class iTunesapi
 {
     /*
@@ -42,13 +44,14 @@ class iTunesapi
             if (is_null($application)) {
                 $posts['results'][$i] = array_merge($posts['results'][$i], array('id' => 0));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => 0));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('isLikedBy' => false));
             }else{
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('id' => $application->id));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => $application->count_likes));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('isLikedBy' => $application->isLikedBy(Auth::user())));
             }
             $i++;
         }
-
         // dd($posts);
 
 

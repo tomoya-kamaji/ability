@@ -24,6 +24,7 @@ class ApplicationFormController extends Controller
         $search = $request->input('search');
         $user = Auth::user();
         $applications = iTunesapi::iTunessearch($search);
+        // dd($applications['results'][0]['isLikedBy']);
 
         return view('Application.index', compact('search', 'user', 'applications'));
     }
@@ -121,8 +122,31 @@ class ApplicationFormController extends Controller
     {
     }
 
+    // public function createlike(Request $request, Application $application)
+    // {
+
+    //     //テーブルに存在するかどうかを確かめる
+    //     //初めてならInsert。2回目ならUpdate
+    //     // $application = Application::firstOrNew(['trackName' => $request->trackName]);
+    //     // $application->fill($request->all())->save();
+    //     $application->likes()->detach($request->user()->id);
+    //     $application->likes()->attach($request->user()->id);
+
+    //     return [
+    //         'id' => $application->id,
+    //         'countLikes' => $application->count_likes,
+    //     ];
+    // }
+
     public function like(Request $request, Application $application)
     {
+
+        //テーブルに存在するかどうかを確かめる
+        //初めてならInsert。2回目ならUpdate
+        // $application = Application::firstOrNew(['trackName' => $request->trackName]);
+        // $application->fill($request->all())->save();
+
+
         $application->likes()->detach($request->user()->id);
         $application->likes()->attach($request->user()->id);
 

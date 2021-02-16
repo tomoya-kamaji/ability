@@ -1992,8 +1992,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     id: {
       type: Number
     },
+    initialIsLikedBy: {
+      type: Boolean,
+      "default": false
+    },
     initialCountLikes: {
-      type: Number
+      type: Number,
+      "default": 0
     },
     authorized: {
       type: Boolean,
@@ -2002,7 +2007,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      isLikedBy: Boolean,
+      isLikedBy: this.initialIsLikedBy,
       countLikes: this.initialCountLikes
     };
   },
@@ -2019,20 +2024,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
+        var _response, response;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!(_this.id == 0)) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 3;
+                return axios.post("/application/" + _this.id + "/like");
+
+              case 3:
+                _response = _context.sent;
+
+              case 4:
+                _context.next = 6;
                 return axios.put("/application/" + _this.id + "/like");
 
-              case 2:
+              case 6:
                 response = _context.sent;
                 _this.isLikedBy = true;
                 _this.countLikes = response.data.countLikes;
 
-              case 5:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -2065,16 +2083,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     }
-  },
-  created: function created() {
-    var _this3 = this;
+  } //   created() {
+  //     axios.get("/" + this.id + "/count").then((response) => {
+  //       console.log(response.data.isLiked);
+  //       this.isLikedBy = response.data.isLiked;
+  //       this.countLikes = response.data.countLikes;
+  //     });
+  //   },
 
-    axios.get("/" + this.id + "/count").then(function (response) {
-      console.log(response.data.isLiked);
-      _this3.isLikedBy = response.data.isLiked;
-      _this3.countLikes = response.data.countLikes;
-    });
-  }
 });
 
 /***/ }),
@@ -38753,11 +38769,11 @@ var render = function() {
       _c(
         "i",
         {
-          staticClass: "far -heart",
+          staticClass: "far fa-bookmark fa-lg",
           class: { "text-danger": this.isLikedBy },
           on: { click: _vm.clickLike }
         },
-        [_vm._v("\n" + _vm._s(_vm.countLikes) + "\n  ")]
+        [_vm._v("\n    " + _vm._s(_vm.countLikes) + "\n    ")]
       )
     ]
   )
