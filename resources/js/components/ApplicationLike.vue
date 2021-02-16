@@ -64,7 +64,7 @@ export default {
         this.isLikedBy = true;
         this.countLikes = response.data.countLikes;
       }else{
-        console.log('put')
+        console.log('putあ')
         let response = await axios.put("/application/" + this.id +"/like");
 
         this.isLikedBy = true;

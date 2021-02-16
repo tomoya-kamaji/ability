@@ -2057,7 +2057,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 10:
-                console.log('put');
+                console.log('putあ');
                 _context.next = 13;
                 return axios.put("/application/" + _this.id + "/like");
 
