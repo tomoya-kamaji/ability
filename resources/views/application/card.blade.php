@@ -9,11 +9,13 @@
                     <h5 class="card-title col-md-10">{{ $application['trackName']}}</h5>
                     {{-- {{ dd($application['isLikedBy'])}} --}}
                     <application-like
-                        :id='{{ $application['id']}}'
+                        :initial-id='{{ $application['id']}}'
+                        :application="{{ json_encode($application) }}"
                         :initial-count-likes='{{ $application['countlikes']}}'
                         {{-- :initial-is-liked-by='{{ $application['isLikedBy']}}' --}}
                         :initial-is-liked-by='false'
                         :authorized='@json(Auth::check())'
+
                         >
                     </application-like>
 

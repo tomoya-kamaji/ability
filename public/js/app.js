@@ -1989,7 +1989,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    id: {
+    initialId: {
       type: Number
     },
     initialIsLikedBy: {
@@ -2003,10 +2003,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     authorized: {
       type: Boolean,
       "default": false
+    },
+    application: {
+      type: Object
     }
   },
   data: function data() {
     return {
+      id: this.initialId,
       isLikedBy: this.initialIsLikedBy,
       countLikes: this.initialCountLikes
     };
@@ -2024,33 +2028,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _response, response;
+        var response, _response;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 if (!(_this.id == 0)) {
-                  _context.next = 4;
+                  _context.next = 10;
                   break;
                 }
 
-                _context.next = 3;
-                return axios.post("/application/" + _this.id + "/like");
-
-              case 3:
-                _response = _context.sent;
+                console.log('post');
+                _context.next = 4;
+                return axios.post("/application/like", {
+                  trackName: _this.application.trackName,
+                  trackId: _this.application.trackId,
+                  artistName: _this.application.artistName,
+                  artworkUrl512: _this.application.artworkUrl512
+                });
 
               case 4:
-                _context.next = 6;
-                return axios.put("/application/" + _this.id + "/like");
-
-              case 6:
                 response = _context.sent;
+                _this.id = response.data.id;
                 _this.isLikedBy = true;
                 _this.countLikes = response.data.countLikes;
+                _context.next = 16;
+                break;
 
-              case 9:
+              case 10:
+                console.log('putあ');
+                _context.next = 13;
+                return axios.put("/application/" + _this.id + "/like");
+
+              case 13:
+                _response = _context.sent;
+                _this.isLikedBy = true;
+                _this.countLikes = _response.data.countLikes;
+
+              case 16:
               case "end":
                 return _context.stop();
             }
@@ -2067,15 +2083,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                console.log('delete');
+                _context2.next = 3;
                 return axios["delete"]("/application/" + _this2.id + "/like");
 
-              case 2:
+              case 3:
                 response = _context2.sent;
                 _this2.isLikedBy = false;
                 _this2.countLikes = response.data.countLikes;
 
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }

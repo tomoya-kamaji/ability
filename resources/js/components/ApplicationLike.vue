@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    id:{
+    initialId:{
       type: Number,
     },
     initialIsLikedBy: {
@@ -28,10 +28,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    application:{
+      type:Object,
+    }
   },
 
   data() {
     return {
+      id: this.initialId,
       isLikedBy: this.initialIsLikedBy,
       countLikes: this.initialCountLikes,
     };
@@ -48,14 +52,28 @@ export default {
 
     async like() {
       if(this.id == 0){
-        const response = await axios.post("/application/" + this.id +"/like");
-      }
-      const response = await axios.put("/application/" + this.id +"/like");
-      this.isLikedBy = true;
-      this.countLikes = response.data.countLikes;
-    },
-    async unlike() {
+        console.log('post')
+        let response = await axios.post("/application/like",{
+            trackName: this.application.trackName,
+            trackId: this.application.trackId,
+            artistName: this.application.artistName,
+            artworkUrl512: this.application.artworkUrl512,
+        });
+        this.id = response.data.id;
 
+        this.isLikedBy = true;
+        this.countLikes = response.data.countLikes;
+      }else{
+        console.log('putあ')
+        let response = await axios.put("/application/" + this.id +"/like");
+
+        this.isLikedBy = true;
+        this.countLikes = response.data.countLikes;
+      }
+    },
+
+    async unlike() {
+      console.log('delete')
       const response = await axios.delete("/application/" + this.id +"/like");
       this.isLikedBy = false;
       this.countLikes = response.data.countLikes;

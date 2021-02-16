@@ -166,6 +166,19 @@ class ApplicationFormController extends Controller
         ];
     }
 
+    public function createlike(Request $request)
+    {
+        $application = Application::firstOrNew(['trackName' => $request->trackName]);
+        $application->fill($request->all())->save();
+
+        $application->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $application->id,
+            'countLikes' => $application->count_likes,
+        ];
+    }
+
     public function count(Request $request, Application $application)
     {
         $like = [
