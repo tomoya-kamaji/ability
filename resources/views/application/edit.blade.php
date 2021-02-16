@@ -33,13 +33,18 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">オススメ度</label>
-                    <select class="form-control" name='evaluation' id="exampleFormControlSelect1">
+                    {{-- <select class="form-control" name='evaluation' id="exampleFormControlSelect1">
                         <option value="5">5：神</option>
                         <option value="4">4：すごくオススメ</option>
                         <option value="3">3：オススメ</option>
                         <option value="2">2：可もなく不可もなく</option>
                         <option value="1">1：オススメできない</option>
-                    </select>
+                    </select> --}}
+
+                    <star-rating-input></star-rating-input>
+
+
+
                 </div>
                 <div class="form-group">
                     <label>レビュータイトル</label>

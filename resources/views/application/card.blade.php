@@ -6,13 +6,14 @@
         <div class="col-md-8">
             <div class="card-body">
                 <div class="row">
-                    <h5 class="card-title col-md-10">{{ $application['trackName']}}</h5>
-                    {{-- {{ dd($application['isLikedBy'])}} --}}
+                    <h3 class="card-title col-md-10">{{ $application['trackName']}}</h3>
+
+
                     <application-like
                         :initial-id='{{ $application['id']}}'
                         :application="{{ json_encode($application) }}"
+                        :initial-is-liked-by='{{ json_encode($application['isLikedBy'])}}'
                         :initial-count-likes='{{ $application['countlikes']}}'
-                        {{-- :initial-is-liked-by='{{ $application['isLikedBy']}}' --}}
                         :initial-is-liked-by='false'
                         :authorized='@json(Auth::check())'
 
