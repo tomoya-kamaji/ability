@@ -20,36 +20,62 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
-            <h2>レビュー</h2>
-
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-12" >
             <form method="POST" action="{{ route('application.register') }}">
                 @csrf
-                <h3>
-                    <ins>あなたが利用する「{{ $application['trackName'] }}」についてお答えください</ins><br>
-                </h3>
+                {{-- <div class="p-3 mb-2 bg-gradient-primary text-white">.bg-gradient-primary</div> --}}
+                <blockquote>
+                    <p>あなたが利用する「{{ $application['trackName'] }}」についてお答えください</p>
+                </blockquote>
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">オススメ度</label>
-                    <select class="form-control" name='evaluation' id="exampleFormControlSelect1">
-                        <option value="5">5：神</option>
-                        <option value="4">4：すごくオススメ</option>
-                        <option value="3">3：オススメ</option>
-                        <option value="2">2：可もなく不可もなく</option>
-                        <option value="1">1：オススメできない</option>
-                    </select>
+                <hr color="#797979">
+
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <h5>オススメ度</h5>
+                        <p>5点満点で評価ください</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <star-rating-input></star-rating-input>
+
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>レビュータイトル</label>
-                    <input class="form-control input-lg" name="content" id="title" rows="3" placeholder="ex)使いやすい">
-                    <small class="form-text text-muted">※必須</small>
+
+                <hr color="#797979">
+
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <h5>レビュータイトル</h5>
+                        <p>30文字以内</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control input-lg" name="content" id="title" rows="3" placeholder="タイトル">
+                        <small class="form-text text-muted">※必須</small>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>レビュー</label>
-                    <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3" placeholder="ex)使いやすい"></textarea>
-                    <small class="form-text text-muted">マイページにて変更可能です。</small>
+
+                <hr color="#797979">
+
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <h5>サービスの良いところ</h5>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="content" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
+                        <small class="form-text text-muted">マイページにて変更可能です。</small>
+                    </div>
+                </div>
+
+                <hr color="#797979">
+
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <h5>サービスの改善点</h5>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="content" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
+                        <small class="form-text text-muted">マイページにて変更可能です。</small>
+                    </div>
                 </div>
 
                 <input type="hidden" name="user_id" value={{ $user -> id }}></p>
@@ -58,7 +84,31 @@
                 <input type="hidden" name="artistName" value={{ $application['artistName'] }}></p>
                 <input type="hidden" name="trackName" value={{ $application['trackName'] }}></p>
                 <button type="submit" class="btn btn-primary">登録</button>
+                </div>
             </form>
         </div>
     </div>
-    @endsection
+@endsection
+
+@section('css')
+<style>
+    blockquote {
+        position: relative;
+        padding: 0px 0px 0px 15px;
+        box-sizing: border-box;
+        font-style: italic;
+        background: #dfebf7;
+        color: #555;
+        border-radius: 5px;
+        border-left: 3px solid blue;
+
+        /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);; */
+    }
+    blockquote p {
+        padding: 0;
+        margin: 5px 0;
+        font-size: 1.5em;
+        line-height: 1.7;
+    }
+</style>
+@endsection
