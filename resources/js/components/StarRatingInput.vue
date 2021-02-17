@@ -4,7 +4,7 @@
         :value="currentRating"
         :increment="0.5"
         :max-rating="5"
-        :star-size="30">
+        :star-size="40">
         v-model="rating"
     </StarRating>
     <input type="hidden" name="evaluation" :value="rating">

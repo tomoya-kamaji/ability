@@ -38956,7 +38956,7 @@ var render = function() {
             value: _vm.currentRating,
             increment: 0.5,
             "max-rating": 5,
-            "star-size": 30
+            "star-size": 40
           }
         },
         [_vm._v('\n      v-model="rating"\n  ')]

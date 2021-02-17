@@ -7,8 +7,6 @@
             <div class="card-body">
                 <div class="row">
                     <h3 class="card-title col-md-10">{{ $application['trackName']}}</h3>
-
-
                     <application-like
                         :initial-id='{{ $application['id']}}'
                         :application="{{ json_encode($application) }}"
@@ -19,15 +17,7 @@
 
                         >
                     </application-like>
-
-                    {{-- <application-like
-                        :initial-is-liked-by='@json($application->isLikedBy(Auth::user()))'
-                        :initial-count-likes='@json($application->count_likes)'
-                        :authorized='@json(Auth::check())'
-                        endpoint="{{ route('application.like', ['application' => $application]) }}">
-                    </application-like> --}}
                 </div>
-
                 <hr color="#797979">
                 <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $application['description'] }}    </p>
 

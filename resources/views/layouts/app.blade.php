@@ -12,8 +12,8 @@
 
     <!-- Styles -->
     <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
-
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+
     @yield('css')
 
 </head>
