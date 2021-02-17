@@ -12,14 +12,21 @@
 
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ trackName }}</h5>
-          <p class="card-text">{{ pivot.content }}</p>
-        {{ id }}
-        <ApplicationLike
-          :id="id"
-          :authorized="authorized"
-        >
-        </ApplicationLike>
+            <h5 class="card-title">{{ trackName }}</h5>
+            <hr color="#797979">
+            <StarRating
+                :read-only="true"
+                :rating= pivot.evaluation
+                :increment="0.5"
+                :max-rating="5"
+                :star-size="20">
+            </StarRating>
+            <p class="card-text">{{ pivot.content }}</p>
+            <ApplicationLike
+            :id="id"
+            :authorized="authorized"
+            >
+            </ApplicationLike>
         </div>
       </div>
     </div>
@@ -28,9 +35,11 @@
 
 <script>
 import ApplicationLike from "./ApplicationLike.vue";
+import StarRating from 'vue-star-rating'
+
 
 export default {
-  components: { ApplicationLike },
+  components: { ApplicationLike ,StarRating},
   props: {
     id: Number,
     artworkURL512: String,
