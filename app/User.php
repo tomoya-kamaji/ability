@@ -46,7 +46,7 @@ class User extends Authenticatable
      */
     public function application_user(): BelongsToMany
     {
-        return $this->belongsToMany('App\Application', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content'); // 追加;
+        return $this->belongsToMany('App\Application', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content','evaluation'); // 追加;
     }
 
     //フォロワーを取得

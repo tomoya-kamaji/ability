@@ -2122,6 +2122,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApplicationLike_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApplicationLike.vue */ "./resources/js/components/ApplicationLike.vue");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2151,9 +2160,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    ApplicationLike: _ApplicationLike_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ApplicationLike: _ApplicationLike_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   props: {
     id: Number,
@@ -38873,10 +38884,22 @@ var render = function() {
               _vm._v(_vm._s(_vm.trackName))
             ]),
             _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } }),
+            _vm._v(" "),
+            _c("StarRating", {
+              attrs: {
+                "read-only": true,
+                rating: _vm.pivot.evaluation,
+                increment: 0.5,
+                "max-rating": 5,
+                "star-size": 20
+              }
+            }),
+            _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
               _vm._v(_vm._s(_vm.pivot.content))
             ]),
-            _vm._v("\n      " + _vm._s(_vm.id) + "\n      "),
+            _vm._v(" "),
             _c("ApplicationLike", {
               attrs: { id: _vm.id, authorized: _vm.authorized }
             })
@@ -38949,18 +38972,21 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "StarRating",
-        {
-          attrs: {
-            value: _vm.currentRating,
-            increment: 0.5,
-            "max-rating": 5,
-            "star-size": 40
-          }
+      _c("StarRating", {
+        attrs: {
+          value: _vm.currentRating,
+          increment: 0.5,
+          "max-rating": 5,
+          "star-size": 40
         },
-        [_vm._v('\n      v-model="rating"\n  ')]
-      ),
+        model: {
+          value: _vm.rating,
+          callback: function($$v) {
+            _vm.rating = $$v
+          },
+          expression: "rating"
+        }
+      }),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "hidden", name: "evaluation" },
