@@ -80,7 +80,7 @@
 
                 <input type="hidden" name="user_id" value={{ $user -> id }}>
                 <input type="hidden" name="trackId" value={{ $application['trackId'] }}>
-                {{-- <input type="hidden" name="artworkUrl512" value={{ $application['artworkUrl512'] }}> --}}
+                <input type="hidden" name="artworkUrl512" value={{ $application['artworkUrl512'] }}>
                 <input type="hidden" name="artistName" value={{ $application['artistName'] }}>
                 <input type="hidden" name="trackName" value={{ $application['trackName'] }}>
                 <button type="submit" class="btn btn-primary">登録</button>

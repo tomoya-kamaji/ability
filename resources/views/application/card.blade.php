@@ -18,7 +18,6 @@
                         >
                     </application-like>
                 </div>
-
                 <hr color="#797979" class="m-0">
                 <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $application['description'] }}</p>
                 <div class="row">
@@ -28,13 +27,12 @@
                         >
                         </star-rating-average>
                     </div>
-                </div>
-                <div class="row">
-                    <p class="col-md-8">
-                        レビューの１件目
-                    </p>
+                    <div class="col-md-4 d-flex align-items-center">
+                        <i class="far fa-comment-dots"> {{ $application['countreviews']}}件</i>
+                    </div>
                     <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-2 offset-2">レビュー</a>
                 </div>
+
 
             </div>
         </div>
