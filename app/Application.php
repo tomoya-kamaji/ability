@@ -39,6 +39,8 @@ class Application extends Model
         return round($ave, 2);;
     }
 
+    
+
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();

@@ -38,15 +38,17 @@ class iTunesapi
             $application = Application::where('trackid', $posts['results'][$i]['trackId'])->first();
 
             if (is_null($application)) {
-                $posts['results'][$i] = array_merge($posts['results'][$i], array('id' => 0));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('id' => 0));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => 0));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('isLikedBy' => false));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('averageReviews' => 0));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('countreviews' => 0));
             }else{
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('id' => $application->id));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('countlikes' => $application->count_likes));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('isLikedBy' => $application->isLikedBy(Auth::user())));
                 $posts['results'][$i] = array_merge($posts['results'][$i],array('averageReviews' => $application->average_reviews));
+                $posts['results'][$i] = array_merge($posts['results'][$i],array('countreviews' => $application->users->count()));
             }
             $i++;
         }
