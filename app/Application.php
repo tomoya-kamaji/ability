@@ -21,7 +21,22 @@ class Application extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'application_user')->withTimestamps();
+        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content', 'evaluation');;
+    }
+
+    public function getAverageReviewsAttribute()
+    {
+        $sum = 0;
+        $i = 0;
+        $ave = 0;
+        foreach ($this->users as $user) {
+            $sum += $user->pivot->evaluation;
+            $i++;
+        }
+        if($i){
+            $ave = $sum / $i;
+        }
+        return round($ave, 2);;
     }
 
     public function likes(): BelongsToMany

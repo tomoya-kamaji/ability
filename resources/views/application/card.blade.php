@@ -18,10 +18,14 @@
                         >
                     </application-like>
                 </div>
+
                 <hr color="#797979">
                 <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $application['description'] }}    </p>
-
                 <div class="row">
+                    <star-rating-average
+                        :average-reviews='{{ $application['averageReviews'] }}'
+                    >
+                    </star-rating-average>
                     <p class="col-md-4">レビューの１件目</p>
                     <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-2 offset-6">レビュー</a>
                 </div>
