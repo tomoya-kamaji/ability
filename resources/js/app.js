@@ -4,6 +4,7 @@ import ApplicationLike from './components/ApplicationLike'
 import FollowButton from './components/FollowButton'
 import UserTab from './components/UserTab'
 import StarRatingInput from './components/StarRatingInput'
+import StarRatingAverage from './components/StarRatingAverage'
 import StarRating from 'vue-star-rating'
 
 
@@ -15,6 +16,7 @@ const app = new Vue({
     FollowButton,
     UserTab,
     StarRating,
-    StarRatingInput
+    StarRatingInput,
+    StarRatingAverage
   }
 })
