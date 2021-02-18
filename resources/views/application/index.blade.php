@@ -20,7 +20,7 @@
             <div class="col-md-12">
 
                 @foreach ($applications['results'] as $application)
-                    <hr color="#797979">
+                    <hr color="#797979" class="m-0">
                     @include('application.card')
                 @endforeach
             </div>
