@@ -19,6 +19,7 @@ Route::group(
         Route::get('index', 'ApplicationFormController@index')->name('application.index');
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
         Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
+        Route::get('detailpage/{id}', 'ApplicationFormController@detailpage')->name('application.detailpage');
         Route::post('register', 'ApplicationFormController@register')->name('application.register');
         Route::post('/like', 'ApplicationFormController@createlike')->name('application.createlike');
         Route::put('/{application}/like', 'ApplicationFormController@like')->name('application.like');

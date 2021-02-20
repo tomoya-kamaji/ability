@@ -3,8 +3,6 @@
 @section('content')
 <?php $application = $applications['results'][0]; ?>
 
-
-
 <div class="jumbotron p-2" style="background:url(images/bimg001.jpg); background-color: #3e68c9">
     <div class="container">
         <div class="row justify-content-center">
