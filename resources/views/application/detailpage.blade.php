@@ -13,7 +13,7 @@
                     <p class="card-text text-center m-0">{{ $application['artistName'] }}</p>
                     <div class="col d-flex align-items-center justify-content-center">
                         <star-rating-average
-                        :average-reviews='{{ $application['averageReviews'] }}'
+                            :average-reviews='{{ $application['averageReviews'] }}'
                         >
                         </star-rating-average>
                     </div>
@@ -32,10 +32,12 @@
             <div class="jumbotron m-0">
             </div>
             <application-tab
-                :applications="{{ json_encode($applications) }}"
+                :application="{{ json_encode($application) }}"
                 :user="{{ json_encode($user) }}"
                 :authorized='@json(Auth::check())'>
             </application-tab>
+
+
         </div>
     </div>
 </div>
@@ -55,5 +57,6 @@
     .jumbotron {
         background-image: url("{{ asset('/image/detailpage.jpeg') }}");
     }
+    
 </style>
 @endsection
