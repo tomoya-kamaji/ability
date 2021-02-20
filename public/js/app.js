@@ -2152,6 +2152,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2160,19 +2168,19 @@ __webpack_require__.r(__webpack_exports__);
     Applications: _Applications_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    applications: Array,
+    application: Object,
     user: Object,
     authorized: Boolean
   },
   data: function data() {
     return {
-      currentId: 1,
+      currentId: 2,
       list: [{
         id: 1,
-        label: "アプリ詳細"
+        label: "レビュー一覧"
       }, {
         id: 2,
-        label: "レビュー一覧"
+        label: "アプリ詳細"
       }, {
         id: 3,
         label: "お気に入り一覧"
@@ -2184,8 +2192,6 @@ __webpack_require__.r(__webpack_exports__);
     current: function current() {
       var _this = this;
 
-      //jsの機能、配列の要素を探す
-      consolo.log(this.applications);
       return this.list.find(function (el) {
         return el.id === _this.currentId;
       }) || {};
@@ -39020,31 +39026,16 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "tab-content border-primary" }, [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.currentId === 1,
-              expression: "currentId === 1"
-            }
-          ]
-        },
-        _vm._l(_vm.applications, function(application) {
-          return _c(
-            "Applications",
-            _vm._b(
-              { key: application.id, attrs: { authorized: _vm.authorized } },
-              "Applications",
-              application,
-              false
-            )
-          )
-        }),
-        1
-      ),
+      _c("div", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.currentId === 1,
+            expression: "currentId === 1"
+          }
+        ]
+      }),
       _vm._v(" "),
       _c(
         "div",
@@ -39058,7 +39049,49 @@ var render = function() {
             }
           ]
         },
-        [_c("h1", [_vm._v(_vm._s(_vm.applications[0]))])]
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("h3", { staticClass: "m-2" }, [
+              _vm._v(_vm._s(_vm.application.trackName))
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
+            _vm._v(" "),
+            _c("h4", { staticClass: "m-4" }, [_vm._v("アプリ紹介")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5",
+                  staticStyle: {
+                    display: "-webkit-box",
+                    "-webkit-line-clamp": "10",
+                    "-webkit-box-orient": "vertical",
+                    overflow: "hidden"
+                  }
+                },
+                [_vm._v(_vm._s(_vm.application.description))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "p",
+                {
+                  staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5",
+                  staticStyle: {
+                    display: "-webkit-box",
+                    "-webkit-line-clamp": "10",
+                    "-webkit-box-orient": "vertical",
+                    overflow: "hidden"
+                  }
+                },
+                [_vm._v(_vm._s(_vm.application.description))]
+              )
+            ])
+          ])
+        ]
       ),
       _vm._v(" "),
       _c(
