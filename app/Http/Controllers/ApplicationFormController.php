@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Application;
-use App\User;
 use Helpers\iTunesapi;
+use Illuminate\Support\Facades\DB;
+
 
 class ApplicationFormController extends Controller
 {
@@ -24,7 +25,6 @@ class ApplicationFormController extends Controller
         $search = $request->input('search');
         $user = Auth::user();
         $applications = iTunesapi::iTunessearch($search);
-        // dd($applications['results'][0]['isLikedBy']);
 
         return view('Application.index', compact('search', 'user', 'applications'));
     }
@@ -85,7 +85,11 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $applications = iTunesapi::iTuneslookup($id);
-        return view('application.detailpage', compact('user', 'applications'));
+
+        $application = Application::where('trackId', $id)->first();
+        $applicationreviews = $application->application_user;
+
+        return view('application.detailpage', compact('user', 'applications', 'applicationreviews'));
     }
 
     /**

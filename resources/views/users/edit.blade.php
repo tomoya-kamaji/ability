@@ -47,3 +47,25 @@
     </div>
 </div>
 @endsection
+
+@section('css')
+<style>
+    blockquote {
+        position: relative;
+        padding: 0px 0px 0px 15px;
+        box-sizing: border-box;
+        font-style: italic;
+        background: #dfebf7;
+        color: #555;
+        border-radius: 5px;
+        border-left: 3px solid blue;
+    }
+
+    blockquote p {
+        padding: 0;
+        margin: 5px 0;
+        font-size: 1.5em;
+        line-height: 1.7;
+    }
+</style>
+@endsection
