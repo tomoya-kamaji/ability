@@ -3,9 +3,10 @@
     class="nav-item nav-link border-primary"
     @click="$emit('input', id)"
     :class="active"
-
   >
-    {{ label }}
+    <div>
+        {{ label }}
+    </div>
   </li>
 
 </template>
