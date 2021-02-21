@@ -2,7 +2,6 @@
 
 @section('content')
 <?php $application = $applications['results'][0]; ?>
-
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-3 shadow p-3 mb-5 bg-white rounded">
@@ -33,6 +32,7 @@
             </div>
             <application-tab
                 :application="{{ json_encode($application) }}"
+                :applicationreviews="{{ json_encode($applicationreviews) }}"
                 :user="{{ json_encode($user) }}"
                 :authorized='@json(Auth::check())'>
             </application-tab>
@@ -40,7 +40,6 @@
         </div>
     </div>
 </div>
-
 
 @endsection
 @section('css')
@@ -55,6 +54,22 @@
     }
     .jumbotron {
         background-image: url("{{ asset('/image/detailpage.jpeg') }}");
+    }
+
+    blockquote {
+        position: relative;
+        padding: 0px 0px 0px 5px;
+        box-sizing: border-box;
+        font-style: italic;
+        background: #ffffff;
+        color: black;
+        border-radius: 5px;
+    }
+    blockquote p {
+        padding: 0;
+        margin: 5px 0;
+        font-size: 1.0em;
+        line-height: 1.7;
     }
 
 </style>

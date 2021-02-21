@@ -2174,6 +2174,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2183,12 +2231,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     application: Object,
+    applicationreviews: Array,
     user: Object,
     authorized: Boolean
   },
   data: function data() {
     return {
-      currentId: 2,
+      currentId: 1,
       list: [{
         id: 1,
         label: "レビュー一覧"
@@ -39053,7 +39102,75 @@ var render = function() {
             }
           ]
         },
-        [_vm._v("\n          aaa\n      ")]
+        [
+          _c("div", { staticClass: "row" }),
+          _vm._v(" "),
+          _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card border-0" }, [
+            _c("div", { staticClass: "row no-gutters" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card col-md-3",
+                  staticStyle: { width: "18rem" }
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("img", {
+                      staticClass: "d-block mx-auto rounded-circle mt-3",
+                      attrs: { src: "", width: "150", height: "150" }
+                    }),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title  text-center" }, [
+                      _vm._v(_vm._s(_vm.applicationreviews[10].name))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass:
+                        "col d-flex align-items-center justify-content-center"
+                    }),
+                    _vm._v(" "),
+                    _c("hr", { attrs: { color: "#797979" } }),
+                    _vm._v(" "),
+                    _c("p", {
+                      staticStyle: {
+                        display: "-webkit-box",
+                        "-webkit-line-clamp": "7",
+                        "-webkit-box-orient": "vertical",
+                        overflow: "hidden"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-9" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("p", { staticClass: "ml-4 text-secondary" }, [
+                      _vm._v(_vm._s(_vm.applicationreviews[10].pivot.content))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("p", { staticClass: "ml-4 text-secondary" }, [
+                      _vm._v(_vm._s(_vm.applicationreviews[10].pivot.content))
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -39069,7 +39186,7 @@ var render = function() {
           ]
         },
         [
-          _c("h4", { staticClass: "m-4" }, [
+          _c("h3", { staticClass: "m-4" }, [
             _vm._v("「" + _vm._s(_vm.application.trackName) + "」の紹介")
           ]),
           _vm._v(" "),
@@ -39091,7 +39208,7 @@ var render = function() {
           _vm._v(" "),
           _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
           _vm._v(" "),
-          _c("h4", { staticClass: "m-4" }, [
+          _c("h3", { staticClass: "m-4" }, [
             _vm._v("「" + _vm._s(_vm.application.trackName) + "」の新着情報")
           ]),
           _vm._v(" "),
@@ -39119,18 +39236,8 @@ var render = function() {
           _vm._v(" "),
           _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
           _vm._v(" "),
-          _c("h4", { staticClass: "m-4" }, [
+          _c("h3", { staticClass: "m-4" }, [
             _vm._v("「" + _vm._s(_vm.application.trackName) + "」の企業情報")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-0 mb-2 mr-5 ml-5" }, [
-            _c("h5", { staticClass: "text-secondary col-md-2" }, [
-              _vm._v("URL")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-secondary col-md-10" }, [
-              _vm._v(_vm._s(_vm.application.trackViewUrl))
-            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row mt-0 mb-2 mr-5 ml-5" }, [
@@ -39172,7 +39279,52 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("h3", { staticClass: "card-title col-md-10 m-0" }, [
+        _vm._v("レビュータイトル")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c(
+        "blockquote",
+        {
+          staticClass: "mt-3 ml-3",
+          staticStyle: { "border-left": "3px solid blue" }
+        },
+        [_c("p", [_vm._v("このアプリの良いところはなんでしょうか？")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c(
+        "blockquote",
+        {
+          staticClass: "mt-3 ml-3",
+          staticStyle: { "border-left": "3px solid red" }
+        },
+        [
+          _c("p", [
+            _vm._v("このアプリの改善してほしいところはなんでしょうか？")
+          ])
+        ]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

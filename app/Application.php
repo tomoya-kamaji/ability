@@ -39,7 +39,14 @@ class Application extends Model
         return round($ave, 2);;
     }
 
-    
+    /**
+     * ユーザが登録しているアプリケーションを取得
+     */
+    public function application_user(): BelongsToMany
+    {
+        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content', 'evaluation');
+    }
+
 
     public function likes(): BelongsToMany
     {

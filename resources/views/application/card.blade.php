@@ -1,7 +1,7 @@
 <div class="card border-0">
     <div class="row no-gutters">
         <div class="col-md-3 my-auto">
-            <img class="d-block mx-auto" src={{ $application['artworkUrl512']}} width="150" height="150">
+            <a href="{{ route('application.detailpage', ['id' => $application['trackId']]) }}"><img class="d-block mx-auto" src={{ $application['artworkUrl512']}} width="150" height="150"></a>
         </div>
         <div class="col-md-9">
             <div class="card-body">
