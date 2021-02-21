@@ -2160,6 +2160,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2183,7 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
         label: "アプリ詳細"
       }, {
         id: 3,
-        label: "お気に入り一覧"
+        label: "お気に入りユーザ"
       }]
     };
   },
@@ -2483,6 +2497,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -39025,17 +39040,21 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content border-primary" }, [
-      _c("div", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.currentId === 1,
-            expression: "currentId === 1"
-          }
-        ]
-      }),
+    _c("div", { staticClass: "tab-content border border-primary" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.currentId === 1,
+              expression: "currentId === 1"
+            }
+          ]
+        },
+        [_vm._v("\n          aaa\n      ")]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -39050,45 +39069,87 @@ var render = function() {
           ]
         },
         [
-          _c("div", { staticClass: "container" }, [
-            _c("h3", { staticClass: "m-2" }, [
-              _vm._v(_vm._s(_vm.application.trackName))
+          _c("h4", { staticClass: "m-4" }, [
+            _vm._v("「" + _vm._s(_vm.application.trackName) + "」の紹介")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "p",
+              {
+                staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5",
+                staticStyle: {
+                  display: "-webkit-box",
+                  "-webkit-line-clamp": "10",
+                  "-webkit-box-orient": "vertical",
+                  overflow: "hidden"
+                }
+              },
+              [_vm._v(_vm._s(_vm.application.description))]
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
+          _vm._v(" "),
+          _c("h4", { staticClass: "m-4" }, [
+            _vm._v("「" + _vm._s(_vm.application.trackName) + "」の新着情報")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "p",
+              {
+                staticClass: "text-secondary mt-0 mb-2 mr-5 ml-5",
+                staticStyle: {
+                  display: "-webkit-box",
+                  "-webkit-line-clamp": "10",
+                  "-webkit-box-orient": "vertical",
+                  overflow: "hidden"
+                }
+              },
+              [_vm._v(_vm._s(_vm.application.releaseNotes))]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5" }, [
+              _vm._v(
+                "更新日：" + _vm._s(_vm.application.currentVersionReleaseDate)
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
+          _vm._v(" "),
+          _c("h4", { staticClass: "m-4" }, [
+            _vm._v("「" + _vm._s(_vm.application.trackName) + "」の企業情報")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-0 mb-2 mr-5 ml-5" }, [
+            _c("h5", { staticClass: "text-secondary col-md-2" }, [
+              _vm._v("URL")
             ]),
             _vm._v(" "),
-            _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
-            _vm._v(" "),
-            _c("h4", { staticClass: "m-4" }, [_vm._v("アプリ紹介")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "p",
-                {
-                  staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5",
-                  staticStyle: {
-                    display: "-webkit-box",
-                    "-webkit-line-clamp": "10",
-                    "-webkit-box-orient": "vertical",
-                    overflow: "hidden"
-                  }
-                },
-                [_vm._v(_vm._s(_vm.application.description))]
-              )
+            _c("p", { staticClass: "text-secondary col-md-10" }, [
+              _vm._v(_vm._s(_vm.application.trackViewUrl))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-0 mb-2 mr-5 ml-5" }, [
+            _c("p", { staticClass: "text-secondary col-md-2" }, [
+              _vm._v("企業名")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "p",
-                {
-                  staticClass: "text-secondary mt-0 mb-5 mr-5 ml-5",
-                  staticStyle: {
-                    display: "-webkit-box",
-                    "-webkit-line-clamp": "10",
-                    "-webkit-box-orient": "vertical",
-                    overflow: "hidden"
-                  }
-                },
-                [_vm._v(_vm._s(_vm.application.description))]
-              )
+            _c("p", { staticClass: "text-secondary col-md-10" }, [
+              _vm._v(_vm._s(_vm.application.sellerName))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row  mt-0 mb-2 mr-5 ml-5" }, [
+            _c("p", { staticClass: "text-secondary col-md-2" }, [
+              _vm._v("リリース日")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-secondary col-md-10" }, [
+              _vm._v(_vm._s(_vm.application.releaseDate))
             ])
           ])
         ]
@@ -39334,7 +39395,7 @@ var render = function() {
         }
       }
     },
-    [_vm._v("\n  " + _vm._s(_vm.label) + "\n")]
+    [_c("div", [_vm._v("\n      " + _vm._s(_vm.label) + "\n  ")])]
   )
 }
 var staticRenderFns = []
