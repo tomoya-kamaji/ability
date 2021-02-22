@@ -21,7 +21,7 @@ class Application extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content', 'evaluation');;
+        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('id','content', 'evaluation');;
     }
 
     public function getAverageReviewsAttribute()

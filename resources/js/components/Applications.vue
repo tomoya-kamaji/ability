@@ -45,7 +45,7 @@ export default {
     artworkURL512: String,
     trackName: String,
     pivot: Object,
-    authorized: Boolean
+    authorized: Boolean,
   },
 
   data() {
