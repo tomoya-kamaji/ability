@@ -11,57 +11,35 @@
 
     <div class="tab-content border border-primary">
         <div v-show="currentId === 1">
-            <div class="row">
+            <h3 class="m-4">「{{ application.trackName }}」のレビュー</h3>
 
-
-
-
-
-
-
-            </div>
             <hr color="#797979" class="m-0">
 
-            <div class="card border-0"> 
-                <div class="row no-gutters">
-                    <div class="card col-md-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <img class="d-block mx-auto rounded-circle mt-3" src="" width="150" height="150">
-                            <h5 class="card-title  text-center">{{ applicationreviews[10].name }}</h5>
-                            <div class="col d-flex align-items-center justify-content-center">
-                            </div>
-                            <hr color="#797979">
-                            <p style="display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden;"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body">
-                            <div class="row">
-                                <h3 class="card-title col-md-10 m-0">レビュータイトル</h3>
-                            </div>
+            <div class="m-4">
+                <ul class="category_list">
+                    <li v-for="(category,index) in category_lists" :key="index">
+                        <input type="checkbox"
+                            :id="category"
+                            :value="category"
+                            v-model="preview">
+                        <label v-bind:for="category">{{ category }}</label>
+                    </li>
+                </ul>
 
-                            <hr color="#797979" class="m-0">
-
-                            <div class="row">
-                                <blockquote class ="mt-3 ml-3" style="border-left: 3px solid blue;">
-                                    <p>このアプリの良いところはなんでしょうか？</p>
-                                </blockquote>
-                            </div>
-                            <div class="row">
-                                  <p class = "ml-4 text-secondary">{{ applicationreviews[10].pivot.content }}</p>
-                            </div>
-                            <div class="row">
-                                <blockquote class ="mt-3 ml-3" style="border-left: 3px solid red;">
-                                    <p>このアプリの改善してほしいところはなんでしょうか？</p>
-                                </blockquote>
-                            </div>
-                            <div class="row">
-                                  <p class = "ml-4 text-secondary">{{ applicationreviews[10].pivot.content }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=5>★★★★★</label>
+                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=4>★★★★</label>
+                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=3>★★★</label>
+                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=2>★★</label>
+                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=1>★</label> -->
             </div>
+
+            <Applicationreview
+                v-for="(applicationreview,index) in filteredApplicationReviews"
+                v-bind="applicationreview"
+                :key="index"
+                :starnumber="Number(checkStar)"
+             />
+            <hr color="#797979" class="m-0">
         </div>
 
         <div v-show="currentId === 2">
@@ -99,10 +77,10 @@
 
 <script>
 import TabItem from "./TabItem.vue";
-import Applications from "./Applications.vue";
+import Applicationreview from "./Applicationreview.vue";
 
 export default {
-  components: { TabItem, Applications },
+  components: { TabItem, Applicationreview },
 
   props: {
     application: Object,
@@ -113,17 +91,33 @@ export default {
 
   data() {
     return {
-      currentId: 1,
-      list: [
-        { id: 1, label: "レビュー一覧" },
-        { id: 2, label: "アプリ詳細" },
-        { id: 3, label: "お気に入りユーザ" },
-      ],
+        checkStar: 0,
+        currentId: 1,
+        category_lists: [5,4,3,2,1],
+        preview: [],		// チェックボックスでチェックしたカテゴリを格納する
+        list: [
+            { id: 1, label: "レビュー一覧" },
+            { id: 2, label: "アプリ詳細" },
+            { id: 3, label: "お気に入りユーザ" },
+        ],
     };
   },
   mounted() {
   },
   computed: {
+    filteredApplicationReviews: function(){
+        let returnReview = [];
+
+        if(this.checkStar )
+        for(let i in this.applicationreviews) {
+            let applicationreview = this.applicationreviews[i];
+            if(applicationreview.pivot.evaluation == this.checkStar) {
+                returnReview.push(applicationreview);
+            }
+        }
+        return returnReview;
+    },
+
     current() {
       return this.list.find((el) => el.id === this.currentId) || {};
     },
