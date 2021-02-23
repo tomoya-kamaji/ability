@@ -2206,10 +2206,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2240,21 +2236,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         id: 3,
         label: "お気に入りユーザ"
-      }]
+      }],
+      returnReviewCount: []
     };
-  },
-  mounted: function mounted() {},
-  methods: function methods() {
-    function radioDeselection(already, numeric) {
-      var remove = 0;
-
-      if (remove == numeric) {
-        already.checked = false;
-        remove = 0;
-      } else {
-        remove = numeric;
-      }
-    }
   },
   computed: {
     filteredApplicationReviews: function filteredApplicationReviews() {
@@ -2270,8 +2254,34 @@ __webpack_require__.r(__webpack_exports__);
 
       return returnReview;
     },
+    applicationReview5: function applicationReview5() {
+      return this.applicationreviews.filter(function (value) {
+        return value.pivot.evaluation === 5;
+      });
+    },
+    applicationReview4: function applicationReview4() {
+      return this.applicationreviews.filter(function (value) {
+        return value.pivot.evaluation === 4;
+      });
+    },
+    applicationReview3: function applicationReview3() {
+      return this.applicationreviews.filter(function (value) {
+        return value.pivot.evaluation === 3;
+      });
+    },
+    applicationReview2: function applicationReview2() {
+      return this.applicationreviews.filter(function (value) {
+        return value.pivot.evaluation === 2;
+      });
+    },
+    applicationReview1: function applicationReview1() {
+      return this.applicationreviews.filter(function (value) {
+        return value.pivot.evaluation === 1;
+      });
+    },
     styles: function styles() {
-      var width = this.message.length / 144 * 100;
+      // let width = this.message.length/this.applicationreviews * 100
+      var width = 5 / this.applicationreviews.length * 100;
       return {
         "width": width + '%'
       };
@@ -39299,7 +39309,8 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("★★★★")
+                _vm._v("★★★★"),
+                _c("span", { staticStyle: { color: "#b3b2af" } }, [_vm._v("★")])
               ]
             ),
             _vm._v(" "),
@@ -39325,7 +39336,10 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("★★★")
+                _vm._v("★★★"),
+                _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                  _vm._v("★★")
+                ])
               ]
             ),
             _vm._v(" "),
@@ -39351,7 +39365,10 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("★★")
+                _vm._v("★★"),
+                _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                  _vm._v("★★★")
+                ])
               ]
             ),
             _vm._v(" "),
@@ -39377,31 +39394,12 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("★")
+                _vm._v("★"),
+                _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                  _vm._v("★★★★")
+                ])
               ]
             ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.message,
-                  expression: "message"
-                }
-              ],
-              domProps: { value: _vm.message },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.message = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { style: _vm.styles }),
             _vm._v(" "),
             _c("div", { staticClass: "progress" }, [
               _c("div", {
@@ -39414,7 +39412,14 @@ var render = function() {
                   "aria-valuemax": "50"
                 }
               })
-            ])
+            ]),
+            _vm._v(
+              "\n\n              レビュー数：" +
+                _vm._s(_vm.applicationReview1.length) +
+                "\n              レビュー総数：" +
+                _vm._s(_vm.applicationreviews.length) +
+                "\n          "
+            )
           ]),
           _vm._v(" "),
           _vm._l(_vm.filteredApplicationReviews, function(

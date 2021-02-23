@@ -27,22 +27,18 @@
                 </ul> -->
                 <p class="text-primary">絞り込み</p>
                 <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=5>★★★★★</label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>★★★★</label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>★★★</label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>★★</label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>★</label>
-
-                <textarea v-model="message"></textarea>
-                <div :style="styles"></div>
-
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>★★★★<span style='color: #b3b2af'>★</span></label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>★★★<span style='color: #b3b2af'>★★</span></label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>★★<span style='color: #b3b2af'>★★★</span></label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>★<span style='color: #b3b2af'>★★★★</span></label>
 
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped" role="progressbar" :style="styles" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
                 </div>
 
+                レビュー数：{{ applicationReview1.length }}
+                レビュー総数：{{ applicationreviews.length }}
             </div>
-
-
             <Applicationreview
                 v-for="(applicationreview,index) in filteredApplicationReviews"
                 v-bind="applicationreview"
@@ -111,35 +107,63 @@ export default {
             { id: 2, label: "アプリ詳細" },
             { id: 3, label: "お気に入りユーザ" },
         ],
+        returnReviewCount: [],
     };
   },
-  mounted() {
-  },
-
-  methods(){
-    function radioDeselection(already, numeric) {
-        let remove = 0;
-        if(remove == numeric) {
-            already.checked = false;
-            remove = 0;
-        } else {
-            remove = numeric;
-        }
-    }
-  },
   computed: {
-    filteredApplicationReviews: function(){
+    filteredApplicationReviews(){
         let returnReview = [];
         for(let i in this.applicationreviews) {
             let applicationreview = this.applicationreviews[i];
+
             if(applicationreview.pivot.evaluation == this.checkStar) {
                 returnReview.push(applicationreview);
             }
         }
         return returnReview;
     },
+
+    applicationReview5() {
+        return this.applicationreviews.filter(
+            function (value) {
+                return value.pivot.evaluation === 5
+            }
+        )
+    },
+    applicationReview4() {
+        return this.applicationreviews.filter(
+            function (value) {
+                return value.pivot.evaluation === 4
+            }
+        )
+    },
+    applicationReview3() {
+        return this.applicationreviews.filter(
+            function (value) {
+                return value.pivot.evaluation === 3
+            }
+        )
+    },
+    applicationReview2() {
+        return this.applicationreviews.filter(
+            function (value) {
+                return value.pivot.evaluation === 2
+            }
+        )
+    },
+    applicationReview1() {
+        return this.applicationreviews.filter(
+            function (value) {
+                return value.pivot.evaluation === 1
+            }
+        )
+    },
+
+
+
     styles(){
-            let width = this.message.length/144*100
+            // let width = this.message.length/this.applicationreviews * 100
+            let width = 5 / this.applicationreviews.length * 100
             return {
               "width": width + '%'
             }
