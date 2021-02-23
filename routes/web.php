@@ -42,11 +42,13 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}/application', function () {
          return App\User::all();
     } );
-    Route::get('/{name}', 'UserController@show')->name('show');
+
+    Route::get('/mypage/{name}', 'UserController@show')->name('show');
+
     Route::middleware('auth')->group(function () {
-        Route::get('/profile', 'ProfileController@index');
-        Route::post('/profile', 'ProfileController@store');
-        
+        Route::get('/profile', 'UserController@index')->name('index');
+        Route::post('/profile', 'UserController@store')->name('store');
+
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
     });

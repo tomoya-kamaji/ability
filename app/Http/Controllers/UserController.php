@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Helpers\iTunesapi;
+
+use App\Http\Requests\ProfileRequest;
+
 
 class UserController extends Controller
 {
@@ -14,19 +18,15 @@ class UserController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * プロフィール編集画面
      */
     public function index()
     {
-
-        // $user = Auth::user();
-        // $track_ids = DB::table('applications')->where('user_id', $user->id)->pluck('track_id');
-
-        // $i = 0;
-        // foreach ($track_ids as $track_id) {
-        //     $posts['results'][$i] = array_shift(iTunesapi::iTuneslookup($track_id)['results']);
-        //     $i = $i + 1;
-        // }
-        return view('user.index', compact('user','posts'));
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+        return view('users/index', ['is_image' => $is_image]);
     }
 
 
@@ -42,14 +42,17 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * プロフィールの保存
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileRequest $request)
     {
-        //
+        dd($request);
+
+        $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
+        return redirect('users/index')->with('success', '新しいプロフィールを登録しました');
     }
 
     /**
@@ -57,6 +60,7 @@ class UserController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * マイページ
      */
     public function show(string $name)
     {
@@ -80,7 +84,7 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
 
-        return ['name' => $name];
+        return ['name' => $name ];
     }
 
     public function unfollow(Request $request, string $name)
@@ -92,7 +96,6 @@ class UserController extends Controller
         }
 
         $request->user()->followings()->detach($user);
-
         return ['name' => $name];
     }
 
