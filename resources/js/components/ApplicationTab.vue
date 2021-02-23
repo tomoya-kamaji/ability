@@ -16,7 +16,7 @@
             <hr color="#797979" class="m-0">
 
             <div class="m-4">
-                <ul class="category_list">
+                <!-- <ul class="category_list">
                     <li v-for="(category,index) in category_lists" :key="index">
                         <input type="checkbox"
                             :id="category"
@@ -24,14 +24,24 @@
                             v-model="preview">
                         <label v-bind:for="category">{{ category }}</label>
                     </li>
-                </ul>
+                </ul> -->
+                <p class="text-primary">絞り込み</p>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=5>★★★★★</label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>★★★★</label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>★★★</label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>★★</label>
+                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>★</label>
 
-                <!-- <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=5>★★★★★</label>
-                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=4>★★★★</label>
-                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=3>★★★</label>
-                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=2>★★</label>
-                <label style='display:block;'><input class="m-1" type="checkbox" v-model="checkStar" value=1>★</label> -->
+                <textarea v-model="message"></textarea>
+                <div :style="styles"></div>
+
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" :style="styles" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+
             </div>
+
 
             <Applicationreview
                 v-for="(applicationreview,index) in filteredApplicationReviews"
@@ -91,9 +101,10 @@ export default {
 
   data() {
     return {
+        message:"text",
         checkStar: 0,
         currentId: 1,
-        category_lists: [5,4,3,2,1],
+        category_lists: [ 5, 4, 3, 2, 1],
         preview: [],		// チェックボックスでチェックしたカテゴリを格納する
         list: [
             { id: 1, label: "レビュー一覧" },
@@ -104,11 +115,21 @@ export default {
   },
   mounted() {
   },
+
+  methods(){
+    function radioDeselection(already, numeric) {
+        let remove = 0;
+        if(remove == numeric) {
+            already.checked = false;
+            remove = 0;
+        } else {
+            remove = numeric;
+        }
+    }
+  },
   computed: {
     filteredApplicationReviews: function(){
         let returnReview = [];
-
-        if(this.checkStar )
         for(let i in this.applicationreviews) {
             let applicationreview = this.applicationreviews[i];
             if(applicationreview.pivot.evaluation == this.checkStar) {
@@ -117,6 +138,39 @@ export default {
         }
         return returnReview;
     },
+    styles(){
+            let width = this.message.length/144*100
+            return {
+              "width": width + '%'
+            }
+    },
+
+
+    // find_categories: function(){
+    //   let applicationreviews = this.applicationreviews;
+    //   let preview = this.preview;
+
+    //     if(preview.length > 0) {
+    //         for (let i = 0; i < applicationreviews.length; i++) {
+    //         let categories = applicationreviews[i].categories;
+    //         for (let j = 0; j < preview.length; j++) {
+    //             if(categories.indexOf(preview[j]) >= 0){
+    //             applicationreviews[i].display = true;
+    //             break;
+    //         } else {
+    //           applicationreviews[i].display = false;
+    //         }
+    //       }
+    //     }
+    //   } else {
+    //     for (let i = 0; i < applicationreviews.length; i++) {
+    //       let categories = applicationreviews[i].categories;
+    //       applicationreviews[i].display = true;
+    //     }
+    //   }
+    //   return preview;
+    // },
+
 
     current() {
       return this.list.find((el) => el.id === this.currentId) || {};
