@@ -24,16 +24,16 @@
             <div class="card">
                 <div class="card-header">ユーザ編集</div>
                 <div class="card-body">
-
                     {{-- <form method="POST" action="{{ route('users.profile') }}" enctype="multipart/form-data"> --}}
-                    <form method="POST" action="" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+                        @csrf
                         <input type="file" name="photo">
                         <input type="submit">
                     </form>
                     @if ($is_image)
+
                     <figure>
-                        <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
+                        <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="150px" height="150px">
                         <figcaption>現在のプロフィール画像</figcaption>
                     </figure>
                     @endif
