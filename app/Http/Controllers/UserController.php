@@ -38,7 +38,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -49,10 +48,9 @@ class UserController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-        dd($request);
 
         $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
-        return redirect('users/index')->with('success', '新しいプロフィールを登録しました');
+        return redirect('users/profile')->with('success', '新しいプロフィールを登録しました');
     }
 
     /**
