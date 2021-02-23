@@ -75,7 +75,6 @@
                         <small class="form-text text-muted">マイページにて変更可能です。</small>
                     </div>
                 </div>
-
                 <input type="hidden" name="user_id" value={{ $user -> id }}>
                 <input type="hidden" name="trackId" value={{ $application['trackId'] }}>
                 <input type="hidden" name="artworkUrl512" value={{ $application['artworkUrl512'] }}>
