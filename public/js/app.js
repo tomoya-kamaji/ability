@@ -2200,6 +2200,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2215,6 +2225,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      message: "text",
       checkStar: 0,
       currentId: 1,
       category_lists: [5, 4, 3, 2, 1],
@@ -2233,18 +2244,61 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {},
+  methods: function methods() {
+    function radioDeselection(already, numeric) {
+      var remove = 0;
+
+      if (remove == numeric) {
+        already.checked = false;
+        remove = 0;
+      } else {
+        remove = numeric;
+      }
+    }
+  },
   computed: {
     filteredApplicationReviews: function filteredApplicationReviews() {
       var returnReview = [];
-      if (this.checkStar) for (var i in this.applicationreviews) {
+
+      for (var i in this.applicationreviews) {
         var applicationreview = this.applicationreviews[i];
 
         if (applicationreview.pivot.evaluation == this.checkStar) {
           returnReview.push(applicationreview);
         }
       }
+
       return returnReview;
     },
+    styles: function styles() {
+      var width = this.message.length / 144 * 100;
+      return {
+        "width": width + '%'
+      };
+    },
+    // find_categories: function(){
+    //   let applicationreviews = this.applicationreviews;
+    //   let preview = this.preview;
+    //     if(preview.length > 0) {
+    //         for (let i = 0; i < applicationreviews.length; i++) {
+    //         let categories = applicationreviews[i].categories;
+    //         for (let j = 0; j < preview.length; j++) {
+    //             if(categories.indexOf(preview[j]) >= 0){
+    //             applicationreviews[i].display = true;
+    //             break;
+    //         } else {
+    //           applicationreviews[i].display = false;
+    //         }
+    //       }
+    //     }
+    //   } else {
+    //     for (let i = 0; i < applicationreviews.length; i++) {
+    //       let categories = applicationreviews[i].categories;
+    //       applicationreviews[i].display = true;
+    //     }
+    //   }
+    //   return preview;
+    // },
     current: function current() {
       var _this = this;
 
@@ -39195,57 +39249,172 @@ var render = function() {
           _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
           _vm._v(" "),
           _c("div", { staticClass: "m-4" }, [
+            _c("p", { staticClass: "text-primary" }, [_vm._v("絞り込み")]),
+            _vm._v(" "),
             _c(
-              "ul",
-              { staticClass: "category_list" },
-              _vm._l(_vm.category_lists, function(category, index) {
-                return _c("li", { key: index }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.preview,
-                        expression: "preview"
-                      }
-                    ],
-                    attrs: { type: "checkbox", id: category },
-                    domProps: {
-                      value: category,
-                      checked: Array.isArray(_vm.preview)
-                        ? _vm._i(_vm.preview, category) > -1
-                        : _vm.preview
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.preview,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = category,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.preview = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.preview = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.preview = $$c
-                        }
-                      }
+              "label",
+              { staticStyle: { display: "block", color: "#ffb917" } },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkStar,
+                      expression: "checkStar"
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: category } }, [
-                    _vm._v(_vm._s(category))
-                  ])
-                ])
-              }),
-              0
-            )
+                  ],
+                  staticClass: "m-1",
+                  attrs: { type: "radio", value: "5" },
+                  domProps: { checked: _vm._q(_vm.checkStar, "5") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkStar = "5"
+                    }
+                  }
+                }),
+                _vm._v("★★★★★")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticStyle: { display: "block", color: "#ffb917" } },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkStar,
+                      expression: "checkStar"
+                    }
+                  ],
+                  staticClass: "m-1",
+                  attrs: { type: "radio", value: "4" },
+                  domProps: { checked: _vm._q(_vm.checkStar, "4") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkStar = "4"
+                    }
+                  }
+                }),
+                _vm._v("★★★★")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticStyle: { display: "block", color: "#ffb917" } },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkStar,
+                      expression: "checkStar"
+                    }
+                  ],
+                  staticClass: "m-1",
+                  attrs: { type: "radio", value: "3" },
+                  domProps: { checked: _vm._q(_vm.checkStar, "3") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkStar = "3"
+                    }
+                  }
+                }),
+                _vm._v("★★★")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticStyle: { display: "block", color: "#ffb917" } },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkStar,
+                      expression: "checkStar"
+                    }
+                  ],
+                  staticClass: "m-1",
+                  attrs: { type: "radio", value: "2" },
+                  domProps: { checked: _vm._q(_vm.checkStar, "2") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkStar = "2"
+                    }
+                  }
+                }),
+                _vm._v("★★")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticStyle: { display: "block", color: "#ffb917" } },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkStar,
+                      expression: "checkStar"
+                    }
+                  ],
+                  staticClass: "m-1",
+                  attrs: { type: "radio", value: "1" },
+                  domProps: { checked: _vm._q(_vm.checkStar, "1") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkStar = "1"
+                    }
+                  }
+                }),
+                _vm._v("★")
+              ]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.message,
+                  expression: "message"
+                }
+              ],
+              domProps: { value: _vm.message },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.message = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { style: _vm.styles }),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress" }, [
+              _c("div", {
+                staticClass: "progress-bar progress-bar-striped",
+                style: _vm.styles,
+                attrs: {
+                  role: "progressbar",
+                  "aria-valuenow": "0",
+                  "aria-valuemin": "0",
+                  "aria-valuemax": "50"
+                }
+              })
+            ])
           ]),
           _vm._v(" "),
           _vm._l(_vm.filteredApplicationReviews, function(
