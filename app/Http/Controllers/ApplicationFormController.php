@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Application;
 use Helpers\iTunesapi;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +28,9 @@ class ApplicationFormController extends Controller
         $user = Auth::user();
         $applications = iTunesapi::iTunessearch($search);
 
-        return view('Application.index', compact('search', 'user', 'applications'));
+
+
+        return view('Application.index', compact('search', 'user','applications'));
     }
 
 
@@ -89,7 +93,12 @@ class ApplicationFormController extends Controller
         $application = Application::where('trackId', $id)->first();
         $applicationreviews = $application->application_user;
 
-        return view('application.detailpage', compact('user', 'applications', 'applicationreviews'));
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+
+        return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
     }
 
     /**

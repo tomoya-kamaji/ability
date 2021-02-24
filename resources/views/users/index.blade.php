@@ -30,8 +30,8 @@
                         <input type="file" name="photo">
                         <input type="submit">
                     </form>
-                    @if ($is_image)
 
+                    @if ($is_image)
                     <figure>
                         <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="150px" height="150px">
                         <figcaption>現在のプロフィール画像</figcaption>
