@@ -12,31 +12,44 @@
     <div class="tab-content border border-primary">
         <div v-show="currentId === 1">
             <h3 class="m-4">「{{ application.trackName }}」のレビュー</h3>
-
             <hr color="#797979" class="m-0">
-
             <div class="m-4">
-                <!-- <ul class="category_list">
-                    <li v-for="(category,index) in category_lists" :key="index">
-                        <input type="checkbox"
-                            :id="category"
-                            :value="category"
-                            v-model="preview">
-                        <label v-bind:for="category">{{ category }}</label>
-                    </li>
-                </ul> -->
-                <p class="text-primary">絞り込み</p>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=5>★★★★★</label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>★★★★<span style='color: #b3b2af'>★</span></label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>★★★<span style='color: #b3b2af'>★★</span></label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>★★<span style='color: #b3b2af'>★★★</span></label>
-                <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>★<span style='color: #b3b2af'>★★★★</span></label>
 
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" :style="styles" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                <div class="container">
+                    <p class="text-primary">絞り込み</p>
+                    <div class="row">
+                        <div class="col-md-2 m-0">
+                            <label style='display:block; color: #ffb917;' class ="mx-auto">
+                                <input class="m-1" type="radio" v-model="checkStar" value=5>
+                                ★★★★★
+                            </label>
+                        </div>
+                        <div class="col-md-3 m-0 p-0">
+                            <div style="height: 30px; width: 150px;" class="progress">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" :style="styles5" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <row>
+                        <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>
+                            ★★★★<span style='color: #b3b2af'>★</span>
+                        </label>
+                    </row>
+
+
+                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>
+                        ★★★<span style='color: #b3b2af'>★★</span>
+                    </label>
+                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>
+                        ★★<span style='color: #b3b2af'>★★★</span>
+                    </label>
+                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>
+                        ★<span style='color: #b3b2af'>★★★★</span>
+                    </label>
                 </div>
 
-                レビュー数：{{ applicationReview1.length }}
+                レビュー数：{{ applicationReview5.length }}
                 レビュー総数：{{ applicationreviews.length }}
             </div>
             <Applicationreview
@@ -160,41 +173,13 @@ export default {
     },
 
 
-
-    styles(){
+    styles5(){
             // let width = this.message.length/this.applicationreviews * 100
-            let width = 5 / this.applicationreviews.length * 100
+            let width = this.applicationReview5.length / this.applicationreviews.length * 100
             return {
               "width": width + '%'
             }
     },
-
-
-    // find_categories: function(){
-    //   let applicationreviews = this.applicationreviews;
-    //   let preview = this.preview;
-
-    //     if(preview.length > 0) {
-    //         for (let i = 0; i < applicationreviews.length; i++) {
-    //         let categories = applicationreviews[i].categories;
-    //         for (let j = 0; j < preview.length; j++) {
-    //             if(categories.indexOf(preview[j]) >= 0){
-    //             applicationreviews[i].display = true;
-    //             break;
-    //         } else {
-    //           applicationreviews[i].display = false;
-    //         }
-    //       }
-    //     }
-    //   } else {
-    //     for (let i = 0; i < applicationreviews.length; i++) {
-    //       let categories = applicationreviews[i].categories;
-    //       applicationreviews[i].display = true;
-    //     }
-    //   }
-    //   return preview;
-    // },
-
 
     current() {
       return this.list.find((el) => el.id === this.currentId) || {};

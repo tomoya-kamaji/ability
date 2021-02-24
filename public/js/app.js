@@ -2206,6 +2206,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2279,36 +2292,13 @@ __webpack_require__.r(__webpack_exports__);
         return value.pivot.evaluation === 1;
       });
     },
-    styles: function styles() {
+    styles5: function styles5() {
       // let width = this.message.length/this.applicationreviews * 100
-      var width = 5 / this.applicationreviews.length * 100;
+      var width = this.applicationReview5.length / this.applicationreviews.length * 100;
       return {
         "width": width + '%'
       };
     },
-    // find_categories: function(){
-    //   let applicationreviews = this.applicationreviews;
-    //   let preview = this.preview;
-    //     if(preview.length > 0) {
-    //         for (let i = 0; i < applicationreviews.length; i++) {
-    //         let categories = applicationreviews[i].categories;
-    //         for (let j = 0; j < preview.length; j++) {
-    //             if(categories.indexOf(preview[j]) >= 0){
-    //             applicationreviews[i].display = true;
-    //             break;
-    //         } else {
-    //           applicationreviews[i].display = false;
-    //         }
-    //       }
-    //     }
-    //   } else {
-    //     for (let i = 0; i < applicationreviews.length; i++) {
-    //       let categories = applicationreviews[i].categories;
-    //       applicationreviews[i].display = true;
-    //     }
-    //   }
-    //   return preview;
-    // },
     current: function current() {
       var _this = this;
 
@@ -39261,163 +39251,192 @@ var render = function() {
           _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
           _vm._v(" "),
           _c("div", { staticClass: "m-4" }, [
-            _c("p", { staticClass: "text-primary" }, [_vm._v("絞り込み")]),
-            _vm._v(" "),
             _c(
-              "label",
-              { staticStyle: { display: "block", color: "#ffb917" } },
+              "div",
+              { staticClass: "container" },
               [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkStar,
-                      expression: "checkStar"
-                    }
-                  ],
-                  staticClass: "m-1",
-                  attrs: { type: "radio", value: "5" },
-                  domProps: { checked: _vm._q(_vm.checkStar, "5") },
-                  on: {
-                    change: function($event) {
-                      _vm.checkStar = "5"
-                    }
-                  }
-                }),
-                _vm._v("★★★★★")
-              ]
+                _c("p", { staticClass: "text-primary" }, [_vm._v("絞り込み")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-2 m-0" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "mx-auto",
+                        staticStyle: { display: "block", color: "#ffb917" }
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkStar,
+                              expression: "checkStar"
+                            }
+                          ],
+                          staticClass: "m-1",
+                          attrs: { type: "radio", value: "5" },
+                          domProps: { checked: _vm._q(_vm.checkStar, "5") },
+                          on: {
+                            change: function($event) {
+                              _vm.checkStar = "5"
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                              ★★★★★\n                          "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-3 m-0 p-0" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "progress",
+                        staticStyle: { height: "30px", width: "150px" }
+                      },
+                      [
+                        _c("div", {
+                          staticClass: "progress-bar progress-bar-striped",
+                          style: _vm.styles5,
+                          attrs: {
+                            role: "progressbar",
+                            "aria-valuenow": "0",
+                            "aria-valuemin": "0",
+                            "aria-valuemax": "50"
+                          }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("row", [
+                  _c(
+                    "label",
+                    { staticStyle: { display: "block", color: "#ffb917" } },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.checkStar,
+                            expression: "checkStar"
+                          }
+                        ],
+                        staticClass: "m-1",
+                        attrs: { type: "radio", value: "4" },
+                        domProps: { checked: _vm._q(_vm.checkStar, "4") },
+                        on: {
+                          change: function($event) {
+                            _vm.checkStar = "4"
+                          }
+                        }
+                      }),
+                      _vm._v("\n                          ★★★★"),
+                      _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                        _vm._v("★")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticStyle: { display: "block", color: "#ffb917" } },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checkStar,
+                          expression: "checkStar"
+                        }
+                      ],
+                      staticClass: "m-1",
+                      attrs: { type: "radio", value: "3" },
+                      domProps: { checked: _vm._q(_vm.checkStar, "3") },
+                      on: {
+                        change: function($event) {
+                          _vm.checkStar = "3"
+                        }
+                      }
+                    }),
+                    _vm._v("\n                      ★★★"),
+                    _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                      _vm._v("★★")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticStyle: { display: "block", color: "#ffb917" } },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checkStar,
+                          expression: "checkStar"
+                        }
+                      ],
+                      staticClass: "m-1",
+                      attrs: { type: "radio", value: "2" },
+                      domProps: { checked: _vm._q(_vm.checkStar, "2") },
+                      on: {
+                        change: function($event) {
+                          _vm.checkStar = "2"
+                        }
+                      }
+                    }),
+                    _vm._v("\n                      ★★"),
+                    _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                      _vm._v("★★★")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticStyle: { display: "block", color: "#ffb917" } },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checkStar,
+                          expression: "checkStar"
+                        }
+                      ],
+                      staticClass: "m-1",
+                      attrs: { type: "radio", value: "1" },
+                      domProps: { checked: _vm._q(_vm.checkStar, "1") },
+                      on: {
+                        change: function($event) {
+                          _vm.checkStar = "1"
+                        }
+                      }
+                    }),
+                    _vm._v("\n                      ★"),
+                    _c("span", { staticStyle: { color: "#b3b2af" } }, [
+                      _vm._v("★★★★")
+                    ])
+                  ]
+                )
+              ],
+              1
             ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticStyle: { display: "block", color: "#ffb917" } },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkStar,
-                      expression: "checkStar"
-                    }
-                  ],
-                  staticClass: "m-1",
-                  attrs: { type: "radio", value: "4" },
-                  domProps: { checked: _vm._q(_vm.checkStar, "4") },
-                  on: {
-                    change: function($event) {
-                      _vm.checkStar = "4"
-                    }
-                  }
-                }),
-                _vm._v("★★★★"),
-                _c("span", { staticStyle: { color: "#b3b2af" } }, [_vm._v("★")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticStyle: { display: "block", color: "#ffb917" } },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkStar,
-                      expression: "checkStar"
-                    }
-                  ],
-                  staticClass: "m-1",
-                  attrs: { type: "radio", value: "3" },
-                  domProps: { checked: _vm._q(_vm.checkStar, "3") },
-                  on: {
-                    change: function($event) {
-                      _vm.checkStar = "3"
-                    }
-                  }
-                }),
-                _vm._v("★★★"),
-                _c("span", { staticStyle: { color: "#b3b2af" } }, [
-                  _vm._v("★★")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticStyle: { display: "block", color: "#ffb917" } },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkStar,
-                      expression: "checkStar"
-                    }
-                  ],
-                  staticClass: "m-1",
-                  attrs: { type: "radio", value: "2" },
-                  domProps: { checked: _vm._q(_vm.checkStar, "2") },
-                  on: {
-                    change: function($event) {
-                      _vm.checkStar = "2"
-                    }
-                  }
-                }),
-                _vm._v("★★"),
-                _c("span", { staticStyle: { color: "#b3b2af" } }, [
-                  _vm._v("★★★")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticStyle: { display: "block", color: "#ffb917" } },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkStar,
-                      expression: "checkStar"
-                    }
-                  ],
-                  staticClass: "m-1",
-                  attrs: { type: "radio", value: "1" },
-                  domProps: { checked: _vm._q(_vm.checkStar, "1") },
-                  on: {
-                    change: function($event) {
-                      _vm.checkStar = "1"
-                    }
-                  }
-                }),
-                _vm._v("★"),
-                _c("span", { staticStyle: { color: "#b3b2af" } }, [
-                  _vm._v("★★★★")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "progress" }, [
-              _c("div", {
-                staticClass: "progress-bar progress-bar-striped",
-                style: _vm.styles,
-                attrs: {
-                  role: "progressbar",
-                  "aria-valuenow": "0",
-                  "aria-valuemin": "0",
-                  "aria-valuemax": "50"
-                }
-              })
-            ]),
             _vm._v(
               "\n\n              レビュー数：" +
-                _vm._s(_vm.applicationReview1.length) +
+                _vm._s(_vm.applicationReview5.length) +
                 "\n              レビュー総数：" +
                 _vm._s(_vm.applicationreviews.length) +
                 "\n          "
