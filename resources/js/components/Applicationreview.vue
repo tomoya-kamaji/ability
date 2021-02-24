@@ -6,7 +6,7 @@
             <div class="row no-gutters">
                 <div class="card col-md-3" style="width: 18rem;">
                     <div class="card-body">
-                        <img class="d-block mx-auto rounded-circle mt-3" src="" width="150" height="150">
+                        <img :src="imagelink" class="d-block mx-auto rounded-circle mt-3" width="100px" height="100px">
                         <h5 class="card-title  text-center">{{ name }}</h5>
                         <ul style="list-style: none;">
                             <li>年齢：23歳</li>
@@ -74,8 +74,10 @@ export default {
     return {
     };
   },
-  computed(){
-      "pivot.evaluation === starnumber"
+  computed:{
+      imagelink: function () {
+        return "/storage/profile_images/" + this.id + ".jpg"
+      }
   }
 
 

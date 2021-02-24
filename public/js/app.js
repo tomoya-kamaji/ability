@@ -2406,8 +2406,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  computed: function computed() {
-    "pivot.evaluation === starnumber";
+  computed: {
+    imagelink: function imagelink() {
+      return "/storage/profile_images/" + this.id + ".jpg";
+    }
   }
 });
 
@@ -39582,7 +39584,7 @@ var render = function() {
             _c("div", { staticClass: "card-body" }, [
               _c("img", {
                 staticClass: "d-block mx-auto rounded-circle mt-3",
-                attrs: { src: "", width: "150", height: "150" }
+                attrs: { src: _vm.imagelink, width: "100px", height: "100px" }
               }),
               _vm._v(" "),
               _c("h5", { staticClass: "card-title  text-center" }, [

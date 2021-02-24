@@ -26,7 +26,7 @@ class UserController extends Controller
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
-        return view('users/index', ['is_image' => $is_image]);
+        return view('users/index', compact('is_image'));
     }
 
 
@@ -65,10 +65,12 @@ class UserController extends Controller
         $user = User::where('name', $name)->first();
         $applications = $user->application_user;
 
-        return view('users.show', [
-            'user' => $user,
-            'applications' => $applications,
-        ]);
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+
+        return view('users.show', compact('user', 'applications', 'is_image'));
     }
 
     public function follow(Request $request, string $name)
