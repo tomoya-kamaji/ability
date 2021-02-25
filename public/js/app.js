@@ -2045,7 +2045,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   trackName: _this.application.trackName,
                   trackId: _this.application.trackId,
                   artistName: _this.application.artistName,
-                  artworkUrl512: _this.application.artworkUrl512
+                  artworkUrl512: _this.application.artworkUrl512,
+                  categorys_id: null
                 });
 
               case 4:

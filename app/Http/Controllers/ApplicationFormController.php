@@ -10,6 +10,8 @@ use App\Application;
 use Helpers\iTunesapi;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Requests\ReviewRequest;
+
 
 class ApplicationFormController extends Controller
 {
@@ -104,7 +106,7 @@ class ApplicationFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function register(ReviewRequest $request)
     {
         //テーブルに存在するかどうかを確かめる
         //初めてならInsert。2回目ならUpdate

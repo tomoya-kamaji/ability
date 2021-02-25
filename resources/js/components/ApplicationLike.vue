@@ -58,6 +58,8 @@ export default {
             trackId: this.application.trackId,
             artistName: this.application.artistName,
             artworkUrl512: this.application.artworkUrl512,
+            categorys_id: null,
+
         });
         this.id = response.data.id;
 
