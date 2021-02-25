@@ -178,7 +178,7 @@ export default {
   data() {
     return {
         checkStar: 0,
-        currentId: 3,
+        currentId: 1,
         category_lists: [ 5, 4, 3, 2, 1],
         preview: [],		// チェックボックスでチェックしたカテゴリを格納する
         list: [
