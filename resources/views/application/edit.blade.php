@@ -16,6 +16,14 @@
     </div>
 </div>
 
+@if(count($errors) > 0)
+    <ul class="bg-danger">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12" >

@@ -13,7 +13,8 @@ class Application extends Model
         'trackId',
         'trackName',
         'artworkUrl512',
-        'artistName'
+        'artistName',
+        'categorys_id',
     ];
 
     /**
