@@ -16,16 +16,28 @@ class UsersTableSeeder extends Seeder
                 'name' => 'tomoya',
                 'email' => 'tomoya.kamaji@gmail.com',
                 'password' => Hash::make('password'),
+                'age' => "21~25",
+                'profession' => "エンジニア",
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ],
             [
                 'name' => 'sakura',
                 'email' => 'sakura@gmail.com',
                 'password' => Hash::make('password'),
+                'age' => "21~25",
+                'profession' => "エンジニア",
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ],
             [
                 'name' => 'masako',
                 'email' => 'masako@gmail.com',
                 'password' => Hash::make('password'),
+                'age' => "46~50",
+                'profession' => "医療関係",
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]
         ]);
     }

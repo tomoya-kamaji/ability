@@ -21,7 +21,7 @@
                 :max-rating="5"
                 :star-size="20">
             </StarRating>
-            <p class="card-text">{{ pivot.content }}</p>
+            <p class="card-text">{{ pivot.title }}</p>
             <ApplicationLike
             :id="id"
             :authorized="authorized"

@@ -17,8 +17,10 @@ class CreateApplicationUserTable extends Migration
             $table->bigIncrements('id');
             $table->integer('application_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->text('content');
-            $table->integer('evaluation')->unsigned();
+            $table->text('title');
+            $table->text('good_point');
+            $table->text('improvement_point');
+            $table->integer('evaluation');
             $table->timestamps();
         });
     }

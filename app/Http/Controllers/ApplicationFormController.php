@@ -115,7 +115,9 @@ class ApplicationFormController extends Controller
         $application->users()->attach(
             $request->user()->id,
             [
-                'content' => $request->content,
+                'title' => $request->title,
+                'good_point' => $request->good_point,
+                'improvement_point' => $request->improvement_point,
                 'evaluation' => $request->evaluation
             ]
         );

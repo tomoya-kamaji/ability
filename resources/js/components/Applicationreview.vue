@@ -17,7 +17,7 @@
                 <div class="col-md-9">
                     <div class="card-body">
                         <div class="row">
-                            <h3 class="card-title col-md-7 m-0">レビュータイトル</h3>
+                            <h5 class="card-title col-md-7 m-0">{{ pivot.title }}</h5>
                             <p class="card-title col-md-5 m-0">投稿日：{{ created_at }}</p>
 
                         </div>
@@ -37,7 +37,7 @@
                             </blockquote>
                         </div>
                         <div class="row">
-                                <p class = "ml-4 text-secondary">{{ pivot.content }}</p>
+                                <p class = "ml-4 text-secondary">{{ pivot.good_point }}</p>
                         </div>
                         <div class="row">
                             <blockquote class ="mt-3 ml-3" style="border-left: 3px solid red;">
@@ -45,7 +45,7 @@
                             </blockquote>
                         </div>
                         <div class="row">
-                                <p class = "ml-4 text-secondary">{{ pivot.content }}</p>
+                                <p class = "ml-4 text-secondary">{{ pivot.improvement_point }}</p>
                         </div>
                     </div>
                 </div>
