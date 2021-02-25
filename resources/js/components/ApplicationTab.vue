@@ -143,15 +143,19 @@
         </div>
 
         <div v-show="currentId === 3">
-            <h3 class="m-4">「{{ application.trackName }}」の紹介</h3>
-
-            <div class="row">
-                <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[0] width="294" height="537">
-
+            <h3 class="m-4">「{{ application.trackName }}」の画面</h3>
+            <hr color="#797979" class="m-0">
+            <div class="container">
+                <div class="row">
+                    <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[0] width="294" height="537">
+                    <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[1] width="294" height="537">
+                </div>
+                <hr color="#797979">
+                <div class="row">
+                    <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[2] width="294" height="537">
+                    <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[3] width="294" height="537">
+                </div>
             </div>
-            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[1] width="294" height="537">
-            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[2] width="294" height="537">
-            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[3] width="294" height="537">
         </div>
     </div>
   </div>
