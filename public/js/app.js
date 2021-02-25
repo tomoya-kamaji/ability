@@ -2282,6 +2282,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -39828,46 +39832,54 @@ var render = function() {
         },
         [
           _c("h3", { staticClass: "m-4" }, [
-            _vm._v("「" + _vm._s(_vm.application.trackName) + "」の紹介")
+            _vm._v("「" + _vm._s(_vm.application.trackName) + "」の画面")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("img", {
-              staticClass: "d-block mx-auto img-thumbnail",
-              attrs: {
-                src: _vm.application.screenshotUrls[0],
-                width: "294",
-                height: "537"
-              }
-            })
-          ]),
+          _c("hr", { staticClass: "m-0", attrs: { color: "#797979" } }),
           _vm._v(" "),
-          _c("img", {
-            staticClass: "d-block mx-auto img-thumbnail mt-3",
-            attrs: {
-              src: _vm.application.screenshotUrls[1],
-              width: "294",
-              height: "537"
-            }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "d-block mx-auto img-thumbnail mt-3",
-            attrs: {
-              src: _vm.application.screenshotUrls[2],
-              width: "294",
-              height: "537"
-            }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "d-block mx-auto img-thumbnail mt-3",
-            attrs: {
-              src: _vm.application.screenshotUrls[3],
-              width: "294",
-              height: "537"
-            }
-          })
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("img", {
+                staticClass: "d-block mx-auto img-thumbnail",
+                attrs: {
+                  src: _vm.application.screenshotUrls[0],
+                  width: "294",
+                  height: "537"
+                }
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "d-block mx-auto img-thumbnail",
+                attrs: {
+                  src: _vm.application.screenshotUrls[1],
+                  width: "294",
+                  height: "537"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("img", {
+                staticClass: "d-block mx-auto img-thumbnail",
+                attrs: {
+                  src: _vm.application.screenshotUrls[2],
+                  width: "294",
+                  height: "537"
+                }
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "d-block mx-auto img-thumbnail",
+                attrs: {
+                  src: _vm.application.screenshotUrls[3],
+                  width: "294",
+                  height: "537"
+                }
+              })
+            ])
+          ])
         ]
       )
     ])
