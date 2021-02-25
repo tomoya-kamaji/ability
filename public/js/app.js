@@ -2302,7 +2302,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       checkStar: 0,
-      currentId: 3,
+      currentId: 1,
       category_lists: [5, 4, 3, 2, 1],
       preview: [],
       // チェックボックスでチェックしたカテゴリを格納する
@@ -2867,10 +2867,10 @@ __webpack_require__.r(__webpack_exports__);
       currentId: 1,
       list: [{
         id: 1,
-        label: "登録アプリ"
+        label: "レビューしたアプリ"
       }, {
         id: 2,
-        label: "人気アプリ"
+        label: "ブックマーク"
       }, {
         id: 3,
         label: "フォロー"

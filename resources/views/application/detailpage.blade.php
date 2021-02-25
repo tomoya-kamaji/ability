@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <?php $application = $applications['results'][0]; ?>
 <div class="container">
@@ -17,7 +16,7 @@
                         </star-rating-average>
                     </div>
                     <div class="col d-flex align-items-center justify-content-center m-2">
-                        <i class="far fa-comment-d  ots" style="vertical-align: middle;"> {{ $application['countreviews']}}件</i>
+                        <i class="far fa-comment-dots" style="vertical-align: middle;"> {{ $application['countreviews']}}件</i>
                     </div>
                     <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary mx-auto d-block">レビューを書く</a>
                     <hr color="#797979">

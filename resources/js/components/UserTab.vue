@@ -44,8 +44,8 @@ export default {
     return {
       currentId: 1,
       list: [
-        { id: 1, label: "登録アプリ" },
-        { id: 2, label: "人気アプリ" },
+        { id: 1, label: "レビューしたアプリ" },
+        { id: 2, label: "ブックマーク" },
         { id: 3, label: "フォロー" },
         { id: 4, label: "フォロワー" },
       ],
