@@ -47,7 +47,7 @@
                         <p>30文字以内</p>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="content" id="title" rows="3" placeholder="タイトル">
+                        <input class="form-control input-lg" name="title" id="title" rows="3" placeholder="タイトル">
                         <small class="form-text text-muted">※必須</small>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <h5>サービスの良いところ</h5>
                     </div>
                     <div class="col-sm-8">
-                        <textarea class="form-control" name="content" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
+                        <textarea class="form-control" name="good_point" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
                         <small class="form-text text-muted">マイページにて変更可能です。</small>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         <h5>サービスの改善点</h5>
                     </div>
                     <div class="col-sm-8">
-                        <textarea class="form-control" name="content" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
+                        <textarea class="form-control" name="improvement_point" rows="8" placeholder="ex)使用したメリット、改善点など"></textarea>
                         <small class="form-text text-muted">マイページにて変更可能です。</small>
                     </div>
                 </div>

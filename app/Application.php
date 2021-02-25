@@ -21,7 +21,14 @@ class Application extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('id','content', 'evaluation');;
+        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')
+            ->withPivot(
+            'id',
+            'title',
+            'good_point',
+            'improvement_point',
+            'evaluation'
+            );
     }
 
     public function getAverageReviewsAttribute()
@@ -44,7 +51,13 @@ class Application extends Model
      */
     public function application_user(): BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')->withPivot('content', 'evaluation');
+        return $this->belongsToMany('App\User', 'application_user')->withTimestamps()->using('App\ApplicationUser')
+        ->withPivot(
+            'title',
+            'good_point',
+            'improvement_point',
+            'evaluation',
+        );
     }
 
 

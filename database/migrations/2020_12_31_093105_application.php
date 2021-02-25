@@ -19,6 +19,7 @@ class Application extends Migration
             $table->text('trackName');
             $table->text('artistName');
             $table->text('artworkURL512');
+            $table->integer('categorys_id');
             $table->timestamps();
         });
     }

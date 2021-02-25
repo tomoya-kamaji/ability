@@ -39937,8 +39937,8 @@ var render = function() {
             { staticClass: "card-body" },
             [
               _c("div", { staticClass: "row" }, [
-                _c("h3", { staticClass: "card-title col-md-7 m-0" }, [
-                  _vm._v("レビュータイトル")
+                _c("h5", { staticClass: "card-title col-md-7 m-0" }, [
+                  _vm._v(_vm._s(_vm.pivot.title))
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-title col-md-5 m-0" }, [
@@ -39962,7 +39962,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("p", { staticClass: "ml-4 text-secondary" }, [
-                  _vm._v(_vm._s(_vm.pivot.content))
+                  _vm._v(_vm._s(_vm.pivot.good_point))
                 ])
               ]),
               _vm._v(" "),
@@ -39970,7 +39970,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("p", { staticClass: "ml-4 text-secondary" }, [
-                  _vm._v(_vm._s(_vm.pivot.content))
+                  _vm._v(_vm._s(_vm.pivot.improvement_point))
                 ])
               ])
             ],
@@ -40079,7 +40079,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(_vm.pivot.content))
+              _vm._v(_vm._s(_vm.pivot.title))
             ]),
             _vm._v(" "),
             _c("ApplicationLike", {
