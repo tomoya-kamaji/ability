@@ -14,43 +14,98 @@
             <h3 class="m-4">「{{ application.trackName }}」のレビュー</h3>
             <hr color="#797979" class="m-0">
             <div class="m-4">
-
                 <div class="container">
-                    <p class="text-primary">絞り込み</p>
                     <div class="row">
-                        <div class="col-md-2 m-0">
-                            <label style='display:block; color: #ffb917;' class ="mx-auto">
-                                <input class="m-1" type="radio" v-model="checkStar" value=5>
-                                ★★★★★
-                            </label>
-                        </div>
-                        <div class="col-md-3 m-0 p-0">
-                            <div style="height: 30px; width: 150px;" class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" :style="styles5" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                        <div class="col-md-6">
+                            <p class="text-primary">絞り込み</p>
+                            <div class="row">
+                                <div class="col-md-4 m-0">
+                                    <label style="display:block; color: #ffb917;" class ="mx-auto">
+                                        <input class="m-1" type="radio" v-model="checkStar" value=5>
+                                        <span style="letter-spacing: 0.2em;">★★★★★</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    <div style="height: 25px; width: 130px;" class="progress">
+                                        <div class="progress-bar" role="progressbar" :style="styles5"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    {{ applicationReview5.length }}件
+                                </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-4 m-0">
+                                    <label style="display:block; color: #ffb917;">
+                                        <input class="m-1" type="radio" v-model="checkStar" value=4>
+                                        <span style="letter-spacing: 0.2em;">★★★★</span><span style="letter-spacing: 0.2em; color: #b3b2af">★</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    <div style="height: 25px; width: 130px;" class="progress">
+                                        <div class="progress-bar" role="progressbar" :style="styles4"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    {{ applicationReview4.length }}件
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 m-0">
+                                    <label style="display:block; color: #ffb917;"><input class="m-1" type="radio" v-model="checkStar" value=3>
+                                        <span style="letter-spacing: 0.2em;">★★★</span><span style="letter-spacing: 0.2em; color: #b3b2af">★★</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    <div style="height: 25px; width: 130px;" class="progress">
+                                        <div class="progress-bar" role="progressbar" :style="styles3"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    {{ applicationReview3.length }}件
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 m-0">
+                                    <label style="display:block; color: #ffb917;"><input class="m-1" type="radio" v-model="checkStar" value=2>
+                                        <span style="letter-spacing: 0.2em;">★★</span><span style="letter-spacing: 0.2em; color: #b3b2af">★★★</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    <div style="height: 25px; width: 130px;" class="progress">
+                                        <div class="progress-bar" role="progressbar" :style="styles2"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    {{ applicationReview2.length }}件
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 m-0">
+                                    <label style="display:block; color: #ffb917;"><input class="m-1" type="radio" v-model="checkStar" value=1>
+                                        <span style="letter-spacing: 0.2em;">★</span><span style="letter-spacing: 0.2em; color: #b3b2af">★★★★</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    <div style="height: 25px; width: 130px;" class="progress">
+                                        <div class="progress-bar" role="progressbar" :style="styles1"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-0 p-0">
+                                    {{ applicationReview1.length }}件
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3>レビュー総数：{{ applicationreviews.length }}件</h3>
                         </div>
                     </div>
-
-                    <row>
-                        <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=4>
-                            ★★★★<span style='color: #b3b2af'>★</span>
-                        </label>
-                    </row>
-
-
-                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=3>
-                        ★★★<span style='color: #b3b2af'>★★</span>
-                    </label>
-                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=2>
-                        ★★<span style='color: #b3b2af'>★★★</span>
-                    </label>
-                    <label style='display:block; color: #ffb917;'><input class="m-1" type="radio" v-model="checkStar" value=1>
-                        ★<span style='color: #b3b2af'>★★★★</span>
-                    </label>
                 </div>
-
-                レビュー数：{{ applicationReview5.length }}
-                レビュー総数：{{ applicationreviews.length }}
             </div>
             <Applicationreview
                 v-for="(applicationreview,index) in filteredApplicationReviews"
@@ -88,7 +143,15 @@
         </div>
 
         <div v-show="currentId === 3">
-            <h1>Tab3 content</h1>
+            <h3 class="m-4">「{{ application.trackName }}」の紹介</h3>
+
+            <div class="row">
+                <img class="d-block mx-auto img-thumbnail" :src= application.screenshotUrls[0] width="294" height="537">
+
+            </div>
+            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[1] width="294" height="537">
+            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[2] width="294" height="537">
+            <img class="d-block mx-auto img-thumbnail mt-3" :src= application.screenshotUrls[3] width="294" height="537">
         </div>
     </div>
   </div>
@@ -110,15 +173,14 @@ export default {
 
   data() {
     return {
-        message:"text",
         checkStar: 0,
-        currentId: 1,
+        currentId: 3,
         category_lists: [ 5, 4, 3, 2, 1],
         preview: [],		// チェックボックスでチェックしたカテゴリを格納する
         list: [
-            { id: 1, label: "レビュー一覧" },
+            { id: 1, label: "レビュー" },
             { id: 2, label: "アプリ詳細" },
-            { id: 3, label: "お気に入りユーザ" },
+            { id: 3, label: "アプリ画面" },
         ],
         returnReviewCount: [],
     };
@@ -177,7 +239,35 @@ export default {
             // let width = this.message.length/this.applicationreviews * 100
             let width = this.applicationReview5.length / this.applicationreviews.length * 100
             return {
-              "width": width + '%'
+              "width": width + "%",
+            }
+    },
+    styles4(){
+            // let width = this.message.length/this.applicationreviews * 100
+            let width = this.applicationReview4.length / this.applicationreviews.length * 100
+            return {
+              "width": width + "%",
+            }
+    },
+    styles3(){
+            // let width = this.message.length/this.applicationreviews * 100
+            let width = this.applicationReview3.length / this.applicationreviews.length * 100
+            return {
+              "width": width + "%",
+            }
+    },
+    styles2(){
+            // let width = this.message.length/this.applicationreviews * 100
+            let width = this.applicationReview2.length / this.applicationreviews.length * 100
+            return {
+              "width": width + "%",
+            }
+    },
+    styles1(){
+            // let width = this.message.length/this.applicationreviews * 100
+            let width = this.applicationReview1.length / this.applicationreviews.length * 100
+            return {
+              "width": width + "%",
             }
     },
 
