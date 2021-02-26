@@ -76,6 +76,7 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $applications = iTunesapi::iTuneslookup($id);
+
         return view('application.edit', compact('user', 'applications'));
     }
     /**
@@ -113,7 +114,7 @@ class ApplicationFormController extends Controller
         $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
 
-
+        
         $application->users()->attach(
             $request->user()->id,
             [
