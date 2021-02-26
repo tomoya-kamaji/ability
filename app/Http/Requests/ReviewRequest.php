@@ -26,8 +26,8 @@ class ReviewRequest extends FormRequest
         return [
             'users_id' => 'unique:applications_users,users_id,',
             'title' => 'required|max:30',
-            'good_point' => 'required|max:300|min:10',
-            'improvement_point' => 'required|max:300|min:10',
+            'good_point' => 'required|max:300',
+            'improvement_point' => 'max:300',
             'evaluation' => 'required',
         ];
     }
