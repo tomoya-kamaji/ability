@@ -22,5 +22,13 @@ $theme-colors: (
   "primary": #464c9c,
   "danger": #ff4136,
   "info": #4093ff,
+  "light": #f2f9ff,
+);
 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
 );

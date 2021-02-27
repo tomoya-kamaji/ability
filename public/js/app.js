@@ -2546,7 +2546,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2556,6 +2555,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     id: Number,
+    artistName: String,
     artworkURL512: String,
     trackName: String,
     pivot: Object,
@@ -2851,6 +2851,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2865,18 +2876,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentId: 1,
+      currentId: 2,
       list: [{
         id: 1,
-        label: "レビューしたアプリ"
+        label: "プロフィール"
       }, {
         id: 2,
-        label: "ブックマーク"
+        label: "レビューしたアプリ"
       }, {
         id: 3,
-        label: "フォロー"
+        label: "ブックマーク"
       }, {
         id: 4,
+        label: "フォロー"
+      }, {
+        id: 5,
         label: "フォロワー"
       }]
     };
@@ -40049,25 +40063,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card deck col-md-10 center mx-auto" }, [
+  return _c("div", { staticClass: "card" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-4 d-flex align-items-center" }, [
+      _c("div", { staticClass: "col-md-2 d-flex align-items-center" }, [
         _c("img", {
-          staticClass: "d-block mx-auto",
+          staticClass: "shadow d-block mx-auto",
           attrs: { src: _vm.artworkURL512, width: "100", height: "100" }
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "col-md-2 d-flex align-items-center" }, [
         _c(
           "div",
           { staticClass: "card-body" },
           [
-            _c("h5", { staticClass: "card-title" }, [
+            _c("h3", { staticClass: "card-title" }, [
               _vm._v(_vm._s(_vm.trackName))
             ]),
             _vm._v(" "),
-            _c("hr", { attrs: { color: "#797979" } }),
+            _c("p", [_vm._v(_vm._s(_vm.artistName))]),
             _vm._v(" "),
             _c("StarRating", {
               attrs: {
@@ -40077,18 +40091,24 @@ var render = function() {
                 "max-rating": 5,
                 "star-size": 20
               }
-            }),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(_vm.pivot.title))
-            ]),
-            _vm._v(" "),
-            _c("ApplicationLike", {
-              attrs: { id: _vm.id, authorized: _vm.authorized }
             })
           ],
           1
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(_vm._s(_vm.pivot.title))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(_vm._s(_vm.pivot.good_point))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(_vm._s(_vm.pivot.improvement_point))
+        ])
       ])
     ])
   ])
@@ -40275,34 +40295,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "ul",
-      { staticClass: "nav nav-tabs nav-justified" },
-      _vm._l(_vm.list, function(item) {
-        return _c(
-          "TabItem",
-          _vm._b(
-            {
-              key: item.id,
-              model: {
-                value: _vm.currentId,
-                callback: function($$v) {
-                  _vm.currentId = $$v
-                },
-                expression: "currentId"
-              }
-            },
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-2" }, [
+      _c(
+        "ul",
+        { staticClass: "nav flex-column bg-light" },
+        _vm._l(_vm.list, function(item) {
+          return _c(
             "TabItem",
-            item,
-            false
+            _vm._b(
+              {
+                key: item.id,
+                model: {
+                  value: _vm.currentId,
+                  callback: function($$v) {
+                    _vm.currentId = $$v
+                  },
+                  expression: "currentId"
+                }
+              },
+              "TabItem",
+              item,
+              false
+            )
           )
-        )
-      }),
-      1
-    ),
+        }),
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "tab-content border-primary" }, [
+    _c("div", { staticClass: "col-md-10 tab-content border-primary" }, [
       _c(
         "div",
         {
@@ -40315,18 +40337,11 @@ var render = function() {
             }
           ]
         },
-        _vm._l(_vm.applications, function(application) {
-          return _c(
-            "Applications",
-            _vm._b(
-              { key: application.id, attrs: { authorized: _vm.authorized } },
-              "Applications",
-              application,
-              false
-            )
-          )
-        }),
-        1
+        [
+          _c("h3", { staticClass: "m-4" }, [_vm._v("プロフィール")]),
+          _vm._v(" "),
+          _c("hr", { attrs: { color: "#797979" } })
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -40341,7 +40356,24 @@ var render = function() {
             }
           ]
         },
-        [_c("h1", [_vm._v(_vm._s(_vm.applications[0]))])]
+        [
+          _c("h3", { staticClass: "m-4" }, [_vm._v("マイレビュー")]),
+          _vm._v(" "),
+          _c("hr", { attrs: { color: "#797979" } }),
+          _vm._v(" "),
+          _vm._l(_vm.applications, function(application) {
+            return _c(
+              "Applications",
+              _vm._b(
+                { key: application.id, attrs: { authorized: _vm.authorized } },
+                "Applications",
+                application,
+                false
+              )
+            )
+          })
+        ],
+        2
       ),
       _vm._v(" "),
       _c(
@@ -40356,7 +40388,30 @@ var render = function() {
             }
           ]
         },
-        [_c("h1", [_vm._v("Tab3 content")])]
+        [
+          _c("h3", { staticClass: "m-4" }, [_vm._v("ブックマーク")]),
+          _vm._v(" "),
+          _c("hr", { attrs: { color: "#797979" } })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.currentId === 4,
+              expression: "currentId === 4"
+            }
+          ]
+        },
+        [
+          _c("h3", { staticClass: "m-4" }, [_vm._v("フォロー")]),
+          _vm._v(" "),
+          _c("hr", { attrs: { color: "#797979" } })
+        ]
       )
     ])
   ])
