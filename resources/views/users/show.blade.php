@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+
+<div class="container-xl">
     @include('users.user')
     <user-tab
         :applications="{{ json_encode($applications) }}"

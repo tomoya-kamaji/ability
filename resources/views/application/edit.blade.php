@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <img class="d-block mx-auto img-thumbnail" src={{ $application['artworkUrl512']}} width="150" height="150">
+                <a href="{{ route('application.detailpage', ['id' => $application['trackId']]) }}"><img class="d-block mx-auto img-thumbnail" src={{ $application['artworkUrl512']}} width="150" height="150"></a>
             </div>
             <div class="col-md-8 d-flex align-items-center">
                 <h2 class="text-white">「{{ $application['trackName'] }}」のレビュー投稿</h2>
