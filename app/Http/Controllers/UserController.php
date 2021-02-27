@@ -63,14 +63,25 @@ class UserController extends Controller
     public function show(string $name)
     {
         $user = User::where('name', $name)->first();
+        //アプリケーション一覧
         $applications = $user->application_user;
+
+        //ブックマークアプリケーション一覧
+        $like_applications = $user->like;
+
+
+
+        //フォロー一覧
+
+        //フォロワー一覧
+
 
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
 
-        return view('users.show', compact('user', 'applications', 'is_image'));
+        return view('users.show', compact('user','applications', 'like_applications', 'is_image'));
     }
 
     public function follow(Request $request, string $name)

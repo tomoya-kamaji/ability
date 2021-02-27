@@ -6,6 +6,7 @@
         @include('users.user')
         <user-tab
             :applications="{{ json_encode($applications) }}"
+            :like_applications="{{ json_encode($like_applications) }}"
             :user="{{ json_encode($user) }}"
             :authorized='@json(Auth::check())'
         >

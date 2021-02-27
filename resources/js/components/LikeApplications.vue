@@ -14,20 +14,19 @@
         <p>{{ artistName }}</p>
         <StarRating
             :read-only="true"
-            :rating= pivot.evaluation
+            :rating= 3
             :increment="0.5"
             :max-rating="5"
             :star-size="20">
         </StarRating>
       </div>
       <div class="col-md-6">
-          <p class="text-secondary mt-2 mb-0">2021/02/18のレビュー</p>
-          <h5 class="mb-1">{{ pivot.title }}</h5>
-          <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
+          <p class="text-secondary mt-2 mb-0">2021/02/18</p>
+          <h5 class="mb-1"></h5>
+          <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;"></p>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-primary m-3">　　編集　　</button>
-        <button type="button" class="btn btn-danger m-3">　　削除　　</button>
+
       </div>
     </div>
     <hr color="#797979">
@@ -35,12 +34,10 @@
 </template>
 
 <script>
-import ApplicationLike from "./ApplicationLike.vue";
 import StarRating from 'vue-star-rating'
 
-
 export default {
-  components: { ApplicationLike ,StarRating},
+  components: { StarRating },
   props: {
     id: Number,
     trackId: Number,
@@ -50,13 +47,13 @@ export default {
     created_at: String,
     updated_at: String,
     categorys_id: Number,
-    pivot: Object,
     authorized: Boolean,
+    pivot:Object
   },
 
   data() {
     return {
-      like: Object,
+    //   like: Object,
     };
   },
 

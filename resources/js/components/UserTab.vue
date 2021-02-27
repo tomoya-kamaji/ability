@@ -11,21 +11,27 @@
             </ul>
         </div>
         <div class="col-md-10 mt-3 tab-content shadow-sm bg-white">
-            <div v-show="currentId === 1">
+            <div v-if="currentId === 1">
                 <h3 class="m-4">マイレビュー</h3>
                 <hr color="#797979">
                 <Applications
                     v-for="application in applications"
                     v-bind="application"
-                    :key="application.id"
+                    :key="application.title"
                     :authorized="authorized"
                 />
             </div>
-            <div v-show="currentId === 2">
+            <div v-if="currentId === 2">
                 <h3 class="m-4">ブックマーク</h3>
                 <hr color="#797979">
+                <LikeApplications
+                    v-for="like_application in like_applications"
+                    v-bind="like_application"
+                    :key="like_application.trackId"
+                    :authorized="authorized"
+                />
             </div>
-            <div v-show="currentId === 3">
+            <div v-if="currentId === 3">
                 <h3 class="m-4">フォロー</h3>
                 <hr color="#797979">
             </div>
@@ -40,19 +46,21 @@
 <script>
 import TabItem from "./TabItem.vue";
 import Applications from "./Applications.vue";
+import LikeApplications from "./LikeApplications.vue";
 
 export default {
-  components: { TabItem, Applications },
+  components: { TabItem, Applications ,LikeApplications},
 
   props: {
     applications: Array,
+    like_applications: Array,
     user: Object,
-    authorized: Boolean
+    authorized: Boolean,
   },
 
   data() {
     return {
-      currentId: 1,
+      currentId: 2,
       list: [
         { id: 1, label: "マイレビュー", icon:"fas fa-comment-dots" },
         { id: 2, label: "ブックマーク" , icon:"fas fa-bookmark"},
