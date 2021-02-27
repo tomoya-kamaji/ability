@@ -9,7 +9,7 @@
                         <img :src="imagelink" class="d-block mx-auto rounded-circle mt-3" width="100px" height="100px">
                         <h5 class="card-title  text-center">{{ name }}</h5>
                         <ul style="list-style: none;">
-                            <li>年齢：23歳</li>
+                            <li>年齢：20~25歳</li>
                             <li>職業：エンジニア</li>
                         </ul>
                     </div>
@@ -62,12 +62,12 @@ export default {
   props: {
     id: Number,
     name: String,
-    pivot: Object,
     email: String,
     email_verified_at: String,
     created_at: String,
     updated_at: String,
     starnumber: Number,
+    pivot: Object,
   },
 
   data() {

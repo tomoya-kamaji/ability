@@ -55,6 +55,11 @@ class User extends Authenticatable
         );
     }
 
+    public function like(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Application', 'likes')->withTimestamps();
+    }
+
     //フォロワーを取得
     public function followers(): BelongsToMany
     {

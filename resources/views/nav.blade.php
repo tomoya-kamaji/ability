@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('application.index') }}">アプリを探す<span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">カテゴリ別</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -29,10 +32,7 @@
                 @endif
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="">カテゴリ別</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">保存済み</a>
+                    <a class="nav-link" href="">ブックマーク</a>
                 </li>
 
                 <li class="nav-item dropdown">
