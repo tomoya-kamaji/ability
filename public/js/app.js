@@ -2546,6 +2546,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2822,8 +2824,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TabItem_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TabItem.vue */ "./resources/js/components/TabItem.vue");
 /* harmony import */ var _Applications_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Applications.vue */ "./resources/js/components/Applications.vue");
-//
-//
 //
 //
 //
@@ -40064,7 +40064,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-2 d-flex align-items-center" }, [
         _c("img", {
@@ -40073,48 +40073,77 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-2 d-flex align-items-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-3" },
+        [
+          _c("h3", { staticClass: "mt-4 mb-0" }, [
+            _vm._v(_vm._s(_vm.trackName))
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.artistName))]),
+          _vm._v(" "),
+          _c("StarRating", {
+            attrs: {
+              "read-only": true,
+              rating: _vm.pivot.evaluation,
+              increment: 0.5,
+              "max-rating": 5,
+              "star-size": 20
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("p", { staticClass: "text-secondary mt-2 mb-0" }, [
+          _vm._v("2021/02/18のレビュー")
+        ]),
+        _vm._v(" "),
+        _c("h5", { staticClass: "mb-1" }, [_vm._v(_vm._s(_vm.pivot.title))]),
+        _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("h3", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(_vm.trackName))
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.artistName))]),
-            _vm._v(" "),
-            _c("StarRating", {
-              attrs: {
-                "read-only": true,
-                rating: _vm.pivot.evaluation,
-                increment: 0.5,
-                "max-rating": 5,
-                "star-size": 20
-              }
-            })
-          ],
-          1
+          "p",
+          {
+            staticClass: "text-secondary",
+            staticStyle: {
+              display: "-webkit-box",
+              "-webkit-line-clamp": "4",
+              "-webkit-box-orient": "vertical",
+              overflow: "hidden"
+            }
+          },
+          [_vm._v(_vm._s(_vm.pivot.good_point))]
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(_vm._s(_vm.pivot.title))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(_vm._s(_vm.pivot.good_point))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(_vm._s(_vm.pivot.improvement_point))
-        ])
-      ])
-    ])
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _c("hr", { attrs: { color: "#797979" } })
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("編集")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-danger", attrs: { type: "button" } },
+        [_vm._v("削除")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

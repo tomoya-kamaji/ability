@@ -1,6 +1,5 @@
 <template>
-  <!-- <div class="card deck col-md-10 center mx-auto"> -->
-  <div class="card">
+  <div>
     <div class="row">
       <div class="col-md-2 d-flex align-items-center">
         <img
@@ -10,26 +9,29 @@
           height="100"
         />
       </div>
-      <div class="col-md-2 d-flex align-items-center">
-          <div class="card-body">
-            <h3 class="card-title">{{ trackName }}</h3>
-            <p>{{ artistName }}</p>
-            <StarRating
-                :read-only="true"
-                :rating= pivot.evaluation
-                :increment="0.5"
-                :max-rating="5"
-                :star-size="20">
-            </StarRating>
-        </div>
+      <div class="col-md-3">
+        <h3 class="mt-4 mb-0">{{ trackName }}</h3>
+        <p>{{ artistName }}</p>
+        <StarRating
+            :read-only="true"
+            :rating= pivot.evaluation
+            :increment="0.5"
+            :max-rating="5"
+            :star-size="20">
+        </StarRating>
       </div>
-      <div class="col-md-8">
-          <p class="card-text">{{ pivot.title }}</p>
-          <p class="card-text">{{ pivot.good_point }}</p>
-          <p class="card-text">{{ pivot.improvement_point }}</p>
+      <div class="col-md-4">
+          <p class="text-secondary mt-2 mb-0">2021/02/18のレビュー</p>
+          <h5 class="mb-1">{{ pivot.title }}</h5>
+          <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
+      </div>
+      <div class="col-md-3">
+          <button type="button" class="btn btn-primary">編集</button>
+          <button type="button" class="btn btn-danger">削除</button>
       </div>
     </div>
-  </div>
+    <hr color="#797979">
+</div>
 </template>
 
 <script>
