@@ -18,7 +18,7 @@
 
 
 
-<div class="container" style="background: #f2f9ff;">
+<div class="container bg-light">
     <div class="row justify-content-center">
         <div class="col-md-12" >
             <form method="POST" action="{{ route('application.register') }}">

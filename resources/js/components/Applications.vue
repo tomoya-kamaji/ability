@@ -9,7 +9,7 @@
           height="100"
         />
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <h3 class="mt-4 mb-0">{{ trackName }}</h3>
         <p>{{ artistName }}</p>
         <StarRating
@@ -20,14 +20,14 @@
             :star-size="20">
         </StarRating>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
           <p class="text-secondary mt-2 mb-0">2021/02/18のレビュー</p>
           <h5 class="mb-1">{{ pivot.title }}</h5>
           <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
       </div>
-      <div class="col-md-3">
-          <button type="button" class="btn btn-primary">編集</button>
-          <button type="button" class="btn btn-danger">削除</button>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-primary m-3">　　編集　　</button>
+        <button type="button" class="btn btn-danger m-3">　　削除　　</button>
       </div>
     </div>
     <hr color="#797979">

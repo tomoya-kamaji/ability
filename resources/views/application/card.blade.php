@@ -1,7 +1,7 @@
 <div class="card border-0">
     <div class="row no-gutters">
         <div class="col-md-3 my-auto">
-            <a href="{{ route('application.detailpage', ['id' => $application['trackId']]) }}"><img class="d-block mx-auto" src={{ $application['artworkUrl512']}} width="150" height="150"></a>
+            <a href="{{ route('application.detailpage', ['id' => $application['trackId']]) }}"><img class="d-block mx-auto shadow" src={{ $application['artworkUrl512']}} width="150" height="150"></a>
         </div>
         <div class="col-md-9">
             <div class="card-body">
@@ -31,6 +31,7 @@
                     </div>
                     <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-2 offset-2">レビュー</a>
                 </div>
+
             </div>
         </div>
     </div>
