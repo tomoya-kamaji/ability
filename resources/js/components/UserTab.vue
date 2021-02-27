@@ -17,6 +17,7 @@
             <hr color="#797979">
         </div>
         <div v-show="currentId === 2">
+            
             <h3 class="m-4">マイレビュー</h3>
             <hr color="#797979">
             <Applications
