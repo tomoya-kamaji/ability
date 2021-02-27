@@ -2287,6 +2287,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2797,12 +2798,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: Number,
     //
     label: String,
-    value: Number
+    value: Number,
+    icon: String
   },
   computed: {
     active: function active() {
@@ -2877,22 +2881,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentId: 2,
+      currentId: 1,
       list: [{
         id: 1,
-        label: "プロフィール"
+        label: "マイレビュー",
+        icon: "fas fa-comment-dots"
       }, {
         id: 2,
-        label: "レビューしたアプリ"
+        label: "ブックマーク",
+        icon: "fas fa-bookmark"
       }, {
         id: 3,
-        label: "ブックマーク"
+        label: "フォロー",
+        icon: "fas fa-user-plus"
       }, {
         id: 4,
-        label: "フォロー"
-      }, {
-        id: 5,
-        label: "フォロワー"
+        label: "フォロワー",
+        icon: "fas fa-user-check"
       }]
     };
   },
@@ -2902,7 +2907,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       //jsの機能、配列の要素を探す
-      consolo.log(this.applications);
       return this.list.find(function (el) {
         return el.id === _this.currentId;
       }) || {};
@@ -40075,7 +40079,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-3" },
+        { staticClass: "col-md-2" },
         [
           _c("h3", { staticClass: "mt-4 mb-0" }, [
             _vm._v(_vm._s(_vm.trackName))
@@ -40096,7 +40100,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
+      _c("div", { staticClass: "col-md-6" }, [
         _c("p", { staticClass: "text-secondary mt-2 mb-0" }, [
           _vm._v("2021/02/18のレビュー")
         ]),
@@ -40129,17 +40133,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3" }, [
+    return _c("div", { staticClass: "col-md-2" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("編集")]
+        { staticClass: "btn btn-primary m-3", attrs: { type: "button" } },
+        [_vm._v("　　編集　　")]
       ),
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-danger", attrs: { type: "button" } },
-        [_vm._v("削除")]
+        { staticClass: "btn btn-danger m-3", attrs: { type: "button" } },
+        [_vm._v("　　削除　　")]
       )
     ])
   }
@@ -40292,7 +40296,7 @@ var render = function() {
   return _c(
     "li",
     {
-      staticClass: "nav-item nav-link border-primary",
+      staticClass: "nav-item nav-link",
       class: _vm.active,
       on: {
         click: function($event) {
@@ -40300,7 +40304,13 @@ var render = function() {
         }
       }
     },
-    [_c("div", [_vm._v("\n      " + _vm._s(_vm.label) + "\n  ")])]
+    [
+      _c("div", [
+        _c("i", { class: _vm.icon }, [
+          _vm._v("\n          " + _vm._s(_vm.label) + "\n      ")
+        ])
+      ])
+    ]
   )
 }
 var staticRenderFns = []
@@ -40326,10 +40336,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-2" }, [
+    _c("div", { staticClass: "col-md-2 mt-3" }, [
       _c(
         "ul",
-        { staticClass: "nav flex-column bg-light" },
+        { staticClass: "nav flex-column shadow bg-white" },
         _vm._l(_vm.list, function(item) {
           return _c(
             "TabItem",
@@ -40354,96 +40364,103 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-10 tab-content border-primary" }, [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.currentId === 1,
-              expression: "currentId === 1"
-            }
-          ]
-        },
-        [
-          _c("h3", { staticClass: "m-4" }, [_vm._v("プロフィール")]),
-          _vm._v(" "),
-          _c("hr", { attrs: { color: "#797979" } })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.currentId === 2,
-              expression: "currentId === 2"
-            }
-          ]
-        },
-        [
-          _c("h3", { staticClass: "m-4" }, [_vm._v("マイレビュー")]),
-          _vm._v(" "),
-          _c("hr", { attrs: { color: "#797979" } }),
-          _vm._v(" "),
-          _vm._l(_vm.applications, function(application) {
-            return _c(
-              "Applications",
-              _vm._b(
-                { key: application.id, attrs: { authorized: _vm.authorized } },
+    _c(
+      "div",
+      { staticClass: "col-md-10 mt-3 tab-content shadow-sm bg-white" },
+      [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.currentId === 1,
+                expression: "currentId === 1"
+              }
+            ]
+          },
+          [
+            _c("h3", { staticClass: "m-4" }, [_vm._v("マイレビュー")]),
+            _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } }),
+            _vm._v(" "),
+            _vm._l(_vm.applications, function(application) {
+              return _c(
                 "Applications",
-                application,
-                false
+                _vm._b(
+                  {
+                    key: application.id,
+                    attrs: { authorized: _vm.authorized }
+                  },
+                  "Applications",
+                  application,
+                  false
+                )
               )
-            )
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.currentId === 3,
-              expression: "currentId === 3"
-            }
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.currentId === 2,
+                expression: "currentId === 2"
+              }
+            ]
+          },
+          [
+            _c("h3", { staticClass: "m-4" }, [_vm._v("ブックマーク")]),
+            _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } })
           ]
-        },
-        [
-          _c("h3", { staticClass: "m-4" }, [_vm._v("ブックマーク")]),
-          _vm._v(" "),
-          _c("hr", { attrs: { color: "#797979" } })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.currentId === 4,
-              expression: "currentId === 4"
-            }
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.currentId === 3,
+                expression: "currentId === 3"
+              }
+            ]
+          },
+          [
+            _c("h3", { staticClass: "m-4" }, [_vm._v("フォロー")]),
+            _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } })
           ]
-        },
-        [
-          _c("h3", { staticClass: "m-4" }, [_vm._v("フォロー")]),
-          _vm._v(" "),
-          _c("hr", { attrs: { color: "#797979" } })
-        ]
-      )
-    ])
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.currentId === 4,
+                expression: "currentId === 4"
+              }
+            ]
+          },
+          [
+            _c("h3", { staticClass: "m-4" }, [_vm._v("フォロワー")]),
+            _vm._v(" "),
+            _c("hr", { attrs: { color: "#797979" } })
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []

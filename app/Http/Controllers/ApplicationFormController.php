@@ -104,6 +104,7 @@ class ApplicationFormController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -114,7 +115,7 @@ class ApplicationFormController extends Controller
         $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
 
-        
+
         $application->users()->attach(
             $request->user()->id,
             [

@@ -1,11 +1,13 @@
 <template>
   <li
-    class="nav-item nav-link border-primary"
+    class="nav-item nav-link"
     @click="$emit('input', id)"
     :class="active"
   >
     <div>
-        {{ label }}
+        <i :class= icon>
+            {{ label }}
+        </i>
     </div>
   </li>
 
@@ -17,6 +19,7 @@ export default {
     id: Number, //
     label: String,
     value: Number,
+    icon: String,
   },
   computed: {
     active() {

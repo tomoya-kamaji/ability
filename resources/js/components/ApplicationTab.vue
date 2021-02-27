@@ -116,6 +116,7 @@
             <hr color="#797979" class="m-0">
         </div>
 
+
         <div v-show="currentId === 2">
             <h3 class="m-4">「{{ application.trackName }}」の紹介</h3>
 
