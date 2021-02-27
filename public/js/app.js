@@ -2949,6 +2949,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2966,7 +2968,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentId: 2,
+      currentId: 1,
       list: [{
         id: 1,
         label: "マイレビュー",
@@ -40325,7 +40327,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" })
+      _vm._m(1)
     ]),
     _vm._v(" "),
     _c("hr", { attrs: { color: "#797979" } })
@@ -40343,15 +40345,35 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("h5", { staticClass: "mb-1" }),
       _vm._v(" "),
-      _c("p", {
-        staticClass: "text-secondary",
-        staticStyle: {
-          display: "-webkit-box",
-          "-webkit-line-clamp": "4",
-          "-webkit-box-orient": "vertical",
-          overflow: "hidden"
-        }
-      })
+      _c(
+        "p",
+        {
+          staticClass: "text-secondary",
+          staticStyle: {
+            display: "-webkit-box",
+            "-webkit-line-clamp": "4",
+            "-webkit-box-orient": "vertical",
+            overflow: "hidden"
+          }
+        },
+        [
+          _vm._v(
+            "ここにはアプリの説明文を入れる。ここにはアプリの説明文を入れる。ここにはアプリの説明文を入れる"
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-danger m-4", attrs: { type: "button" } },
+        [_vm._v("　　削除　　")]
+      )
     ])
   }
 ]
@@ -40596,7 +40618,8 @@ var render = function() {
           ? _c("div", [
               _c("h3", { staticClass: "m-4" }, [_vm._v("フォロー")]),
               _vm._v(" "),
-              _c("hr", { attrs: { color: "#797979" } })
+              _c("hr", { attrs: { color: "#797979" } }),
+              _vm._v("\n            フォロ一覧を表示する\n        ")
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -40615,7 +40638,8 @@ var render = function() {
           [
             _c("h3", { staticClass: "m-4" }, [_vm._v("フォロワー")]),
             _vm._v(" "),
-            _c("hr", { attrs: { color: "#797979" } })
+            _c("hr", { attrs: { color: "#797979" } }),
+            _vm._v("\n            フォロワー一覧を表示する\n        ")
           ]
         )
       ]

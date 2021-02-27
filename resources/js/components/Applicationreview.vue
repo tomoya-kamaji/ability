@@ -45,7 +45,7 @@
                             </blockquote>
                         </div>
                         <div class="row">
-                                <p class = "ml-4 text-secondary">{{ pivot.improvement_point }}</p>
+                            <p class = "ml-4 text-secondary">{{ pivot.improvement_point }}</p>
                         </div>
                     </div>
                 </div>

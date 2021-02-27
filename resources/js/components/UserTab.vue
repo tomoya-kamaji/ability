@@ -34,10 +34,12 @@
             <div v-if="currentId === 3">
                 <h3 class="m-4">フォロー</h3>
                 <hr color="#797979">
+                フォロ一覧を表示する
             </div>
             <div v-show="currentId === 4">
                 <h3 class="m-4">フォロワー</h3>
                 <hr color="#797979">
+                フォロワー一覧を表示する
             </div>
         </div>
     </div>
@@ -60,7 +62,7 @@ export default {
 
   data() {
     return {
-      currentId: 2,
+      currentId: 1,
       list: [
         { id: 1, label: "マイレビュー", icon:"fas fa-comment-dots" },
         { id: 2, label: "ブックマーク" , icon:"fas fa-bookmark"},
