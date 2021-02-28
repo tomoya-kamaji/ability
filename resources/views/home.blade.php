@@ -63,14 +63,14 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="card bg-white shadow" style="width: 100%;">
-                    <h4 class="mt-4 ml-4 mb-0">最近のレビュー</h4>
+                {{-- <div class="card bg-white shadow" style="width: 100%;"> --}}
+                    <h3 class="m-4">最近のレビュー</h3>
                     <div class="row">
                         @foreach ($recent_applications as $recent_application)
                             @include('recent_application')
                         @endforeach
                     </div>
-                </div>
+                {{-- </div> --}}
 
                 <div class="card mt-5 bg-white shadow" style="width: 100%;">
                     <h4 class="mt-4 ml-4 mb-0">レビューが多いアプリ</h4>
