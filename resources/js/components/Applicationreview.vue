@@ -19,7 +19,6 @@
                         <div class="row">
                             <h5 class="card-title col-md-7 m-0">{{ pivot.title }}</h5>
                             <p class="card-title col-md-5 m-0">投稿日：{{ created_at }}</p>
-
                         </div>
                         <hr color="#797979">
 
