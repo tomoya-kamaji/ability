@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="bg-light">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="jumbotron">
@@ -44,15 +45,51 @@
                 </div>
             </div>
         </div>
-        <div>
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-white" style="width: 18rem;">
+                    {{-- <img class="d-block mx-auto img-thumbnail mt-3" src={{ $application['artworkUrl512']}} width="150" height="150"> --}}
+                    <div class="card-body">
+                        <h4 class="card-title text-center">tomoya</h4>
+                        <p class="card-text text-center m-0"></p>
+                        <div class="col d-flex align-items-center justify-content-center m-2">
+                            <i class="far fa-comment-dots" style="vertical-align: middle;"> 件</i>
+                        </div>
+                        <a href="" class="btn btn-primary mx-auto d-block">レビューを書く</a>
+                        <hr color="#797979">
+                        <p style="display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden;"></p>
+                        <a href="">詳細はこちら</a>
+                        <hr color="#797979">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="card" style="width: 50rem;">
+                         評価が高いアプリ
+                    </div>
+                </div>
+                <div class="row">
+                    レビューが多いアプリ
+                </div>
+                <div class="row">
+                    人気のユーザ
+                </div>
+            </div>
         </div>
     </div>
+</div>
 @endsection
 
 
 @section('css')
     <style>
+        /* body {
+            background-color: #f2f9ff;
+        } */
         .jumbotron {
             background-image: url({{ asset('/image/background.jpeg') }});
         }
