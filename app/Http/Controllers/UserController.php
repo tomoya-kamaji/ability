@@ -69,19 +69,27 @@ class UserController extends Controller
         //ブックマークアプリケーション一覧
         $like_applications = $user->like;
 
-
-
         //フォロー一覧
+        $followings = $user->followings->sortByDesc('created_at');
 
         //フォロワー一覧
+        $followers = $user->followers->sortByDesc('created_at');
 
-
+        //ユーザの写真
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
-
-        return view('users.show', compact('user','applications', 'like_applications', 'is_image'));
+        return view(
+            'users.show',
+            compact(
+                'user',
+                'applications',
+                'like_applications',
+                'followings',
+                'followers',
+                'is_image'
+            ));
     }
 
     public function follow(Request $request, string $name)
@@ -109,7 +117,6 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
         return ['name' => $name];
     }
-
 
     /**
      * Show the form for editing the specified resource.

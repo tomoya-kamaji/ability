@@ -24,6 +24,7 @@
             <div v-if="currentId === 2">
                 <h3 class="m-4">ブックマーク</h3>
                 <hr color="#797979">
+                <!-- {{ like_applications }} -->
                 <LikeApplications
                     v-for="like_application in like_applications"
                     v-bind="like_application"
@@ -34,12 +35,22 @@
             <div v-if="currentId === 3">
                 <h3 class="m-4">フォロー</h3>
                 <hr color="#797979">
-                フォロ一覧を表示する
+                <Followings
+                    v-for="following in followings"
+                    v-bind="following"
+                    :key="following.id"
+                />
+
             </div>
             <div v-show="currentId === 4">
                 <h3 class="m-4">フォロワー</h3>
                 <hr color="#797979">
-                フォロワー一覧を表示する
+                <Followers
+                    v-for="follower in followers"
+                    v-bind="follower"
+                    :key="follower.id"
+                />
+
             </div>
         </div>
     </div>
@@ -49,13 +60,23 @@
 import TabItem from "./TabItem.vue";
 import Applications from "./Applications.vue";
 import LikeApplications from "./LikeApplications.vue";
+import Followings from "./Followings.vue";
+import Followers from "./Followers.vue";
 
 export default {
-  components: { TabItem, Applications ,LikeApplications},
+  components: {
+      TabItem,
+      Applications,
+      LikeApplications,
+      Followings,
+      Followers
+    },
 
   props: {
     applications: Array,
     like_applications: Array,
+    followings: Array,
+    followers: Array,
     user: Object,
     authorized: Boolean,
   },

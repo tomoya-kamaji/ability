@@ -7,6 +7,8 @@
         <user-tab
             :applications="{{ json_encode($applications) }}"
             :like_applications="{{ json_encode($like_applications) }}"
+            :followers="{{ json_encode($followers) }}"
+            :followings="{{ json_encode($followings) }}"
             :user="{{ json_encode($user) }}"
             :authorized='@json(Auth::check())'
         >
