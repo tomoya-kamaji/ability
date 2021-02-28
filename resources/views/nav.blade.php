@@ -13,6 +13,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('application.index') }}">アプリを探す<span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="">カテゴリ別</a>
                 </li>
@@ -32,7 +33,7 @@
                 @endif
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="">ブックマーク</a>
+                    <a class="nav-link" href="{{ route("users.show", ["name" => Auth::user()->name]) }}">マイページ</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -41,7 +42,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route("users.show", ["name" => Auth::user()->name]) }}">マイページ</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                                      document.getElementById('logout-form').submit();">
