@@ -29,8 +29,6 @@
         <div class="col-md-9">
             <div class="jumbotron m-0">
             </div>
-            
-
             <application-tab
                 :application="{{ json_encode($application) }}"
                 :applicationreviews="{{ json_encode($applicationreviews) }}"

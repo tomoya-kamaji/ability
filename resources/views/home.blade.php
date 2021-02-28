@@ -47,18 +47,14 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card bg-white" style="width: 18rem;">
+            <div class="col-md-3">
+                <div class="card bg-white shadow" style="width: 18rem;">
                     {{-- <img class="d-block mx-auto img-thumbnail mt-3" src={{ $application['artworkUrl512']}} width="150" height="150"> --}}
                     <div class="card-body">
-                        <h4 class="card-title text-center">tomoya</h4>
-                        <p class="card-text text-center m-0"></p>
-                        <div class="col d-flex align-items-center justify-content-center m-2">
-                            <i class="far fa-comment-dots" style="vertical-align: middle;"> 件</i>
-                        </div>
-                        <a href="" class="btn btn-primary mx-auto d-block">レビューを書く</a>
+                        {{ $user }}
+                        <h4 class="card-title text-center">{{ $user->name }}</h4>
                         <hr color="#797979">
                         <p style="display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden;"></p>
                         <a href="">詳細はこちら</a>
@@ -66,17 +62,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="card" style="width: 50rem;">
-                         評価が高いアプリ
+            <div class="col-md-9">
+                <div class="card bg-white shadow" style="width: 100%;">
+                    <h4 class="mt-4 ml-4 mb-0">最近のレビュー</h4>
+                    <div class="row">
+                        @foreach ($recent_applications as $recent_application)
+                            @include('recent_application')
+                        @endforeach
                     </div>
                 </div>
-                <div class="row">
-                    レビューが多いアプリ
+
+                <div class="card mt-5 bg-white shadow" style="width: 100%;">
+                    <h4 class="mt-4 ml-4 mb-0">レビューが多いアプリ</h4>
+                    <div class="row">
+                        @foreach ($manyreview_applications as $manyreview_application)
+                            @include('manyreview_application')
+                        @endforeach
+                    </div>
                 </div>
-                <div class="row">
-                    人気のユーザ
+
+                <div class="card mt-5 bg-white shadow" style="width: 100%;">
+                    <h4 class="mt-4 ml-4 mb-0">評価が高いアプリ</h4>
+                    <div class="row">
+                        @foreach ($manyreview_applications as $manyreview_application)
+                            @include('manyreview_application')
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="row mt-0 mb-5 justify-content-center bg-white shadow">
+
                 </div>
             </div>
         </div>
@@ -87,9 +102,11 @@
 
 @section('css')
     <style>
-        /* body {
-            background-color: #f2f9ff;
-        } */
+        .container-fluid {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1480px;
+        }
         .jumbotron {
             background-image: url({{ asset('/image/background.jpeg') }});
         }
