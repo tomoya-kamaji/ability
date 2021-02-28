@@ -36,7 +36,7 @@
                 <h3 class="m-4">フォロー</h3>
                 <hr color="#797979">
                 <Followings
-                    v-for="following in followings"
+                    v-for="following in user.followings"
                     v-bind="following"
                     :key="following.id"
                 />
@@ -46,10 +46,11 @@
                 <h3 class="m-4">フォロワー</h3>
                 <hr color="#797979">
                 <Followers
-                    v-for="follower in followers"
+                    v-for="follower in user.followers"
                     v-bind="follower"
                     :key="follower.id"
                 />
+                
 
             </div>
         </div>

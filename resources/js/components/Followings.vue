@@ -9,6 +9,7 @@
             width="100"
             height="100"
             /> -->
+            
         </div>
         <div class="col-md-2">
             <h3 class="mt-4 mb-0">{{ name }}</h3>

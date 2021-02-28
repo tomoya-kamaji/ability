@@ -2798,6 +2798,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3028,6 +3029,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LikeApplications_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LikeApplications.vue */ "./resources/js/components/LikeApplications.vue");
 /* harmony import */ var _Followings_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Followings.vue */ "./resources/js/components/Followings.vue");
 /* harmony import */ var _Followers_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Followers.vue */ "./resources/js/components/Followers.vue");
+//
 //
 //
 //
@@ -40885,7 +40887,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("hr", { attrs: { color: "#797979" } }),
                 _vm._v(" "),
-                _vm._l(_vm.followings, function(following) {
+                _vm._l(_vm.user.followings, function(following) {
                   return _c(
                     "Followings",
                     _vm._b(
@@ -40918,7 +40920,7 @@ var render = function() {
             _vm._v(" "),
             _c("hr", { attrs: { color: "#797979" } }),
             _vm._v(" "),
-            _vm._l(_vm.followers, function(follower) {
+            _vm._l(_vm.user.followers, function(follower) {
               return _c(
                 "Followers",
                 _vm._b({ key: follower.id }, "Followers", follower, false)
