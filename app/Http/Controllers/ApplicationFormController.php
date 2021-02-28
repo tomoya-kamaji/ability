@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +19,6 @@ class ApplicationFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
 
 
     public function index(Request $request)
@@ -104,7 +101,7 @@ class ApplicationFormController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * 
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -114,7 +111,6 @@ class ApplicationFormController extends Controller
         //初めてならInsert。2回目ならUpdate
         $application = Application::firstOrNew(['trackName' => $request->trackName]);
         $application->fill($request->all())->save();
-
 
         $application->users()->attach(
             $request->user()->id,
@@ -152,12 +148,6 @@ class ApplicationFormController extends Controller
 
     public function like(Request $request, Application $application)
     {
-
-        //テーブルに存在するかどうかを確かめる
-        //初めてならInsert。2回目ならUpdate
-        // $application = Application::firstOrNew(['trackName' => $request->trackName]);
-        // $application->fill($request->all())->save();
-
 
         $application->likes()->detach($request->user()->id);
         $application->likes()->attach($request->user()->id);

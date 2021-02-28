@@ -116,10 +116,8 @@
             <hr color="#797979" class="m-0">
         </div>
 
-
         <div v-show="currentId === 2">
             <h3 class="m-4">「{{ application.trackName }}」の紹介</h3>
-
             <div class="row">
                 <p class="text-secondary mt-0 mb-5 mr-5 ml-5"  style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden;">{{ application.description }}</p>
             </div>
