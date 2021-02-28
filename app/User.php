@@ -72,6 +72,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
+    //フォローしているかどうか？
     public function isFollowedBy(?User $user): bool
     {
         return $user

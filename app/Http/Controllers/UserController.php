@@ -29,8 +29,6 @@ class UserController extends Controller
         return view('users/index', compact('is_image'));
     }
 
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -63,6 +61,7 @@ class UserController extends Controller
     public function show(string $name)
     {
         $user = User::where('name', $name)->first();
+
         //アプリケーション一覧
         $applications = $user->application_user;
 
