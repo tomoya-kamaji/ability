@@ -46,7 +46,8 @@ class HomeController extends Controller
         ->get();
 
         // applicationsに平均値を持たせておこう
-        $mostreview_applications = Application::all();
-        return view('home', compact('user','manyreview_applications', 'recent_applications'));
+        $applications = Application::all();
+
+        return view('home', compact('applications','user','manyreview_applications', 'recent_applications'));
     }
 }
