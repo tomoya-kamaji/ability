@@ -17,6 +17,12 @@ class Application extends Model
         'categorys_id',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'posted_at',
+    ];
+
     /**
      * アプリを登録しているユーザを取得
      */

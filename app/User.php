@@ -23,6 +23,11 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -40,6 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 
     /**
      * ユーザが登録しているアプリケーションを取得

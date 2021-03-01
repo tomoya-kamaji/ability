@@ -40668,7 +40668,7 @@ var render = function() {
           rating: _vm.averageReviews,
           increment: 0.1,
           "max-rating": 5,
-          "star-size": 30,
+          "star-size": 20,
           "read-only": true
         }
       })
