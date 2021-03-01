@@ -50,7 +50,24 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <div class="card bg-white shadow" style="width: 18rem;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h3 class="m-0">{{ $applications->count() }}</h3>
+                            <p>レビュー</p>
+                        </div>
+                        <div class="col text-center">
+                        {{-- <div class="col text-center border border-primary"> --}}
+                            <h3 class="m-0">{{ $applications->count() }}</h3>
+                            <p>ユーザ</p>
+                        </div>
+                        <div class="col text-center">
+                            <h3 class="m-0">{{ $applications->count() }}</h3>
+                            <p>ユーザ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mx-auto bg-white shadow" style="width: 18rem;">
                     <div class="card-body">
                         <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px">
                         <h4 class="card-title text-center">{{ $user->name }}</h4>
@@ -104,16 +121,18 @@
             </div>
             <div class="col-md-9">
                     <h2 class="mt-4 mb-3">新着のレビュー</h2>
-                    <div class="row">
+                    <div class="row mb-5">
                         @foreach ($recent_applications as $recent_application)
                             @include('recent_application')
                         @endforeach
                     </div>
 
-                    <h2 class="mt-4 mb-3">レビューが多いアプリ</h2>
+                    <h2 class="mt-5 mb-3">レビューが多いアプリ</h2>
                     <div class="row">
+                        <?php $i = 0;; ?>
                         @foreach ($manyreview_applications as $manyreview_application)
                             @include('manyreview_application')
+                            <?php $i++; ?>
                         @endforeach
                     </div>
 

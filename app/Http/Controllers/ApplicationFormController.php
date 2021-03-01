@@ -95,6 +95,7 @@ class ApplicationFormController extends Controller
             $is_image = true;
         }
 
+
         return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
     }
 
