@@ -51,44 +51,78 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card bg-white shadow" style="width: 18rem;">
-                    {{-- <img class="d-block mx-auto img-thumbnail mt-3" src={{ $application['artworkUrl512']}} width="150" height="150"> --}}
                     <div class="card-body">
-                        {{ $user }}
+                        <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px">
                         <h4 class="card-title text-center">{{ $user->name }}</h4>
-                        <hr color="#797979">
-                        <p style="display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden;"></p>
-                        <a href="">詳細はこちら</a>
-                        <hr color="#797979">
+                        <hr color="#e6e6e6" class="m-2">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">レビュー投稿</a>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="m-0 text-right">7</p>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <hr color="#e6e6e6" class="m-2">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">ブックマーク</a>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="m-0 text-right">7</p>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <hr color="#e6e6e6" class="m-2">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロー中</a>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="m-0 text-right">231</p>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <hr color="#e6e6e6" class="m-2">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロワー</a>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="m-0 text-right">100</p>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <hr color="#e6e6e6" class="m-2">
                     </div>
                 </div>
             </div>
             <div class="col-md-9">
-                {{-- <div class="card bg-white shadow" style="width: 100%;"> --}}
-                    <h3 class="m-4">最近のレビュー</h3>
+                    <h2 class="mt-4 mb-3">新着のレビュー</h2>
                     <div class="row">
                         @foreach ($recent_applications as $recent_application)
                             @include('recent_application')
                         @endforeach
                     </div>
-                {{-- </div> --}}
 
-                <div class="card mt-5 bg-white shadow" style="width: 100%;">
-                    <h4 class="mt-4 ml-4 mb-0">レビューが多いアプリ</h4>
+                    <h2 class="mt-4 mb-3">レビューが多いアプリ</h2>
                     <div class="row">
                         @foreach ($manyreview_applications as $manyreview_application)
                             @include('manyreview_application')
                         @endforeach
                     </div>
-                </div>
 
-                <div class="card mt-5 bg-white shadow" style="width: 100%;">
-                    <h4 class="mt-4 ml-4 mb-0">評価が高いアプリ</h4>
+                    {{-- <h2 class="mt-4 mb-3">評価が高いアプリ</h2>
                     <div class="row">
                         @foreach ($manyreview_applications as $manyreview_application)
                             @include('manyreview_application')
                         @endforeach
-                    </div>
-                </div>
+                    </div> --}}
 
                 <div class="row mt-0 mb-5 justify-content-center bg-white shadow">
 
