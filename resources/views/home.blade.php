@@ -69,12 +69,12 @@
                 </div>
                 <div class="card mx-auto bg-white shadow" style="width: 18rem;">
                     <div class="card-body">
-                        <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px">
+                        <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2"><img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px"></a>
                         <h4 class="card-title text-center">{{ $user->name }}</h4>
                         <hr color="#e6e6e6" class="m-2">
                         <div class="row">
                             <div class="col-md-8">
-                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">レビュー投稿</a>
+                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">マイレビュー</a>
                             </div>
                             <div class="col-md-3">
                                 <p class="m-0 text-right">7</p>
@@ -129,7 +129,7 @@
 
                     <h2 class="mt-5 mb-3">レビューが多いアプリ</h2>
                     <div class="row">
-                        <?php $i = 0;; ?>
+                        <?php $i = 0;?>
                         @foreach ($manyreview_applications as $manyreview_application)
                             @include('manyreview_application')
                             <?php $i++; ?>

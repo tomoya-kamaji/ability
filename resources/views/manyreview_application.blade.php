@@ -3,7 +3,7 @@
 <div class="col-md-3">
     <div class="card-body bg-white shadow">
         @if ($i == 0)
-            <i class="fas fa-crown" aria-hidden="true" style="color:#DBB400;">　No.1></i>
+            <i class="fas fa-crown" aria-hidden="true" style="color:#DBB400;">　No.1</i>
         @elseif ($i == 1)
             <i class="fas fa-crown" aria-hidden="true" style="color:#AEB3B5;">　No.2</i>
         @elseif ($i == 2)
