@@ -4,7 +4,7 @@
 <div class="bg-light">
     <div class="container-xl">
         @include('users.user')
-        {{ url('/application/detailpage') }}
+        {{-- {{ url('/application/detailpage') }} --}}
         <user-tab
             :applications="{{ json_encode($applications) }}"
             :like_applications="{{ json_encode($like_applications) }}"
