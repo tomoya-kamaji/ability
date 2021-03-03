@@ -69,7 +69,11 @@
                 </div>
                 <div class="card mx-auto bg-white shadow" style="width: 18rem;">
                     <div class="card-body">
-                        <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2"><img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px"></a>
+                        <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+                            <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                        </a>
+                        {{-- <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2"><img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px"></a> --}}
+
                         <h4 class="card-title text-center">{{ $user->name }}</h4>
                         <hr color="#e6e6e6" class="m-2">
                         <div class="row">
