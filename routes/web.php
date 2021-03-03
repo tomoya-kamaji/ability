@@ -13,7 +13,7 @@
 
 
 
-Route::group(
+Route::group(   
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
         Route::get('index', 'ApplicationFormController@index')->name('application.index');
