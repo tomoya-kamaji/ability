@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         $manyreview_applications = DB::table('application_user')
         ->join('applications', 'application_user.application_id', '=', 'applications.id')
-        ->select(DB::raw('count(*) as application_count, application_id, trackName, artistName, artworkURL512'))
+        ->select(DB::raw('count(*) as application_count, application_id,trackId ,trackName, artistName, artworkURL512'))
         ->groupBy('application_id', 'application_id', 'trackName', 'artistName', 'artworkURL512','evaluation')
         ->orderBy('application_count', 'desc')
         ->take(4)
