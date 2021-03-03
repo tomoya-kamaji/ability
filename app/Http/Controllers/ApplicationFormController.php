@@ -28,7 +28,7 @@ class ApplicationFormController extends Controller
         // $user = Auth::user();
         // $applications = iTunesapi::iTunessearch($search);
         // return view('Application.index', compact('search', 'user','applications'));
-        return view('Application.index');
+        // return view('Application.index');
     }
 
 
