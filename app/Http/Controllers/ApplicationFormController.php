@@ -23,12 +23,11 @@ class ApplicationFormController extends Controller
 
     public function index(Request $request)
     {
-        // $search = $request->input('search');
-        // $search = 'test';
-        // $user = Auth::user();
-        // $applications = iTunesapi::iTunessearch($search);
-        // return view('Application.index', compact('search', 'user','applications'));
-        // return view('Application.index');
+        $search = $request->input('search');
+        $user = Auth::user();
+        $applications = iTunesapi::iTunessearch($search);
+        return view('application.index', compact('search', 'user','applications'));
+        // return view('Application.index', compact('search', 'user','applications')); ← AWS上だと認識されない、、、？
     }
 
 
