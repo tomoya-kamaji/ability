@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Application;
+use App\User;
 use Helpers\iTunesapi;
 use Illuminate\Support\Facades\DB;
 
