@@ -22,7 +22,7 @@
     <div id="app">
         @include('nav')
         @yield('content')
-
+        @include('footer')
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
