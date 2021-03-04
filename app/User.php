@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Application', 'likes')->withTimestamps();
     }
 
+    public function getCountLikesAttribute(): int
+    {
+        return $this->like->count();
+    }
+
     //フォロワーを取得
     public function followers(): BelongsToMany
     {

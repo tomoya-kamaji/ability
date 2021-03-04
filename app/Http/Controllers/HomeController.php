@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Application;
-use App\User;
 use App\ApplicationUser;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +31,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+
+        $applications_users = $user->application_user;;
+
         $recent_applications = DB::table('application_user')
         ->join('applications', 'application_user.application_id', '=', 'applications.id')
         ->orderBy('application_user.created_at', 'desc')
@@ -46,8 +49,9 @@ class HomeController extends Controller
         ->get();
 
         // applicationsに平均値を持たせておこう
-        $applications = Application::all();
+        $applications = ApplicationUser::all();
+        $register_users = User::all();
 
-        return view('home', compact('applications','user','manyreview_applications', 'recent_applications'));
+        return view('home', compact('applications','user', 'applications_users', 'register_users','manyreview_applications', 'recent_applications'));
     }
 }

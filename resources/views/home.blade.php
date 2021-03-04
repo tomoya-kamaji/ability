@@ -33,13 +33,13 @@
                             <h3 class="text-white">オススメのアプリ</h3>
                             <p class="text-white">レビューを投稿したアプリに沿ってあなたのオススメが見つかる</p>
                         </div>
-                        <div class="col align-self-end">
+                        {{-- <div class="col align-self-end">
                             <h3 class="text-white">目的にあったアプリ</h3>
                             <p class="text-white">あなたの目的に沿ったアプリを探せる</p>
-                        </div>
+                        </div> --}}
                         <div class="col align-self-end">
                             <h3 class="text-white">人気ユーザのアプリ</h3>
-                            <p class="text-white">人気のユーザが使用したアプリを閲覧できる</p>
+                            <p class="text-white">人気のユーザがレビューアプリを閲覧できる</p>
                         </div>
                     </div>
                 </div>
@@ -52,17 +52,12 @@
             <div class="col-md-3">
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center">
-                            <h3 class="m-0">{{ $applications->count() }}</h3>
+                        <div class="col text-center border-right">
+                            <h3 class="m-0">{{ $applications_users->count() }}</h3>
                             <p>レビュー</p>
                         </div>
                         <div class="col text-center">
-                        {{-- <div class="col text-center border border-primary"> --}}
-                            <h3 class="m-0">{{ $applications->count() }}</h3>
-                            <p>ユーザ</p>
-                        </div>
-                        <div class="col text-center">
-                            <h3 class="m-0">{{ $applications->count() }}</h3>
+                            <h3 class="m-0">{{ $register_users->count() }}</h3>
                             <p>ユーザ</p>
                         </div>
                     </div>
@@ -72,8 +67,6 @@
                         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                             <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
                         </a>
-                        {{-- <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2"><img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle mx-auto d-block" width="100px" height="100px"></a> --}}
-
                         <h4 class="card-title text-center">{{ $user->name }}</h4>
                         <hr color="#e6e6e6" class="m-2">
                         <div class="row">
@@ -81,7 +74,7 @@
                                 <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">マイレビュー</a>
                             </div>
                             <div class="col-md-3">
-                                <p class="m-0 text-right">7</p>
+                                <p class="m-0 text-right">{{ $applications->count() }}</p>
                             </div>
                             <div class="col-md-1">
                             </div>
@@ -92,7 +85,7 @@
                                 <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">ブックマーク</a>
                             </div>
                             <div class="col-md-3">
-                                <p class="m-0 text-right">7</p>
+                                <p class="m-0 text-right">{{ $user->count_likes }}</p>
                             </div>
                             <div class="col-md-1">
                             </div>
@@ -103,7 +96,7 @@
                                 <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロー中</a>
                             </div>
                             <div class="col-md-3">
-                                <p class="m-0 text-right">231</p>
+                                <p class="m-0 text-right">{{ $user->count_followings }}</p>
                             </div>
                             <div class="col-md-1">
                             </div>
@@ -114,13 +107,17 @@
                                 <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロワー</a>
                             </div>
                             <div class="col-md-3">
-                                <p class="m-0 text-right">100</p>
+                                <p class="m-0 text-right">{{ $user->count_followers }}</p>
                             </div>
                             <div class="col-md-1">
                             </div>
                         </div>
                         <hr color="#e6e6e6" class="m-2">
                     </div>
+                </div>
+                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
+                    <h1>テスト</h1>
+
                 </div>
             </div>
             <div class="col-md-9">
