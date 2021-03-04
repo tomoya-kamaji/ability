@@ -89,7 +89,11 @@ class ApplicationFormController extends Controller
         $applications = iTunesapi::iTuneslookup($id);
 
         $application = Application::where('trackId', $id)->first();
-        $applicationreviews = $application->application_user;
+        if (empty($application->application_user)) {
+            $applicationreviews=[];
+        }else{
+            $applicationreviews = $application->application_user;
+        }
 
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
