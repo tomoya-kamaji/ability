@@ -62,7 +62,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mx-auto bg-white shadow" style="width: 18rem;">
+                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
+
                     <div class="card-body">
                         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                             <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
@@ -115,9 +116,11 @@
                         <hr color="#e6e6e6" class="m-2">
                     </div>
                 </div>
-                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
-                    <h1>テスト</h1>
 
+                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
+                    <div class="row">
+                        人気のユーザ
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">
@@ -127,7 +130,7 @@
                             @include('recent_application')
                         @endforeach
                     </div>
-
+                    
                     <h2 class="mt-5 mb-3">レビューが多いアプリ</h2>
                     <div class="row">
                         <?php $i = 0;?>
