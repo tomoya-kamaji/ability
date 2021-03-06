@@ -9,7 +9,7 @@
                     <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value={{ $search }}>
                 </div>
                 <div class="input-group input-group-lg col-md-2">
-                    <button class="btn btn-outline-success" type="submit">検索</button>
+                    <button class="btn bg-success text-white" type="submit">検索</button>
                 </div>
             </form>
         </div>

@@ -35,27 +35,26 @@ Route::group(
     }
 );
 
-
-
 Route::get('/{application}/count', 'ApplicationFormController@count')->name('count');
-Route::get('/{name}/application', function () {
-    return App\User::all();
-});
-
+// Route::get('/{name}/application', function () {
+//     return App\User::all();
+// });
 
 Route::prefix('users')->name('users.')->group(function () {
-    Route::get('/{name}/application', function () {
-         return App\User::all();
-    } );
+    // Route::get('/{name}/application', function () {
+    //      return App\User::all();
+    // } );
     Route::get('/mypage/{name}', 'UserController@show')->name('show');
+
     Route::middleware('auth')->group(function () {
-        Route::get('/profile', 'UserController@index')->name('index');
-        Route::post('/profile', 'UserController@store')->name('store');
+        Route::get('/index', 'UserController@index')->name('index');
+        Route::post('/index', 'UserController@store')->name('store');
+
+        Route::get('/edit', 'UserController@edit')->name('edit');
+        Route::post('/edit', 'UserController@update')->name('update');
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
     });
-
-
 });
 
 

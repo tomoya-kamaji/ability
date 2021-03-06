@@ -4,10 +4,9 @@
             <div class ="col-md-2">
                 @if ($is_image)
                 <figure>
-                    <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle" width="100px" height="100px">
+                    <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle" width="80px" height="80px">
                 </figure>
-                @endif
-                @if (!$is_image)
+                @else
                 <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                     <i class="fas fa-user-circle fa-3x"></i>
                 </a>
@@ -19,18 +18,19 @@
                 <a href="" class="text-muted">{{ $user->count_followers }} フォロワー</a>
             </div>
             <div class="col-md-5">
-                <h4>職業：エンジニア</h4>
-                <h4>年代：20~25才</h4>
+                <h4>職業：{{ $user->profession }}</h4>
             </div>
             <div class="col-md-2">
                 @if( Auth::id() !== $user->id )
-                <follow-button
-                    class="ml-auto"
-                    :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
-                    :authorized='@json(Auth::check())'
-                    endpoint="{{ route('users.follow', ['name' => $user->name]) }}"
-                >
-                </follow-button>
+                    <follow-button
+                        class="ml-auto"
+                        :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('users.follow', ['name' => $user->name]) }}"
+                    >
+                    </follow-button>
+                @else
+                    <a href="{{ route('users.index') }}"  class="btn border bg-success text-white p-2">プロフィール編集</a>
                 @endif
             </div>
         </div>

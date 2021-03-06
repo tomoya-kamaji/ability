@@ -35,7 +35,6 @@
                 :user="{{ json_encode($user) }}"
                 :authorized='@json(Auth::check())'>
             </application-tab>
-
         </div>
     </div>
 </div>
