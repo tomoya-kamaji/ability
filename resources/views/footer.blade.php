@@ -18,7 +18,11 @@
                 <div class="col align-self-center mt-5">
                     <dl>
                         <a class="text-white" href="{{ url('/home')}}"><dd>ホーム</dd></a>
-                        <a class="text-white" href="{{ route("users.show", ["name" => Auth::user()->name]) }}"><dd>マイページ</dd></a>
+                        @guest
+                    
+                        @else
+                            <a class="text-white" href="{{ route("users.show", ["name" => Auth::user()->name]) }}"><dd>マイページ</dd></a>
+                        @endguest
                         <a class="text-white" href="{{ route('logout') }}"><dd>ログアウト</dd></a>
                     </dl>
                 </div>
