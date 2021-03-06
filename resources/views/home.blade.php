@@ -15,16 +15,16 @@
                         <div class="input-group input-group-lg col-md-8">
                             <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
                         </div>
-                        <div class="input-group input-group-lg col-md-2">
+                        {{-- <div class="input-group input-group-lg col-md-2">
                             <select class="form-control" name="reviw" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
                                 <option>☆4以上</option>
                                 <option>☆3以上</option>
                                 <option>☆2以上</option>
                                 <option>☆1以上</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="input-group input-group-lg col-md-2">
-                            <button class="btn btn-outline-success" type="submit">検索</button>
+                            <button class="btn bg-success text-white" type="submit">検索</button>
                         </div>
                     </form>
 
@@ -125,7 +125,7 @@
 
                 <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
                     <div class="row">
-                        人気のユーザ
+                        {{-- 人気のユーザ --}}
                     </div>
                 </div>
             </div>

@@ -30,15 +30,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
-
-    /**
      * プロフィールの保存
      *
      * @param  \Illuminate\Http\Request  $request
@@ -46,7 +37,6 @@ class UserController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-
         $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
         return redirect('users/profile')->with('success', '新しいプロフィールを登録しました');
     }
@@ -117,26 +107,14 @@ class UserController extends Controller
         return ['name' => $name];
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = Auth::user();
-        return view('user.edit', compact('user'));
-    }
+    // public function postEdit($id, Request $request)
+    // {
+    //     $user = USER::find($id);
+    //     $user->your_name = $request->input('id');
 
-    public function postEdit($id, Request $request)
-    {
-        $user = USER::find($id);
-        $user->your_name = $request->input('id');
-
-        // 再度編集画面へリダイレクト
-        return redirect()->route('users.edit', ['id' => $id]);
-    }
+    //     // 再度編集画面へリダイレクト
+    //     return redirect()->route('users.edit', ['id' => $id]);
+    // }
 
     /**
      * Update the specified resource in storage.
