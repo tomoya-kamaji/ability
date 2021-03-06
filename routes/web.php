@@ -11,12 +11,10 @@
 |
 */
 
-
-
-Route::group(   
+//ログイン必須
+Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
-        Route::get('index', 'ApplicationFormController@index')->name('application.index');
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
         Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
         Route::get('detailpage/{id}', 'ApplicationFormController@detailpage')->name('application.detailpage');
@@ -28,27 +26,31 @@ Route::group(
     }
 );
 
-///////////
-Route::get('/{application}/count', 'ApplicationFormController@count')->name('count');
-///////////
+//ログイン必須でない
+Route::group(
+    ['prefix' => 'application'],
+    function () {
+        Route::get('index', 'ApplicationFormController@index')->name('application.index');
+        Route::get('detailpage/{id}', 'ApplicationFormController@detailpage')->name('application.detailpage');
+    }
+);
 
+
+
+Route::get('/{application}/count', 'ApplicationFormController@count')->name('count');
 Route::get('/{name}/application', function () {
     return App\User::all();
 });
 
-//API用
-Route::prefix('users')->name('users.')->group(function () {
 
+Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}/application', function () {
          return App\User::all();
     } );
-
     Route::get('/mypage/{name}', 'UserController@show')->name('show');
-
     Route::middleware('auth')->group(function () {
         Route::get('/profile', 'UserController@index')->name('index');
         Route::post('/profile', 'UserController@store')->name('store');
-
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
     });
@@ -57,20 +59,6 @@ Route::prefix('users')->name('users.')->group(function () {
 });
 
 
-// Route::group(
-//     ['prefix' => 'user', 'middleware' => 'auth'],
-//     function () {
-//         Route::get('index', 'UserController@index')->name('user.index');
-//         Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
-//     }
-// );
-
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-// Route::resource('contacts', 'ContactFormController')->only([
-//     'index', 'show'
-// ]);
-
-Route::get('/home', 'HomeController@index')->name('home');

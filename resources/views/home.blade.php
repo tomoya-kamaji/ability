@@ -53,7 +53,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col text-center border-right">
-                            <h3 class="m-0">{{ $applications_users->count() }}</h3>
+                            <h3 class="m-0">{{ $applications->count() }}</h3>
                             <p>レビュー</p>
                         </div>
                         <div class="col text-center">
@@ -62,60 +62,66 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
 
-                    <div class="card-body">
-                        <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-                            <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
-                        </a>
-                        <h4 class="card-title text-center">{{ $user->name }}</h4>
-                        <hr color="#e6e6e6" class="m-2">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">マイレビュー</a>
+                {{-- ログインしてない --}}
+                @guest
+
+                {{-- ログイン時 --}}
+                @else
+                    <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+                                <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                            </a>
+                            <h4 class="card-title text-center">{{ $user->name }}</h4>
+                            <hr color="#e6e6e6" class="m-2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">マイレビュー</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="m-0 text-right">{{ $applications->count() }}</p>
+                                </div>
+                                <div class="col-md-1">
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <p class="m-0 text-right">{{ $applications->count() }}</p>
+                            <hr color="#e6e6e6" class="m-2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">ブックマーク</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="m-0 text-right">{{ $user->count_likes }}</p>
+                                </div>
+                                <div class="col-md-1">
+                                </div>
                             </div>
-                            <div class="col-md-1">
+                            <hr color="#e6e6e6" class="m-2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロー中</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="m-0 text-right">{{ $user->count_followings }}</p>
+                                </div>
+                                <div class="col-md-1">
+                                </div>
                             </div>
+                            <hr color="#e6e6e6" class="m-2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロワー</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="m-0 text-right">{{ $user->count_followers }}</p>
+                                </div>
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+                            <hr color="#e6e6e6" class="m-2">
                         </div>
-                        <hr color="#e6e6e6" class="m-2">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">ブックマーク</a>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="m-0 text-right">{{ $user->count_likes }}</p>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
-                        </div>
-                        <hr color="#e6e6e6" class="m-2">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロー中</a>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="m-0 text-right">{{ $user->count_followings }}</p>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
-                        </div>
-                        <hr color="#e6e6e6" class="m-2">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <a href="{{ route("users.show", ["name" => Auth::user()->name]) }}" class="m-2">フォロワー</a>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="m-0 text-right">{{ $user->count_followers }}</p>
-                            </div>
-                            <div class="col-md-1">
-                            </div>
-                        </div>
-                        <hr color="#e6e6e6" class="m-2">
                     </div>
-                </div>
+                @endguest
 
                 <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
                     <div class="row">
@@ -130,7 +136,7 @@
                             @include('recent_application')
                         @endforeach
                     </div>
-                    
+
                     <h2 class="mt-5 mb-3">レビューが多いアプリ</h2>
                     <div class="row">
                         <?php $i = 0;?>

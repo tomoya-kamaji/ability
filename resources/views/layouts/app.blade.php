@@ -22,6 +22,11 @@
 <body>
     <div id="app">
         @include('nav')
+            @if (session('flash_message'))
+                <div class="flash_message">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
             @yield('content')
         @include('footer')
     </div>
