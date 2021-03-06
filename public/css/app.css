@@ -10970,3 +10970,7 @@ a.text-dark:focus {
   background-size: cover;
 }
 
+.body {
+  padding-top: 60px;
+}
+

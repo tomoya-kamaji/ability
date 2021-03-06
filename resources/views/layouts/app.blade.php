@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
+
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
 
     @yield('css')
@@ -21,7 +22,7 @@
 <body>
     <div id="app">
         @include('nav')
-        @yield('content')
+            @yield('content')
         @include('footer')
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
