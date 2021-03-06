@@ -10,9 +10,9 @@
                 <div class="col align-self-center mt-3">
                     <h3>Contact</h3>
                     <dl>
-                        <dd><i class="far fa-envelope"> メール</i></dd>
-                        <dd><i class="fab fa-twitter"> ツイッター</i></dd>
-                        <dd><i class="fas fa-search"> Qiita</i></dd>
+                        <a class="text-white" href="mailto:tomoya.kamaji@gmail.com?subject=Abilityについての問い合わせ" target="_blank"><dd><i class="far fa-envelope"> メール</i></dd></a>
+                        <a class="text-white" href="https://twitter.com/tomoya_sakusaku/" target="_blank"><dd><i class="fab fa-twitter"> ツイッター</i></dd></a>
+                        <a class="text-white" href="https://qiita.com/tomoya_sakusaku" target="_blank"><dd><i class="fas fa-search"> Qiita</i></dd></a>
                     </dl>
                 </div>
                 <div class="col align-self-center mt-5">
