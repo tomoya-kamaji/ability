@@ -20,7 +20,9 @@
         <div class="row justify-content-center">
             @if ($is_image)
                 <figure>
-                    <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="120px" height="120px">
+                    {{-- <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="120px" height="120px"> --}}
+                    <image-upload>
+                    </image-upload>
                 </figure>
             @else
                 <i class="fas fa-user-circle fa-3x"></i>
@@ -38,7 +40,7 @@
                 <blockquote>
                     <p>プロフィール編集</p>
                 </blockquote>
-                <hr color="#797979">
+                {{-- <hr color="#797979">
                 <div class="row form-group">
                     <div class="col-sm-3">
                         <h5>プロフィール画像</h5>
@@ -54,7 +56,7 @@
                         @endforeach
                         @endif
                     </div>
-                </div>
+                </div> --}}
 
                 <hr color="#797979">
                 <div class="row form-group">
@@ -114,6 +116,26 @@
                 </div>
 
                 <hr color="#797979">
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <h5>自己紹介</h5>
+                        <p>300文字以内</p>
+                    </div>
+                    <div class="col-sm-1">
+                        <h4><span class="badge badge-primary">任意</span></h4>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="good_point" rows="8" placeholder="自己紹介"></textarea>
+                        @if ($errors->has('good_point'))
+                        @foreach($errors->get('good_point') as $message)
+                            <p class="text-danger"> {{ $message }} </p>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+                <hr color="#797979">
+
+
 
                 <div class="container">
                     <div class="row justify-content-center">
@@ -142,9 +164,7 @@
 @endif --}}
 
 
-<image-upload
->
-</image-upload>
+
 
 
 @endsection
