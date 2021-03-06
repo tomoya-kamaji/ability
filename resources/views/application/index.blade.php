@@ -15,13 +15,14 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row mt-5">
             <div class="col-md-12">
                 @foreach ($applications['results'] as $application)
                     <hr color="#797979" class="m-0">
                     @include('application.card')
                 @endforeach
+                <hr color="#797979" class="m-0">
             </div>
         </div>
     </div>

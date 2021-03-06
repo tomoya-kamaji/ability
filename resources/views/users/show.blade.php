@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-light">
+<div class="bg-light pb-5 ">
     <div class="container-xl">
         @include('users.user')
         {{-- {{ url('/application/detailpage') }} --}}

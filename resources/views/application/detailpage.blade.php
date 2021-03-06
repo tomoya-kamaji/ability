@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <?php $application = $applications['results'][0]; ?>
-<div class="container">
+<div class="container mb-5">
     <div class="row mt-3">
         <div class="col-md-3 shadow p-3 mb-5 bg-white rounded">
             <div class="card" style="width: 18rem;">

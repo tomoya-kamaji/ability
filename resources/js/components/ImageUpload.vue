@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Upload from './ImageaUpload.vue'
+import Upload from './Upload.vue'
 export default {
     components: {
         Upload

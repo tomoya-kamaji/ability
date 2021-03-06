@@ -2,13 +2,12 @@
 <div>
     <label v-if="!value">
         <input ref="file" class="file-button" type="file" @change="upload" />
-        <i class="fas fa-user-circle fa-3x"></i>
+        <i class="fas fa-user-circle fa-7x" style="background-color: #fff;"></i>
     </label>
-
-    <div v-if="value" class="uploaded">
+    <div v-if="value">
         <label class="upload-content-space user-photo">
             <input ref="file" class="file-button" type="file" @change="upload" />
-            <img class="user-photo-image" :src="value" />
+            <img class="rounded-circle" width="100px" height="100px" :src="value" />
         </label>
 
         <button type="button" class="delete-button" @click="deleteImage">
