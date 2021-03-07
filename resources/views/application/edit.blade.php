@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<?php $application = $applications['results'][0]; ?>
-
 <div class="jumbotron p-2">
     <div class="container">
         <div class="row justify-content-center">
@@ -10,7 +8,7 @@
                 <a href="{{ route('application.detailpage', ['id' => $application['trackId']]) }}"><img class="d-block mx-auto img-thumbnail" src={{ $application['artworkUrl512']}} width="150" height="150"></a>
             </div>
             <div class="col-md-8 d-flex align-items-center">
-                <h2 class="text-white">「{{ $application['trackName'] }}」のレビュー投稿</h2>
+                <h2 class="text-white">「"{{ $application['trackName'] }}"」のレビュー投稿</h2>
             </div>
         </div>
     </div>
@@ -106,11 +104,11 @@
                         @endif
                     </div>
                 </div>
-                <input type="hidden" name="user_id" value={{ $user -> id }}>
-                <input type="hidden" name="trackId" value={{ $application['trackId'] }}>
-                <input type="hidden" name="artworkUrl512" value={{ $application['artworkUrl512'] }}>
-                <input type="hidden" name="artistName" value={{ $application['artistName'] }}>
-                <input type="hidden" name="trackName" value={{ $application['trackName'] }}>
+                <input type="hidden" name="user_id" value="{{ $user -> id }}">
+                <input type="hidden" name="trackName" value="{{ $application['trackName'] }}">
+                <input type="hidden" name="trackId" value="{{ $application['trackId'] }}">
+                <input type="hidden" name="artworkUrl512" value="{{ $application['artworkUrl512'] }}">
+                <input type="hidden" name="artistName" value="{{ $application['artistName'] }}">
                 <hr color="#797979">
 
                 <div class="container">

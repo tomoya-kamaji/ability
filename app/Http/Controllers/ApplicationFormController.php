@@ -65,8 +65,9 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $applications = iTunesapi::iTuneslookup($id);
+        $application = $applications['results'][0];
 
-        return view('application.edit', compact('user', 'applications'));
+        return view('application.edit', compact('user', 'application'));
     }
     /**
      * Show the form for editing the specified resource.
