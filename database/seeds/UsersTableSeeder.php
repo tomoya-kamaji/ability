@@ -13,6 +13,14 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'name' => '山田太郎',
+                'email' => 'guest@guest.com',
+                'password' => Hash::make('password'),
+                'profession' => "エンジニア",
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ],
+            [
                 'name' => 'tomoya',
                 'email' => 'tomoya.kamaji@gmail.com',
                 'password' => Hash::make('password'),
@@ -20,6 +28,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
             ],
+
             [
                 'name' => 'sakura',
                 'email' => 'sakura@gmail.com',

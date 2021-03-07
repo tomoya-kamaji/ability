@@ -18,11 +18,18 @@
     <div class="container mb-5">
         <div class="row mt-5">
             <div class="col-md-12">
-                @foreach ($applications['results'] as $application)
+                @if($applications['results'])
+                    @foreach ($applications['results'] as $application)
+                        <hr color="#797979" class="m-0">
+                        @include('application.card')
+                    @endforeach
                     <hr color="#797979" class="m-0">
-                    @include('application.card')
-                @endforeach
-                <hr color="#797979" class="m-0">
+                @else
+                    <div style="min-height: 400px;">
+                        <h4>検索結果がありません</h4>
+                    </div>
+
+                @endif
             </div>
         </div>
     </div>

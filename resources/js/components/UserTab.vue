@@ -50,8 +50,6 @@
                     v-bind="follower"
                     :key="follower.id"
                 />
-                
-
             </div>
         </div>
     </div>

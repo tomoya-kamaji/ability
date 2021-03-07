@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-light pb-5 ">
-    <div class="container-xl">
+    <div class="container-xl" style="min-height: 600px;">
         @include('users.user')
         {{-- {{ url('/application/detailpage') }} --}}
         <user-tab

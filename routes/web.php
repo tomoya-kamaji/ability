@@ -11,6 +11,10 @@
 |
 */
 
+//ゲストログイン用
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
+
 //ログイン必須
 Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
@@ -25,6 +29,7 @@ Route::group(
 
     }
 );
+
 
 //ログイン必須でない
 Route::group(
