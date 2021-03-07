@@ -35,28 +35,11 @@
 <div class="container bg-light">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <form method="POST" action="{{ route('application.register') }}">
+            <form method="POST" action="{{ route('users.index') }}">
                 @csrf
                 <blockquote>
                     <p>プロフィール編集</p>
                 </blockquote>
-                {{-- <hr color="#797979">
-                <div class="row form-group">
-                    <div class="col-sm-3">
-                        <h5>プロフィール画像</h5>
-                    </div>
-                    <div class="col-sm-1">
-                        <h4><span class="badge badge-secondary">任意</span></h4>
-                    </div>
-                    <div class="col-sm-8">
-                        <input type="file" name="photo" id="photo">
-                        @if ($errors->has('title'))
-                        @foreach($errors->get('title') as $message)
-                        <p class="text-danger"> {{ $message }} </p>
-                        @endforeach
-                        @endif
-                    </div>
-                </div> --}}
 
                 <hr color="#797979">
                 <div class="row form-group">
@@ -67,10 +50,10 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="title" id="title" rows="3" placeholder="名前">
+                        <input class="form-control input-lg" name="name"  rows="3" placeholder="名前" value="{{ $user->name }}">
 
-                        @if ($errors->has('title'))
-                        @foreach($errors->get('title') as $message)
+                        @if ($errors->has('name'))
+                        @foreach($errors->get('name') as $message)
                             <p class="text-danger"> {{ $message }} </p>
                         @endforeach
                         @endif
@@ -85,10 +68,10 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="title" id="title" rows="3" placeholder="xxx@ability.com">
+                        <input class="form-control input-lg" name="email" rows="3" placeholder="xxx@ability.com" value="{{ $user->email }}">
 
-                        @if ($errors->has('title'))
-                        @foreach($errors->get('title') as $message)
+                        @if ($errors->has('email'))
+                        @foreach($errors->get('email') as $message)
                             <p class="text-danger"> {{ $message }} </p>
                         @endforeach
                         @endif
@@ -106,9 +89,9 @@
                         <h4><span class="badge badge-secondary">任意</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="title" id="title" rows="3" placeholder="職業">
-                        @if ($errors->has('title'))
-                            @foreach($errors->get('title') as $message)
+                        <input class="form-control input-lg" name="profission"  rows="3" placeholder="職業" value="{{ $user->profession }}">
+                        @if ($errors->has('profission'))
+                            @foreach($errors->get('profission') as $message)
                                 <p class="text-danger"> {{ $message }} </p>
                             @endforeach
                         @endif
@@ -122,20 +105,19 @@
                         <p>300文字以内</p>
                     </div>
                     <div class="col-sm-1">
-                        <h4><span class="badge badge-primary">任意</span></h4>
+                        <h4><span class="badge badge-secondary">任意</span></h4>
                     </div>
+
                     <div class="col-sm-8">
-                        <textarea class="form-control" name="good_point" rows="8" placeholder="自己紹介"></textarea>
-                        @if ($errors->has('good_point'))
-                        @foreach($errors->get('good_point') as $message)
+                        <textarea class="form-control" name="introduction" rows="8">{{ $user->introduction }}</textarea>
+                        @if ($errors->has('introduction'))
+                        @foreach($errors->get('introduction') as $message)
                             <p class="text-danger"> {{ $message }} </p>
                         @endforeach
                         @endif
                     </div>
                 </div>
                 <hr color="#797979">
-
-
 
                 <div class="container">
                     <div class="row justify-content-center">

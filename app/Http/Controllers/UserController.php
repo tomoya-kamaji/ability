@@ -22,11 +22,13 @@ class UserController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $is_image = false;
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
-        return view('users/index', compact('is_image'));
+
+        return view('users/index', compact('user','is_image'));
     }
 
     /**
@@ -37,8 +39,11 @@ class UserController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-        $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
-        return redirect('users/profile')->with('success', '新しいプロフィールを登録しました');
+        // $request->photo->storeAs('public/profile_images', Auth::id() . '.jpg');
+        $user = Auth::user();
+        $user->fill($request->all())->save();
+
+        return redirect('users/index')->with('success', '新しいプロフィールを登録しました');
     }
 
     /**
