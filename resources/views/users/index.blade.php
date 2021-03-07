@@ -15,6 +15,7 @@
 </div>
 @endif
 
+
 <div class="jumbotron p-2">
     <div class="container">
         <div class="row justify-content-center">
@@ -40,6 +41,9 @@
                 <blockquote>
                     <p>プロフィール編集</p>
                 </blockquote>
+                @if (Auth::id() == 1)
+                <p class="text-danger">※ゲストユーザーは、ユーザー名とメールアドレスを編集できません。</p>
+                @endif
 
                 <hr color="#797979">
                 <div class="row form-group">
@@ -50,12 +54,16 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="name"  rows="3" placeholder="名前" value="{{ $user->name }}">
+                        @if (Auth::id() == 1)
+                            <input class="form-control input-lg" name="name" placeholder="名前" value="{{ $user->name }}" readonly>
+                        @else
+                            <input class="form-control input-lg" name="name" placeholder="名前" value="{{ $user->name }}">
+                        @endif
 
                         @if ($errors->has('name'))
-                        @foreach($errors->get('name') as $message)
-                            <p class="text-danger"> {{ $message }} </p>
-                        @endforeach
+                            @foreach($errors->get('name') as $message)
+                                <p class="text-danger"> {{ $message }} </p>
+                            @endforeach
                         @endif
                     </div>
                 </div>
@@ -68,7 +76,12 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <input class="form-control input-lg" name="email" rows="3" placeholder="xxx@ability.com" value="{{ $user->email }}">
+                        @if (Auth::id() == 1)
+                            <input class="form-control input-lg" name="email" placeholder="xxx@ability.com" value="{{ $user->email }}" readonly>
+                        @else
+                            <input class="form-control input-lg" name="email" placeholder="xxx@ability.com" value="{{ $user->email }}">
+                        @endif
+
 
                         @if ($errors->has('email'))
                         @foreach($errors->get('email') as $message)

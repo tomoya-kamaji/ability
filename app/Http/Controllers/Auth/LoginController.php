@@ -5,19 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request; // 追加
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers {
         logout as performLogout;
@@ -45,4 +39,20 @@ class LoginController extends Controller
         $this->performLogout($request);
         return redirect('/home')->with('flash_message', '投稿が完了しました');;
     }
+
+    // ゲストユーザー用のユーザーIDを定数として定義
+    private const GUEST_USER_ID = 1;
+
+    // ゲストログイン処理
+    public function guestLogin()
+    {
+        // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする
+        if (Auth::loginUsingId(self::GUEST_USER_ID)) {
+            return redirect('/home');
+        }
+
+        return redirect('/home');
+    }
+
+
 }

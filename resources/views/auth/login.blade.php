@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="min-height: 660px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
             <div class="card m-5">
                 <div class="card-header bg-primary text-white">ログイン</div>
 
@@ -55,6 +56,12 @@
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     ログイン
+                                </button>
+
+                                <button class="btn btn-success">
+                                    <a href="{{ route('login.guest') }}" class="text-white">
+                                        ゲストログイン
+                                    </a>
                                 </button>
 
                                 {{-- @if (Route::has('password.request'))
