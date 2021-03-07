@@ -65,6 +65,16 @@
 
                 {{-- ログインしてない --}}
                 @guest
+                    <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5>会員登録/ログイン</h5>
+                            <p class="text-secondary m-2">
+                                ログインすると、Ability上でアプリを保存したり、レビューを記載することができます。
+                            </p>
+                            <a href="{{ route('register') }}" class="m-3">会員登録</a>
+                            <a href="{{ route('login') }}" class="m-3">ログイン</a>
+                        </div>
+                    </div>
 
                 {{-- ログイン時 --}}
                 @else
