@@ -41127,7 +41127,7 @@ var render = function() {
             attrs: {
               "read-only": true,
               rating: _vm.pivot.evaluation,
-              increment: 0.5,
+              increment: 1,
               "max-rating": 5,
               "star-size": 20
             }
@@ -41138,7 +41138,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
         _c("p", { staticClass: "text-secondary mt-2 mb-0" }, [
-          _vm._v("2021/02/18のレビュー")
+          _vm._v("投稿日を入れる")
         ]),
         _vm._v(" "),
         _c("h5", { staticClass: "mb-1" }, [_vm._v(_vm._s(_vm.pivot.title))]),
@@ -41426,7 +41426,7 @@ var render = function() {
             attrs: {
               "read-only": true,
               rating: 3,
-              increment: 0.5,
+              increment: 1,
               "max-rating": 5,
               "star-size": 20
             }
@@ -41552,7 +41552,7 @@ var render = function() {
       _c("StarRating", {
         attrs: {
           value: _vm.currentRating,
-          increment: 0.5,
+          increment: 1,
           "max-rating": 5,
           "star-size": 40
         },

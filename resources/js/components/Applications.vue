@@ -15,13 +15,13 @@
         <StarRating
             :read-only="true"
             :rating= pivot.evaluation
-            :increment="0.5"
+            :increment="1"
             :max-rating="5"
             :star-size="20">
         </StarRating>
       </div>
       <div class="col-md-6">
-          <p class="text-secondary mt-2 mb-0">2021/02/18のレビュー</p>
+          <p class="text-secondary mt-2 mb-0">投稿日を入れる</p>
           <h5 class="mb-1">{{ pivot.title }}</h5>
           <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
       </div>
