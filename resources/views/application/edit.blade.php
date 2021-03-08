@@ -36,7 +36,9 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <star-rating-input></star-rating-input>
+                        <star-rating-input>
+                            
+                        </star-rating-input>
                         @if ($errors->has('evaluation'))
                             @foreach($errors->get('evaluation') as $message)
                                 <p class="text-danger"> {{ $message }} </p>

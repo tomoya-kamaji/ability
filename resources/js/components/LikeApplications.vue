@@ -15,7 +15,7 @@
             <StarRating
                 :read-only="true"
                 :rating= 3
-                :increment="0.5"
+                :increment="1"
                 :max-rating="5"
                 :star-size="20">
             </StarRating>
