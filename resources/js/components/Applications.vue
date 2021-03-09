@@ -26,7 +26,7 @@
           <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-primary m-3">　　編集　　</button>
+        <a :href="edit" class="btn btn-primary m-3">　　編集　　</a>
         <button type="button" class="btn btn-danger m-3">　　削除　　</button>
       </div>
     </div>
@@ -52,6 +52,8 @@ export default {
     categorys_id: Number,
     pivot: Object,
     authorized: Boolean,
+    edit_url: String,
+    delete_url: String,
   },
 
   data() {
@@ -59,6 +61,11 @@ export default {
       like: Object,
     };
   },
+  computed:{
+      edit: function () {
+         return this.edit_url + '/' + this.trackId
+    }
+  }
 
 
 };

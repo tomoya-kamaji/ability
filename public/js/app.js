@@ -2563,12 +2563,19 @@ __webpack_require__.r(__webpack_exports__);
     updated_at: String,
     categorys_id: Number,
     pivot: Object,
-    authorized: Boolean
+    authorized: Boolean,
+    edit_url: String,
+    delete_url: String
   },
   data: function data() {
     return {
       like: Object
     };
+  },
+  computed: {
+    edit: function edit() {
+      return this.edit_url + '/' + this.trackId;
+    }
   }
 });
 
@@ -3249,6 +3256,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -3268,7 +3277,9 @@ __webpack_require__.r(__webpack_exports__);
     followings: Array,
     followers: Array,
     user: Object,
-    authorized: Boolean
+    authorized: Boolean,
+    edit_url: String,
+    delete_url: String
   },
   data: function data() {
     return {
@@ -41158,32 +41169,25 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "col-md-2" }, [
+        _c(
+          "a",
+          { staticClass: "btn btn-primary m-3", attrs: { href: _vm.edit } },
+          [_vm._v("　　編集　　")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-danger m-3", attrs: { type: "button" } },
+          [_vm._v("　　削除　　")]
+        )
+      ])
     ]),
     _vm._v(" "),
     _c("hr", { attrs: { color: "#797979" } })
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary m-3", attrs: { type: "button" } },
-        [_vm._v("　　編集　　")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-danger m-3", attrs: { type: "button" } },
-        [_vm._v("　　削除　　")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -41767,7 +41771,11 @@ var render = function() {
                     _vm._b(
                       {
                         key: application.title,
-                        attrs: { authorized: _vm.authorized }
+                        attrs: {
+                          authorized: _vm.authorized,
+                          edit_url: _vm.edit_url,
+                          delete_url: _vm.delete_url
+                        }
                       },
                       "Applications",
                       application,
