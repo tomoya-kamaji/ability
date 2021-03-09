@@ -23,7 +23,6 @@
                         @else
                             <a class="text-white" href="{{ route("users.show", ["name" => Auth::user()->name]) }}"><dd>マイページ</dd></a>
                         @endguest
-                        <a class="text-white" href="{{ route('logout') }}"><dd>ログアウト</dd></a>
                     </dl>
                 </div>
             </div>

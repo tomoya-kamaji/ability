@@ -63,6 +63,8 @@
                     </div>
                 </div>
 
+                <a href="{{ route('application.update_edit', ['au_id' => 1]) }}" class="m-3">更新画面テスト</a>
+
                 {{-- ログインしてない --}}
                 @guest
                     <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
