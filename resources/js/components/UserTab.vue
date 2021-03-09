@@ -19,6 +19,8 @@
                     v-bind="application"
                     :key="application.title"
                     :authorized="authorized"
+                    :edit_url="edit_url"
+                    :delete_url="delete_url"
                 />
             </div>
             <div v-if="currentId === 2">
@@ -78,6 +80,8 @@ export default {
     followers: Array,
     user: Object,
     authorized: Boolean,
+    edit_url: String,
+    delete_url: String,
   },
 
   data() {

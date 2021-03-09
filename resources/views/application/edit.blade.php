@@ -14,8 +14,6 @@
     </div>
 </div>
 
-
-
 <div class="container bg-light">
     <div class="row justify-content-center">
         <div class="col-md-12" >
@@ -37,7 +35,6 @@
                     </div>
                     <div class="col-sm-8">
                         <star-rating-input>
-                            
                         </star-rating-input>
                         @if ($errors->has('evaluation'))
                             @foreach($errors->get('evaluation') as $message)
