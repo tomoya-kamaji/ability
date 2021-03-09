@@ -20,9 +20,23 @@ Route::group(
     ['prefix' => 'application', 'middleware' => 'auth'],
     function () {
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
+
+        //新規登録編集画面
         Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
-        Route::get('detailpage/{id}', 'ApplicationFormController@detailpage')->name('application.detailpage');
+
+        //新規登録
         Route::post('register', 'ApplicationFormController@register')->name('application.register');
+
+        //更新編集画面
+        Route::get('update_edit/{au_id}', 'ApplicationFormController@update_edit')->name('application.update_edit');
+
+        //更新
+        Route::post('update', 'ApplicationFormController@update')->name('application.update');
+
+
+
+        Route::get('detailpage/{id}', 'ApplicationFormController@detailpage')->name('application.detailpage');
+
         Route::post('/like', 'ApplicationFormController@createlike')->name('application.createlike');
         Route::put('/{application}/like', 'ApplicationFormController@like')->name('application.like');
         Route::delete('/{application}/like', 'ApplicationFormController@unlike')->name('application.unlike');

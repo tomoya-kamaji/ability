@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Application;
+use App\ApplicationUser;
 use App\User;
 use Helpers\iTunesapi;
 use Illuminate\Support\Facades\DB;
@@ -20,8 +21,6 @@ class ApplicationFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function index(Request $request)
     {
         $search = $request->input('search');
@@ -31,32 +30,14 @@ class ApplicationFormController extends Controller
         // return view('Application.index', compact('search', 'user','applications')); ← AWS上だと認識されない、、、？
     }
 
-
-
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * 新規登録編集画面
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -65,10 +46,55 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
         $applications = iTunesapi::iTuneslookup($id);
-        $application = $applications['results'][0];
 
-        return view('application.edit', compact('user', 'application'));
+        return view('application.edit', compact('user', 'applications'));
     }
+
+    /**
+     * 新規登録更新
+     *
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function register(ReviewRequest $request)
+    {
+        //テーブルに存在するかどうかを確かめる
+        //初めてならInsert。2回目ならUpdate
+        $application = Application::firstOrNew(['trackName' => $request->trackName]);
+        $application->fill($request->all())->save();
+
+        $application->users()->attach(
+            $request->user()->id,
+            [
+                'title' => $request->title,
+                'good_point' => $request->good_point,
+                'improvement_point' => $request->improvement_point,
+                'evaluation' => $request->evaluation
+            ]
+        );
+        return redirect('application/index');
+    }
+
+    /**
+     * 新規登録編集画面
+     *
+     * @param  int  $application_userのid
+     * @return \Illuminate\Http\Response
+     */
+    public function update_edit($au_id)
+    {
+        $user = Auth::user();
+        $application_user = ApplicationUser::where('id', $au_id)->first();
+        dd($application_user);
+
+
+        return view('application.update_edit', compact('user', 'application_user'));
+    }
+
+
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -96,31 +122,7 @@ class ApplicationFormController extends Controller
         return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function register(ReviewRequest $request)
-    {
-        //テーブルに存在するかどうかを確かめる
-        //初めてならInsert。2回目ならUpdate
-        $application = Application::firstOrNew(['trackName' => $request->trackName]);
-        $application->fill($request->all())->save();
 
-        $application->users()->attach(
-            $request->user()->id,
-            [
-                'title' => $request->title,
-                'good_point' => $request->good_point,
-                'improvement_point' => $request->improvement_point,
-                'evaluation' => $request->evaluation
-            ]
-        );
-        return redirect('application/index');
-    }
 
     /**
      * Update the specified resource in storage.
