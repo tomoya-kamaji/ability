@@ -63,7 +63,7 @@ export default {
   },
   computed:{
       edit: function () {
-         return this.edit_url + '/' + this.trackId
+         return this.edit_url + '/' + this.pivot.application_id 
     }
   }
 

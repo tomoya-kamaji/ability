@@ -2574,7 +2574,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     edit: function edit() {
-      return this.edit_url + '/' + this.trackId;
+      return this.edit_url + '/' + this.pivot.application_id;
     }
   }
 });

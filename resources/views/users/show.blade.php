@@ -6,7 +6,7 @@
         @include('users.user')
         <user-tab
             :applications="{{ json_encode($applications) }}"
-            :edit_url="{{ json_encode(url('/application/edit')) }}"
+            :edit_url="{{ json_encode(url('/application/update_edit')) }}"
             :delete_url="{{ json_encode(url('/application/delete')) }}"
             :like_applications="{{ json_encode($like_applications) }}"
             :user="{{ json_encode($user) }}"
