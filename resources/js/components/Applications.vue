@@ -26,8 +26,10 @@
           <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">{{ pivot.good_point }}</p>
       </div>
       <div class="col-md-2">
-        <a :href="edit" class="btn btn-primary m-3">　　編集　　</a>
-        <button type="button" class="btn btn-danger m-3">　　削除　　</button>
+        <a :href="edit_u" class="btn btn-primary m-3">　　編集　　</a>
+        <a :href="delete_u" class="btn btn-danger m-3">　　削除　　</a>
+
+        <!-- <button type="button" class="btn btn-danger m-3" v-on:click="delete(todo.created_at,index)">　　削除　　</button> -->
       </div>
     </div>
     <hr color="#797979">
@@ -62,8 +64,11 @@ export default {
     };
   },
   computed:{
-      edit: function () {
-         return this.edit_url + '/' + this.pivot.application_id 
+      edit_u: function () {
+         return this.edit_url + '/' + this.pivot.application_id
+        },
+      delete_u: function () {
+         return this.delete_url + '/' + this.pivot.application_id
     }
   }
 

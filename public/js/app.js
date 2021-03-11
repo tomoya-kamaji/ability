@@ -2546,6 +2546,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2573,8 +2575,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    edit: function edit() {
+    edit_u: function edit_u() {
       return this.edit_url + '/' + this.pivot.application_id;
+    },
+    delete_u: function delete_u() {
+      return this.delete_url + '/' + this.pivot.application_id;
     }
   }
 });
@@ -41172,13 +41177,13 @@ var render = function() {
       _c("div", { staticClass: "col-md-2" }, [
         _c(
           "a",
-          { staticClass: "btn btn-primary m-3", attrs: { href: _vm.edit } },
+          { staticClass: "btn btn-primary m-3", attrs: { href: _vm.edit_u } },
           [_vm._v("　　編集　　")]
         ),
         _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-danger m-3", attrs: { type: "button" } },
+          "a",
+          { staticClass: "btn btn-danger m-3", attrs: { href: _vm.delete_u } },
           [_vm._v("　　削除　　")]
         )
       ])
