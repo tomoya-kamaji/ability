@@ -169,6 +169,9 @@ class ApplicationFormController extends Controller
     public function remove(Request $request)
     {
         $user = Auth::user();
+
+        dd(ApplicationUser::find($request->id));
+
         $applicationUser = ApplicationUser::find($request->id)->delete();
 
 
