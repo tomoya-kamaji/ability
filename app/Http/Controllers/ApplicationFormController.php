@@ -47,7 +47,9 @@ class ApplicationFormController extends Controller
         $user = Auth::user();
         $applications = iTunesapi::iTuneslookup($id);
 
-        return view('application.edit', compact('user', 'applications'));
+        $application = $applications['results'][0];
+
+        return view('application.edit', compact('user', 'application'));
     }
 
     /**
@@ -73,27 +75,49 @@ class ApplicationFormController extends Controller
                 'evaluation' => $request->evaluation
             ]
         );
-        return redirect('application/index');
+        return redirect('home');
     }
 
     /**
-     * 新規登録編集画面
+     * レビュー更新画面
      *
-     * @param  int  $application_userのid
+     * @param  int  application_id
      * @return \Illuminate\Http\Response
      */
-    public function update_edit($au_id)
+    public function update_edit($id)
     {
+
         $user = Auth::user();
-        $application_user = ApplicationUser::where('id', $au_id)->first();
-        dd($application_user);
+        $application = Application::where('id', $id)->first();
 
-
-        return view('application.update_edit', compact('user', 'application_user'));
+        $application_user = $application->users()->find($user->id);
+        return view('application.update_edit', compact('user', 'application', 'application_user'));
     }
 
-
-
+    /**
+     * 新規登録更新
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ReviewRequest $request)
+    {
+        $user = Auth::user();
+        DB::table('application_user')
+        ->where([
+            ['user_id', '=', $user->id],
+            ['application_id', '=', $request->id],
+        ])
+        ->update([
+            'title' => $request->title,
+            'good_point' => $request->good_point,
+            'improvement_point' => $request->improvement_point,
+            'evaluation' => $request->evaluation,
+        ]);
+        return redirect(route('users.show', [
+            "name" => $user->name
+        ]));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -117,33 +141,43 @@ class ApplicationFormController extends Controller
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
-
-
         return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
     }
 
 
 
     /**
-     * Update the specified resource in storage.
+     * レビュー削除画面
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  application_id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function delete($id)
     {
-        //
+        $user = Auth::user();
+        $application = Application::where('id', $id)->first();
+
+        $application_user = $application->users()->find($user->id);
+        return view('application.delete', compact('user', 'application', 'application_user'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * レビュー削除機能
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function remove(Request $request)
     {
+        $user = Auth::user();
+
+        dd(ApplicationUser::find($request->id));
+
+        $applicationUser = ApplicationUser::find($request->id)->delete();
+
+
+        return redirect(route('users.show', [
+            "name" => $user->name
+        ]));
     }
 
     public function like(Request $request, Application $application)

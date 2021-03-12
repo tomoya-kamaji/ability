@@ -158,13 +158,6 @@
                         @endforeach
                     </div>
 
-                    {{-- <h2 class="mt-4 mb-3">評価が高いアプリ</h2>
-                    <div class="row">
-                        @foreach ($manyreview_applications as $manyreview_application)
-                            @include('manyreview_application')
-                        @endforeach
-                    </div> --}}
-
                 <div class="row mt-0 mb-5 justify-content-center bg-white shadow">
 
                 </div>

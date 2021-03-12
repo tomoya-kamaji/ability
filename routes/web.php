@@ -21,17 +21,17 @@ Route::group(
     function () {
         Route::get('create', 'ApplicationFormController@create')->name('application.create');
 
-        //新規登録編集画面
-        Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
-
         //新規登録
+        Route::get('edit/{id}', 'ApplicationFormController@edit')->name('application.edit');
         Route::post('register', 'ApplicationFormController@register')->name('application.register');
 
-        //更新編集画面
+        //レビュー更新
         Route::get('update_edit/{au_id}', 'ApplicationFormController@update_edit')->name('application.update_edit');
-
-        //更新
         Route::post('update', 'ApplicationFormController@update')->name('application.update');
+
+        //レビュー削除
+        Route::get('delete/{au_id}', 'ApplicationFormController@delete')->name('application.delete');
+        Route::post('remove', 'ApplicationFormController@remove')->name('application.remove');
 
 
 
