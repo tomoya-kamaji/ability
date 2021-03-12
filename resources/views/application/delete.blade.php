@@ -15,13 +15,13 @@
 </div>
 
 
-<div class="container bg-light">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12" >
             <form method="POST" action="{{ route('application.remove') }}">
                 @csrf
                 <blockquote>
-                    <p>あなたが利用する「{{ $application['trackName'] }}」についてお答えください</p>
+                    <p>削除の内容</p>
                 </blockquote>
 
                 <hr color="#797979">
@@ -35,8 +35,11 @@
                         <h4><span class="badge badge-primary">必須</span></h4>
                     </div>
                     <div class="col-sm-8">
-                        <star-rating-input>
-                        </star-rating-input>
+                        <star-rating-average
+                            :average-reviews='{{$application_user->pivot->evaluation}}'
+                            :star-size=40
+                        >
+                        </star-rating-average>
                         @if ($errors->has('evaluation'))
                             @foreach($errors->get('evaluation') as $message)
                                 <p class="text-danger"> {{ $message }} </p>
@@ -128,10 +131,10 @@
         padding: 0px 0px 0px 15px;
         box-sizing: border-box;
         font-style: italic;
-        /* background: #dfebf7; */
+        background: #f7dfdf;
         color: #555;
         border-radius: 5px;
-        border-left: 7px solid blue;
+        border-left: 7px solid red;
 
         /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);; */
     }

@@ -2548,6 +2548,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2964,6 +2965,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     averageReviews: {
       type: Number
+    },
+    starSize: {
+      type: Number,
+      "default": 20
     }
   },
   data: function data() {
@@ -41525,7 +41530,7 @@ var render = function() {
           rating: _vm.averageReviews,
           increment: 0.1,
           "max-rating": 5,
-          "star-size": 20,
+          "star-size": _vm.starSize,
           "read-only": true
         }
       })

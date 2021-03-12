@@ -78,6 +78,34 @@ class ApplicationFormController extends Controller
         return redirect('home');
     }
 
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function detailpage($id)
+    {
+        $user = Auth::user();
+        $applications = iTunesapi::iTuneslookup($id);
+
+        $application = Application::where('trackId', $id)->first();
+        if (empty($application->application_user)) {
+            $applicationreviews=[];
+        }else{
+            $applicationreviews = $application->application_user;
+        }
+
+        $is_image = false;
+        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
+            $is_image = true;
+        }
+        return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
+    }
+
+
     /**
      * レビュー更新画面
      *
@@ -108,40 +136,15 @@ class ApplicationFormController extends Controller
             ['user_id', '=', $user->id],
             ['application_id', '=', $request->id],
         ])
-        ->update([
-            'title' => $request->title,
-            'good_point' => $request->good_point,
-            'improvement_point' => $request->improvement_point,
-            'evaluation' => $request->evaluation,
-        ]);
+            ->update([
+                'title' => $request->title,
+                'good_point' => $request->good_point,
+                'improvement_point' => $request->improvement_point,
+                'evaluation' => $request->evaluation,
+            ]);
         return redirect(route('users.show', [
             "name" => $user->name
         ]));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function detailpage($id)
-    {
-        $user = Auth::user();
-        $applications = iTunesapi::iTuneslookup($id);
-
-        $application = Application::where('trackId', $id)->first();
-        if (empty($application->application_user)) {
-            $applicationreviews=[];
-        }else{
-            $applicationreviews = $application->application_user;
-        }
-
-        $is_image = false;
-        if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
-            $is_image = true;
-        }
-        return view('application.detailpage', compact('user', 'applications', 'applicationreviews', 'is_image'));
     }
 
 
@@ -149,7 +152,7 @@ class ApplicationFormController extends Controller
     /**
      * レビュー削除画面
      *
-     * @param  int  application_id
+     * @param  int  application_userid
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
@@ -170,9 +173,12 @@ class ApplicationFormController extends Controller
     {
         $user = Auth::user();
 
-        dd(ApplicationUser::find($request->id));
-
-        $applicationUser = ApplicationUser::find($request->id)->delete();
+        DB::table('application_user')
+        ->where([
+            ['user_id', '=', $user->id],
+            ['application_id', '=', $request->id],
+        ])
+        ->delete();
 
 
         return redirect(route('users.show', [
