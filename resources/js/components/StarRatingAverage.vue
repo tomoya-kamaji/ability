@@ -4,7 +4,7 @@
         :rating="averageReviews"
         :increment="0.1"
         :max-rating="5"
-        :star-size="20"
+        :star-size="starSize"
         :read-only="true"
     >
     </StarRating>
@@ -19,6 +19,10 @@ export default {
   props: {
     averageReviews:{
       type: Number
+    },
+    starSize:{
+      type: Number,
+      default:20
     },
   },
 
