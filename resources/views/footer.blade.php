@@ -19,7 +19,7 @@
                     <dl>
                         <a class="text-white" href="{{ url('/home')}}"><dd>ホーム</dd></a>
                         @guest
-
+                        a
                         @else
                             <a class="text-white" href="{{ route("users.show", ["name" => Auth::user()->name]) }}"><dd>マイページ</dd></a>
                         @endguest
