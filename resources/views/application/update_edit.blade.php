@@ -105,12 +105,12 @@
                     </div>
                 </div>
                 <input type="hidden" name="id" value="{{ $application -> id }}">
-                
+
                 <hr color="#797979">
 
                 <div class="container">
                     <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-lg">　　　送信　　　</button>
+                        <button type="submit" class="btn btn-primary btn-lg">　　　更新　　　</button>
                     </div>
                 </div>
                 <hr color="#797979">
