@@ -134,10 +134,33 @@
 
                 <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
                     <div class="row">
-                        <h2>
-                            人気のユーザ
-                        </h2>
-                        {{ $manyfollower_users }}
+                        <div class="card-body">
+                            <h4 class="card-title text-center">〜　人気ユーザ　〜</h4>
+                            @foreach ($manyfollower_users as $manyfollower_user)
+                                <hr color="#e6e6e6" class="m-2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="{{ route('users.show', ['name' => $manyfollower_user->name]) }}" class="text-dark">
+                                            <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <h4 class="m-0 text-right">{{ $manyfollower_user->name }}</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <i class="far fa-comment-dots">{{ $manyfollower_user->follwer_count }}</i>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <i class="far fa-comment-dots">10件</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
                     </div>
                 </div>
             </div>
