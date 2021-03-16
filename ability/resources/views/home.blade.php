@@ -134,6 +134,9 @@
 
                 <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
                     <div class="row">
+                        <h2>
+                            人気のユーザ
+                        </h2>
                         {{ $manyfollower_users }}
                     </div>
                 </div>
