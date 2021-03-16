@@ -28,8 +28,6 @@ class HomeController extends Controller
             $applications_users = $user->application_user;;
         }
 
-
-
         $recent_applications = DB::table('application_user')
         ->join('applications', 'application_user.application_id', '=', 'applications.id')
         ->orderBy('application_user.created_at', 'desc')
@@ -44,10 +42,18 @@ class HomeController extends Controller
         ->take(4)
         ->get();
 
+        $manyfollower_users = DB::table('users')
+        ->join('follows', 'users.id', '=', 'follows.followee_id')
+        ->select(DB::raw('count(*) as follwer_count, users.id ,users.name'))
+        ->groupBy('users.id', 'users.name')
+        ->orderBy('follwer_count', 'desc')
+        ->take(4)
+        ->get();
+
         // applicationsに平均値を持たせておこう
         $applications = ApplicationUser::all();
         $register_users = User::all();
 
-        return view('home', compact('applications','user', 'applications_users', 'register_users','manyreview_applications', 'recent_applications'));
+        return view('home', compact('applications','user', 'applications_users', 'register_users','manyreview_applications', 'recent_applications', 'manyfollower_users'));
     }
 }
