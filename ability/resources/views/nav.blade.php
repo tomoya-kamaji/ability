@@ -37,6 +37,9 @@
                     @else
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route("users.list") }}">ユーザ一覧</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route("users.show", ["name" => Auth::user()->name]) }}">マイページ</a>
                     </li>
 

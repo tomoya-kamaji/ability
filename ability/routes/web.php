@@ -68,6 +68,7 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/index', 'UserController@index')->name('index');
         Route::post('/index', 'UserController@store')->name('store');
+        Route::get('/list', 'UserController@list')->name('list');
 
         Route::get('/edit', 'UserController@edit')->name('edit');
         Route::post('/edit', 'UserController@update')->name('update');

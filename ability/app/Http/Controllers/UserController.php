@@ -32,6 +32,20 @@ class UserController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     * ユーザ一覧
+     */
+    public function list()
+    {
+        // $user = Auth::user();
+        $users = User::all();
+
+        return view('users/list', compact('users'));
+    }
+
+    /**
      * プロフィールの保存
      *
      * @param  \Illuminate\Http\Request  $request
