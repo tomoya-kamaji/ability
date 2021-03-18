@@ -14,7 +14,7 @@
                         :initial-count-likes='{{ $application['countlikes']}}'
                         :initial-is-liked-by='false'
                         :authorized='@json(Auth::check())'
-                        >
+                        >   
                     </application-like>
                 </div>
                 <hr color="#797979" class="m-0">
