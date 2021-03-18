@@ -132,12 +132,11 @@
                     </div>
                 @endguest
 
-                <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
-                    <div class="row">
+                <h3 class="card-title text-center text-primary mt-5">人気ユーザ</h3>
+                <div class="row">
+                    <div class="card mx-auto bg-white  mt-0" style="width: 18rem;">
                         <div class="card-body">
-                            <h4 class="card-title text-center">〜　人気ユーザ　〜</h4>
                             @foreach ($manyfollower_users as $manyfollower_user)
-                                <hr color="#e6e6e6" class="m-2">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a href="{{ route('users.show', ['name' => $manyfollower_user->name]) }}" class="text-dark">
@@ -149,15 +148,11 @@
                                             <h4 class="m-0 text-right">{{ $manyfollower_user->name }}</h4>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <i class="far fa-comment-dots">{{ $manyfollower_user->follwer_count }}</i>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <i class="far fa-comment-dots">10件</i>
-                                            </div>
+                                            <p class="m-1 text-secondary"> フォロワー{{ $manyfollower_user->follwer_count }}</p>
                                         </div>
                                     </div>
                                 </div>
+                                <hr color="#e6e6e6" class="m-1">
                             @endforeach
 
                         </div>

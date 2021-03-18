@@ -47,8 +47,9 @@ class HomeController extends Controller
         ->select(DB::raw('count(*) as follwer_count, users.id ,users.name'))
         ->groupBy('users.id', 'users.name')
         ->orderBy('follwer_count', 'desc')
-        ->take(4)
+        ->take(10)
         ->get();
+
 
         // applicationsに平均値を持たせておこう
         $applications = ApplicationUser::all();
