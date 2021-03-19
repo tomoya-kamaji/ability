@@ -52,23 +52,19 @@ export default {
 
     async like() {
       if(this.id == 0){
-        console.log('post')
         let response = await axios.post("/application/like",{
             trackName: this.application.trackName,
             trackId: this.application.trackId,
             artistName: this.application.artistName,
             artworkUrl512: this.application.artworkUrl512,
             categorys_id: null,
-
         });
         this.id = response.data.id;
 
         this.isLikedBy = true;
         this.countLikes = response.data.countLikes;
       }else{
-        console.log('putあ')
         let response = await axios.put("/application/" + this.id +"/like");
-
         this.isLikedBy = true;
         this.countLikes = response.data.countLikes;
       }

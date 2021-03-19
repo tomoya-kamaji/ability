@@ -17,8 +17,8 @@
             <h5 class="mb-1">職業{{ profession }}</h5>
             <p class="text-secondary mt-2 mb-0">年代{{ age }}才</p>
         </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-danger m-4">フォロワー</button>
+        <div class="col-md-2 m-3">
+            <!-- <button type="button" class="btn btn-danger m-4">フォロワー</button> -->
         </div>
         </div>
         <hr color="#797979">
