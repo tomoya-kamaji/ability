@@ -71,7 +71,6 @@ export default {
     },
 
     async unlike() {
-      console.log('delete')
       const response = await axios.delete("/application/" + this.id +"/like");
       this.isLikedBy = false;
       this.countLikes = response.data.countLikes;
