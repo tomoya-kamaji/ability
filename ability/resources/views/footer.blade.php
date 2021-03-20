@@ -17,7 +17,7 @@
                 </div>
                 <div class="col align-self-center mt-5">
                     <dl>
-                        <a class="text-white" href="{{ url('/home')}}"><dd>ホーム</dd></a>
+                        <a class="text-white" href="{{ route('home')}}"><dd>ホーム</dd></a>
                         @guest
                         a
                         @else
