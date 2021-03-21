@@ -19,7 +19,7 @@ class ApplicationControllerTest extends TestCase
     {
         $response = $this->get(route('application.index'));
 
-        $response->assertStatus(200)->assertViewIs('application.index');;
+        $response->assertStatus(200)->assertViewIs('application.index');
     }
 
 
@@ -31,18 +31,17 @@ class ApplicationControllerTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    //ログイン済
-    public function testAuthEdit()
-    {
-        $this->seed();
-        $user = User::where('name', 'tomoya')->first();
-        //  = factory(User::class)->create();
+    // //ログイン済
+    // public function testAuthCreate()
+    // {
+    //     $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)
-            ->get(route('application.edit', 1));
+    //     $response = $this->actingAs($user)
+    //         ->get(route('application.edit', 1));
 
-        $response->assertStatus(200)
-            ->assertViewIs('application.edit');
+    //     $response->assertStatus(200)
+    //         ->assertViewIs('application.edit');
+    // }
 
-    }
+    
 }
