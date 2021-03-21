@@ -9,8 +9,8 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Test">
-            <directory suffix="Test.php">./tests</directory>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">/tests/Unit</directory>
         </testsuite>
 
         <testsuite name="Feature">
@@ -30,6 +30,10 @@
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>
         <server name="MAIL_DRIVER" value="array"/>
+
+        <server name="DB_CONNECTION" value="mysql"/>
+        <server name="DB_DATABASE" value="db_name"/>
+
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="APP_CONFIG_CACHE" value="bootstrap/cache/config.phpunit.php"/>
@@ -37,5 +41,21 @@
         <server name="APP_PACKAGES_CACHE" value="bootstrap/cache/packages.phpunit.php"/>
         <server name="APP_ROUTES_CACHE" value="bootstrap/cache/routes.phpunit.php"/>
         <server name="APP_EVENTS_CACHE" value="bootstrap/cache/events.phpunit.php"/>
+
+        <!-- <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="MAIL_DRIVER" value="array"/>
+
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_DATABASE" value="db_name"/>
+
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="APP_CONFIG_CACHE" value="bootstrap/cache/config.phpunit.php"/>
+        <env name="APP_SERVICES_CACHE" value="bootstrap/cache/services.phpunit.php"/>
+        <env name="APP_PACKAGES_CACHE" value="bootstrap/cache/packages.phpunit.php"/>
+        <env name="APP_ROUTES_CACHE" value="bootstrap/cache/routes.phpunit.php"/>
+        <env name="APP_EVENTS_CACHE" value="bootstrap/cache/events.phpunit.php"/> -->
     </php>
 </phpunit>

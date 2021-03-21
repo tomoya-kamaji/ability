@@ -14,7 +14,7 @@
                         :initial-count-likes='{{ $application['countlikes']}}'
                         :initial-is-liked-by='false'
                         :authorized='@json(Auth::check())'
-                        >   
+                        >
                     </application-like>
                 </div>
                 <hr color="#797979" class="m-0">
@@ -31,7 +31,6 @@
                     </div>
                     <a href="{{ route('application.edit', ['id' => $application['trackId']]) }}" class="btn btn-primary col-md-2 offset-2">レビュー</a>
                 </div>
-
             </div>
         </div>
     </div>
