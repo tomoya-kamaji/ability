@@ -6,9 +6,19 @@ jobs:
     steps:
       - checkout
       - run: sudo composer self-update --1
+
+      
+      - restore_cache:
+        key: composer-v1-{{ checksum "composer.lock" }
       - run:
           working_directory: ability
           command: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+
+
       - run:
           working_directory: ability
           name: npm ci
