@@ -7,8 +7,8 @@ jobs:
       - checkout
       - run: sudo composer self-update --1
       - run: composer install -n --prefer-dist --working-dir=./ability
-      - run: npm ci
-      - run: npm run dev
+      - run: npm ci --prefix=./ability
+      - run: npm run dev --prefix=./ability
       - run:
-          name: php test
-          command: vendor/bin/phpunit
+          name: php .ability/test
+          command: .ability/vendor/bin/phpunit
