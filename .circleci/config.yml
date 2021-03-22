@@ -8,8 +8,8 @@ jobs:
       - run: sudo composer self-update --1
 
 
-      - restore_cache:
-        key: composer-v2-{{ checksum "ability/composer.lock" }}
+      # - restore_cache:
+      #   key: composer-v2-{{ checksum "ability/composer.lock" }}
       - run:
           working_directory: ability
           command: composer install -n --prefer-dist
