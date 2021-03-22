@@ -11,4 +11,4 @@ jobs:
       - run: npm run dev --prefix=./ability
       - run:
           name: php test
-          command: ability/vendor/bin/phpunit
+          command: ability/vendor/bin/phpunit /ability/tests/
