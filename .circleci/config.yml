@@ -7,14 +7,14 @@ jobs:
       - checkout
       - run: sudo composer self-update --1
 
-      
+
       - restore_cache:
-        key: composer-v1-{{ checksum "composer.lock" }
+        key: composer-v1-{{ checksum "ability/composer.lock" }
       - run:
           working_directory: ability
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "ability/composer.lock" }}
           paths:
             - vendor
 
@@ -42,22 +42,22 @@ jobs:
 #     steps:
 #       - checkout
 
-#       - restore_cache:
-#           key: composer-v2-{{ checksum "laravel/composer.lock" }}
-#       - run:
-#           working_directory: laravel
-#           command: composer install -n --prefer-dist
-#       - run:
-#           working_directory: laravel
-#           name: npm ci
-#           command: |
-#             if [ ! -d node_modules ]; then
-#               npm ci
-#             fi
-#       - save_cache:
-#           key: npm-v2-{{ checksum "laravel/package-lock.json" }}
-#           paths:
-#             - laravel/node_modules
+      # - restore_cache:
+      #     key: composer-v2-{{ checksum "laravel/composer.lock" }}
+      # - run:
+      #     working_directory: laravel
+      #     command: composer install -n --prefer-dist
+      # - run:
+      #     working_directory: laravel
+      #     name: npm ci
+      #     command: |
+      #       if [ ! -d node_modules ]; then
+      #         npm ci
+      #       fi
+      # - save_cache:
+      #     key: npm-v2-{{ checksum "laravel/package-lock.json" }}
+      #     paths:
+      #       - laravel/node_modules
 #       - run:
 #           working_directory: laravel
 #           command: npm run dev
