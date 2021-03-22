@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+    steps:
+      - checkout
+      - run: sudo composer self-update --1
+      - run:
+          working_directory: ability
+          command: composer install -n --prefer-dist
+      - run:
+          working_directory: ability
+          name: npm ci
+      - run:
+          working_directory: ability
+          command: npm run dev
+      - run:
+          working_directory: ability
+          name: php test
+          command: vendor/bin/phpunit
