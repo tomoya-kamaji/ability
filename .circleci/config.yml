@@ -9,12 +9,12 @@ jobs:
 
 
       - restore_cache:
-        key: composer-v1-{{ checksum "ability/composer.lock" }
+        key: composer-v2-{{ checksum "ability/composer.lock" }
       - run:
           working_directory: ability
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "ability/composer.lock" }}
+          key: composer-v2-{{ checksum "ability/composer.lock" }}
           paths:
             - ability/vendor
 
