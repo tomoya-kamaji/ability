@@ -10,7 +10,7 @@ jobs:
       - run: npm ci --prefix=./ability
       - run: npm run dev --prefix=./ability
       - run:
-          name: php test
+          name: php ./ability/test
           command: ./ability/vendor/bin/phpunit
 
           # aa
