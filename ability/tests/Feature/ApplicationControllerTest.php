@@ -11,7 +11,7 @@ use Tests\TestCase;
 
 class ApplicationControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
 
 
@@ -43,5 +43,5 @@ class ApplicationControllerTest extends TestCase
     //         ->assertViewIs('application.edit');
     // }
 
-    
+
 }

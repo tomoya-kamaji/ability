@@ -12,6 +12,10 @@ jobs:
       - run:
           working_directory: ability
           name: npm ci
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi
       - run:
           working_directory: ability
           command: npm run dev
@@ -19,3 +23,35 @@ jobs:
           working_directory: ability
           name: php test
           command: vendor/bin/phpunit
+
+# version: 2.1
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/php:7.4-node-browsers
+#     steps:
+#       - checkout
+
+#       - restore_cache:
+#           key: composer-v2-{{ checksum "laravel/composer.lock" }}
+#       - run:
+#           working_directory: laravel
+#           command: composer install -n --prefer-dist
+#       - run:
+#           working_directory: laravel
+#           name: npm ci
+#           command: |
+#             if [ ! -d node_modules ]; then
+#               npm ci
+#             fi
+#       - save_cache:
+#           key: npm-v2-{{ checksum "laravel/package-lock.json" }}
+#           paths:
+#             - laravel/node_modules
+#       - run:
+#           working_directory: laravel
+#           command: npm run dev
+#       - run:
+#           working_directory: laravel
+#           name: php test
+#           command: vendor/bin/phpunit
