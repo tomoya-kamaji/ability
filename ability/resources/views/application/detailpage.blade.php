@@ -53,6 +53,11 @@
     .jumbotron {
         background-image: url("{{ asset('/image/detailpage.jpeg') }}");
     }
+    .jumbotron {
+        background-image: url(../image/background.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
     blockquote {
         position: relative;

@@ -188,6 +188,9 @@
 
 @section('css')
     <style>
+        .jumbotron {
+            background-image:url("{{ asset('/image/background.jpeg') }}");
+        }
         .container-fluid {
             margin-right: auto;
             margin-left: auto;
