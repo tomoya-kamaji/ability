@@ -7,10 +7,8 @@ jobs:
       - checkout
       - run: sudo composer self-update --1
 
-
       - restore_cache:
           key: composer-v2-{{ checksum "ability/composer.lock" }}
-
       - run:
           working_directory: ability
           command: composer install -n --prefer-dist
@@ -19,10 +17,8 @@ jobs:
           paths:
             - ability/vendor
 
-
       - restore_cache:
           key: npm-v2-{{ checksum "ability/package-lock.json" }}
-
       - run:
           working_directory: ability
           name: npm ci
@@ -30,12 +26,10 @@ jobs:
             if [ ! -d node_modules ]; then
               npm ci
             fi
-
       - save_cache:
           key: npm-v2-{{ checksum "ability/package-lock.json" }}
           paths:
             - ability/node_modules
-
 
       - run:
           working_directory: ability
@@ -45,34 +39,32 @@ jobs:
           name: php test
           command: vendor/bin/phpunit
 
-# version: 2.1
-# jobs:
-#   build:
+
+# deploy:
 #     docker:
 #       - image: circleci/php:7.4-node-browsers
 #     steps:
-#       - checkout
+#       - add_ssh_keys
+#       - run:
+#           name: deploy
+#           command: |
+#             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd ability && \
+#               git pull origin master && \
+#               composer install -n --no-dev --prefer-dist && \
+#               npm ci && \
+#               npm run prod && \
+#               php artisan migrate --force && \
+#               php artisan config:cache"
 
-      # - restore_cache:
-      #     key: composer-v2-{{ checksum "laravel/composer.lock" }}
-      # - run:
-      #     working_directory: laravel
-      #     command: composer install -n --prefer-dist
-      # - run:
-      #     working_directory: laravel
-      #     name: npm ci
-      #     command: |
-      #       if [ ! -d node_modules ]; then
-      #         npm ci
-      #       fi
-      # - save_cache:
-      #     key: npm-v2-{{ checksum "laravel/package-lock.json" }}
-      #     paths:
-      #       - laravel/node_modules
-#       - run:
-#           working_directory: laravel
-#           command: npm run dev
-#       - run:
-#           working_directory: laravel
-#           name: php test
-#           command: vendor/bin/phpunit
+# workflows:
+#   version: 2
+#   build_deploy:
+#     jobs:
+#       - build
+#       - deploy:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only:
+#                 - master
