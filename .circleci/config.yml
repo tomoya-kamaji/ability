@@ -49,12 +49,14 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd /var/www/html/ability && \
               git pull origin master && \
-              cd ability && \
-              composer install -n --no-dev --prefer-dist && \
-              npm ci && \
-              npm run prod && \
-              php ability migrate --force && \
-              php ability config:cache"
+
+
+          # cd ability && \
+          # composer install -n --no-dev --prefer-dist && \
+          # npm ci && \
+          # npm run prod && \
+          # php ability migrate --force && \
+          # php ability config:cache"
 
 workflows:
   version: 2
