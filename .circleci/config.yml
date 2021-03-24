@@ -48,15 +48,8 @@ jobs:
           name: deploy
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd /var/www/html/ability && \
-              git pull origin master && \
+              git pull origin master"
 
-
-          # cd ability && \
-          # composer install -n --no-dev --prefer-dist && \
-          # npm ci && \
-          # npm run prod && \
-          # php ability migrate --force && \
-          # php ability config:cache"
 
 workflows:
   version: 2
@@ -70,3 +63,10 @@ workflows:
             branches:
               only:
                 - master
+
+# cd ability && \
+          # composer install -n --no-dev --prefer-dist && \
+          # npm ci && \
+          # npm run prod && \
+          # php ability migrate --force && \
+          # php ability config:cache"
