@@ -47,7 +47,7 @@ jobs:
       - run:
           name: deploy
           command: |
-            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd ability && \
+            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd /var/www/html/ability && \
               git pull origin master && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
