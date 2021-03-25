@@ -36,3 +36,11 @@
 </div>
 </div>
 @endsection
+
+@section('css')
+<style>
+    .jumbotron {
+        background-image:url("{{ asset('/image/background.jpeg') }}");
+    }
+</style>
+@endsection

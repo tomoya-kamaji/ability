@@ -196,8 +196,5 @@
             margin-left: auto;
             max-width: 1480px;
         }
-        .jumbotron {
-            background-image: url({{ asset('/image/background.jpeg') }});
-        }
     </style>
 @endsection
