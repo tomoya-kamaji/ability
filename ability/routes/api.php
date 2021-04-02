@@ -17,15 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('fileupload', function () {
+
+
+Route::post('fileupload/{id}', function ($id) {
     $file_name = request()->file->getClientOriginalName();
     request()->file->storeAs('public/', $file_name);
 
     // Storage::put($save_path, (string) $img->encode());
 
-    $user = App\User::find(1);
+    $user_id = Auth::id();
+
+    $user = App\User::where('id', $id)->first();
+    // $user = App\User::find($user_id);
     $user->update(['path' =>  $file_name]);
     return $user;
 
-    // dd(request()->all());
 });

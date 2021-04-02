@@ -18,25 +18,13 @@
 <div class="jumbotron p-2">
     <div class="container">
         <div class="row justify-content-center">
-            @if($user->path)
-                <figure>
-                    <image-upload
-                        :file_path="{{ json_encode(asset('storage/')) }}"
-                        :user="{{ json_encode($user) }}"
-                    >
-                    </image-upload>
-                </figure>
-            @else
-                <figure>
-                    {{-- <i class="fas fa-user-circle fa-3x"></i> --}}
-                    <image-upload
-                        {{-- :file_path="{{ json_encode(asset('storage/')) }}" --}}
-                        :user="{{ json_encode($user) }}"
-                    >
-
-                    </image-upload>
-                </figure>
-            @endif
+            <figure>
+                <image-upload
+                    :file_path="{{ json_encode(asset('storage/')) }}"
+                    :user="{{ json_encode($user) }}"
+                >
+                </image-upload>
+            </figure>
         </div>
     </div>
 </div>

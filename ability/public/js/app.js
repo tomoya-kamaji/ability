@@ -3102,7 +3102,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     file_path: {
@@ -3140,13 +3139,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log(file.name);
 
                 if (_this.checkFile(file)) {
-                  // const picture = await this.getBase64(file)
-                  // 画像のアップロード
                   formData = new FormData();
                   formData.append('file', file);
-                  axios.post('/api/fileupload', formData).then(function (response) {});
-                  _this.file_name = file.name; // this.file_path_data = '/storage/'+ file.name;
-                  // this.$emit('child-event', 'test')
+                  console.log('/api/fileupload/' + _this.user.id); // 画像のアップロード
+
+                  axios.post('/api/fileupload/' + _this.user.id, formData).then(function (response) {}); // vue側のファイル名を記載
+
+                  _this.file_name = file.name;
                 }
 
               case 4:
@@ -3158,17 +3157,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     deleteImage: function deleteImage() {
-      this.$emit('input', null);
-      this.$refs.file = null;
+      this.file_name = null, this.$refs.file = null;
     },
-    // getBase64(file) {
-    //   return new Promise((resolve, reject) => {
-    //     const reader = new FileReader()
-    //     reader.readAsDataURL(file)
-    //     reader.onload = () => resolve(reader.result)
-    //     reader.onerror = error => reject(error)
-    //   })
-    // },
     checkFile: function checkFile(file) {
       var result = true;
       this.fileErrorMessages = [];
@@ -41615,8 +41605,47 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    !_vm.user.path
-      ? _c("label", [
+    _c(
+      "label",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.file_name,
+            expression: "!file_name"
+          }
+        ]
+      },
+      [
+        _c("input", {
+          ref: "file",
+          staticClass: "file-button",
+          attrs: { type: "file" },
+          on: { change: _vm.upload }
+        }),
+        _vm._v(" "),
+        _c("i", {
+          staticClass: "fas fa-user-circle fa-7x",
+          staticStyle: { "background-color": "#fff" }
+        })
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.file_name,
+            expression: "file_name"
+          }
+        ]
+      },
+      [
+        _c("label", [
           _c("input", {
             ref: "file",
             staticClass: "file-button",
@@ -41624,56 +41653,38 @@ var render = function() {
             on: { change: _vm.upload }
           }),
           _vm._v(" "),
-          _c("i", {
-            staticClass: "fas fa-user-circle fa-7x",
-            staticStyle: { "background-color": "#fff" }
+          _c("img", {
+            staticClass: "rounded-circle",
+            attrs: { width: "100px", height: "100px", src: _vm.profileimage }
           })
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.user.path
-      ? _c("div", [
-          _c("label", [
-            _c("input", {
-              ref: "file",
-              staticClass: "file-button",
-              attrs: { type: "file" },
-              on: { change: _vm.upload }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "rounded-circle",
-              attrs: { width: "100px", height: "100px", src: _vm.profileimage }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger m-3",
-              attrs: { type: "button" },
-              on: { click: _vm.deleteImage }
-            },
-            [_vm._v("\n            画像削除\n        ")]
-          ),
-          _vm._v(" "),
-          _vm.fileErrorMessages.length > 0
-            ? _c(
-                "ul",
-                { staticClass: "error-messages" },
-                _vm._l(_vm.fileErrorMessages, function(message, index) {
-                  return _c("li", { key: index }, [
-                    _vm._v(
-                      "\n                " + _vm._s(message) + "\n            "
-                    )
-                  ])
-                }),
-                0
-              )
-            : _vm._e(),
-          _vm._v("\n        " + _vm._s(_vm.profileimage) + "\n    ")
-        ])
-      : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger m-3",
+            attrs: { type: "button" },
+            on: { click: _vm.deleteImage }
+          },
+          [_vm._v("\n            削除\n        ")]
+        ),
+        _vm._v(" "),
+        _vm.fileErrorMessages.length > 0
+          ? _c(
+              "ul",
+              { staticClass: "error-messages" },
+              _vm._l(_vm.fileErrorMessages, function(message, index) {
+                return _c("li", { key: index }, [
+                  _vm._v(
+                    "\n                " + _vm._s(message) + "\n            "
+                  )
+                ])
+              }),
+              0
+            )
+          : _vm._e()
+      ]
+    )
   ])
 }
 var staticRenderFns = []
