@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             // $table->string('age')->nullable();
             $table->string('profession')->nullable();
             $table->string('introduction')->nullable();
+            $table->string('path')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
