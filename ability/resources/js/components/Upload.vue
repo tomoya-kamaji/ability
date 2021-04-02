@@ -49,13 +49,11 @@
     async upload(event) {
       const files = event.target.files || event.dataTransfer.files
       const file = files[0]
-      console.log(file.name);
 
       if (this.checkFile(file)) {
 
         const formData = new FormData()
         formData.append('file',file)
-        console.log('/api/fileupload/' + this.user.id);
         // 画像のアップロード
         axios.post('/api/fileupload/' + this.user.id ,formData).then(response =>{});
         // vue側のファイル名を記載
@@ -63,11 +61,11 @@
       }
     },
 
-    deleteImage() {
-      this.file_name = null,
-
-      this.$refs.file = null
+    async deleteImage() {
+        axios.post('/api/filedelete/' + this.user.id).then(response =>{});
+        this.file_name = null
     },
+
 
     checkFile(file) {
       let result = true
