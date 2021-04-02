@@ -1,23 +1,22 @@
 <template>
     <div>
-        <label v-if="!user.path">
+        <label v-show="!file_name">
             <input ref="file" class="file-button" type="file" @change="upload" />
             <i class="fas fa-user-circle fa-7x" style="background-color: #fff;"></i>
         </label>
-        <div v-if="user.path">
+        <div v-show="file_name">
             <label>
                 <input ref="file" class="file-button" type="file" @change="upload" />
                 <img class="rounded-circle" width="100px" height="100px" :src="profileimage" />
             </label>
             <button type="button" class="btn btn-danger m-3" @click="deleteImage">
-                画像削除
+                削除
             </button>
             <ul v-if="fileErrorMessages.length > 0" class="error-messages">
                 <li v-for="(message, index) in fileErrorMessages" :key="index">
                     {{ message }}
                 </li>
             </ul>
-            {{ profileimage }}
         </div>
     </div>
 </template>
@@ -40,7 +39,6 @@
       fileErrorMessages: []
     }
   },
-
     computed: {
         profileimage: function () {
             return this.file_path + '/' + this.file_name
@@ -54,33 +52,22 @@
       console.log(file.name);
 
       if (this.checkFile(file)) {
-        // const picture = await this.getBase64(file)
 
-        // 画像のアップロード
         const formData = new FormData()
         formData.append('file',file)
-        axios.post('/api/fileupload',formData).then(response =>{});
+        console.log('/api/fileupload/' + this.user.id);
+        // 画像のアップロード
+        axios.post('/api/fileupload/' + this.user.id ,formData).then(response =>{});
+        // vue側のファイル名を記載
         this.file_name = file.name;
-
-        // this.file_path_data = '/storage/'+ file.name;
-        // this.$emit('child-event', 'test')
-
       }
     },
 
     deleteImage() {
-      this.$emit('input', null)
+      this.file_name = null,
+
       this.$refs.file = null
     },
-
-    // getBase64(file) {
-    //   return new Promise((resolve, reject) => {
-    //     const reader = new FileReader()
-    //     reader.readAsDataURL(file)
-    //     reader.onload = () => resolve(reader.result)
-    //     reader.onerror = error => reject(error)
-    //   })
-    // },
 
     checkFile(file) {
       let result = true
