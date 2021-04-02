@@ -9,24 +9,33 @@
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
+            <li>{{ $error }}</li>
         @endforeach
     </ul>
 </div>
 @endif
 
-
 <div class="jumbotron p-2">
     <div class="container">
         <div class="row justify-content-center">
-            @if ($is_image)
+            @if($user->path)
                 <figure>
-                    {{-- <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="120px" height="120px"> --}}
-                    <image-upload>
+                    <image-upload
+                        :file_path="{{ json_encode(asset('storage/')) }}"
+                        :user="{{ json_encode($user) }}"
+                    >
                     </image-upload>
                 </figure>
             @else
-                <i class="fas fa-user-circle fa-3x"></i>
+                <figure>
+                    {{-- <i class="fas fa-user-circle fa-3x"></i> --}}
+                    <image-upload
+                        {{-- :file_path="{{ json_encode(asset('storage/')) }}" --}}
+                        :user="{{ json_encode($user) }}"
+                    >
+
+                    </image-upload>
+                </figure>
             @endif
         </div>
     </div>

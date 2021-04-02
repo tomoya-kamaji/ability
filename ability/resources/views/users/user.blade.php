@@ -2,14 +2,14 @@
     <div class="card-body">
         <div class="d-flex flex -row">
             <div class ="col-md-2">
-                @if (false)
-                <figure>
-                    <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle" width="80px" height="80px">
-                </figure>
+                @if (true)
+                    <figure>
+                        <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle" width="80px" height="80px">
+                    </figure>
                 @else
-                <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-                    <i class="fas fa-user-circle fa-3x"></i>
-                </a>
+                    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+                        <i class="fas fa-user-circle fa-3x"></i>
+                    </a>
                 @endif
             </div>
             <div class="col-md-3">

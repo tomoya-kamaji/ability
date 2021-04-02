@@ -11,8 +11,10 @@ import StarRating from 'vue-star-rating'
 
 
 
+Vue.config.devtools = true;
 const app = new Vue({
   el: '#app',
+
   components: {
     ApplicationLike,
     FollowButton,
