@@ -3136,19 +3136,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 files = event.target.files || event.dataTransfer.files;
                 file = files[0];
-                console.log(file.name);
 
                 if (_this.checkFile(file)) {
                   formData = new FormData();
-                  formData.append('file', file);
-                  console.log('/api/fileupload/' + _this.user.id); // 画像のアップロード
+                  formData.append('file', file); // 画像のアップロード
 
                   axios.post('/api/fileupload/' + _this.user.id, formData).then(function (response) {}); // vue側のファイル名を記載
 
                   _this.file_name = file.name;
                 }
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -3157,7 +3155,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     deleteImage: function deleteImage() {
-      this.file_name = null, this.$refs.file = null;
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                axios.post('/api/filedelete/' + _this2.user.id).then(function (response) {});
+                _this2.file_name = null;
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     checkFile: function checkFile(file) {
       var result = true;

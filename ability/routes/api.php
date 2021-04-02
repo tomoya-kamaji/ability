@@ -33,3 +33,15 @@ Route::post('fileupload/{id}', function ($id) {
     return $user;
 
 });
+
+Route::post('filedelete/{id}', function ($id) {
+
+    // Storage::put($save_path, (string) $img->encode());
+
+    $user_id = Auth::id();
+
+    $user = App\User::where('id', $id)->first();
+    $user->update(['path' =>  null]);
+    return $user;
+
+});
