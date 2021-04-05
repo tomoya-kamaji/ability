@@ -23,6 +23,7 @@ Route::post('fileupload/{id}', function ($id) {
     $file_name = request()->file->getClientOriginalName();
     request()->file->storeAs('public/', $file_name);
 
+    Storage::disk('s3')->putFile('/', $file_name);
     // Storage::put($save_path, (string) $img->encode());
 
     $user_id = Auth::id();
