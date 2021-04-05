@@ -2,9 +2,9 @@
     <div class="card-body">
         <div class="d-flex flex -row">
             <div class ="col-md-2">
-                @if (true)
+                @if ($user->path)
                     <figure>
-                        <img src="/storage/profile_images/{{ $user->id }}.jpg" class="rounded-circle" width="80px" height="80px">
+                        <img src={{ asset('storage').'/'.$user->path}} class="rounded-circle" width="80px" height="80px">
                     </figure>
                 @else
                     <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">

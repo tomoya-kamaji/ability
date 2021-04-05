@@ -80,7 +80,15 @@
                     <div class="card mx-auto bg-white shadow mt-3" style="width: 18rem;">
                         <div class="card-body">
                             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-                                <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                                @if ($user->path)
+                                    <figure>
+                                        <img src="{{ asset('storage').'/'.$user->path}}" class="rounded-circle d-block mx-auto" width="80px" height="80px">
+                                    </figure>
+                                @else
+                                    <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                                @endif
+
+
                             </a>
                             <h4 class="card-title text-center">{{ $user->name }}</h4>
                             <hr color="#e6e6e6" class="m-2">
