@@ -54,6 +54,7 @@
 
         const formData = new FormData()
         formData.append('file',file)
+        
         // 画像のアップロード
         axios.post('/api/fileupload/' + this.user.id ,formData).then(response =>{});
         // vue側のファイル名を記載

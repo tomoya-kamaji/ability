@@ -27,7 +27,6 @@ Route::post('fileupload/{id}', function ($id) {
 
     $user = App\User::where('id', $id)->first();
     $user->update(['path' =>  Storage::disk('s3')->url($path)]);
-    // $user->path = Storage::disk('s3')->url($path);
     return $user;
 });
 

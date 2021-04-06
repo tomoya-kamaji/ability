@@ -82,7 +82,7 @@
                             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                                 @if ($user->path)
                                     <figure>
-                                        <img src="{{ asset('storage').'/'.$user->path}}" class="rounded-circle d-block mx-auto" width="80px" height="80px">
+                                        <img src="{{ $user->path }}" class="rounded-circle d-block mx-auto" width="80px" height="80px">
                                     </figure>
                                 @else
                                     <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
