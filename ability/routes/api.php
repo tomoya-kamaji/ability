@@ -20,19 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('fileupload/{id}', function ($id) {
-    $file_name = request()->file->getClientOriginalName();
-    request()->file->storeAs('public/', $file_name);
 
-    Storage::disk('s3')->putFile('/', $file_name);
-    // Storage::put($save_path, (string) $img->encode());
+    $file = request()->file;
+    $path = Storage::disk('s3')->putFile('profile', $file);
 
-    $user_id = Auth::id();
 
     $user = App\User::where('id', $id)->first();
-    // $user = App\User::find($user_id);
-    $user->update(['path' =>  $file_name]);
+    $user->update(['path' =>  Storage::disk('s3')->url($path)]);
+    // $user->path = Storage::disk('s3')->url($path);
     return $user;
-
 });
 
 Route::post('filedelete/{id}', function ($id) {
