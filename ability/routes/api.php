@@ -22,8 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('fileupload/{id}', function ($id) {
 
     $file = request()->file;
-    $path = Storage::disk('s3')->putFile('profile', $file);
-
+    $path = Storage::disk('s3')->putFile('profile', $file, 'public');
 
     $user = App\User::where('id', $id)->first();
     $user->update(['path' =>  Storage::disk('s3')->url($path)]);

@@ -19,8 +19,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <figure>
+
                 <image-upload
-                    :file_path="{{ json_encode(asset('storage/')) }}"
+                    {{-- :file_path="{{ json_encode(asset('storage/')) }}" --}}
                     :user="{{ json_encode($user) }}"
                 >
                 </image-upload>
