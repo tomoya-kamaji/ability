@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-
+//ファイルアップロード
 Route::post('fileupload/{id}', function ($id) {
 
     $file = request()->file;
