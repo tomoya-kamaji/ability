@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <upload
-        :file_path = file_path
         :user = user
     />
   </div>
@@ -14,10 +13,10 @@ export default {
         Upload
     },
     props: {
-        file_path: {
-            type: String,
-            default: null
-        },
+        // file_path: {
+        //     type: String,
+        //     default: null
+        // },
         user: {
             type: Object,
         }

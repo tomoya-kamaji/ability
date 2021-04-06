@@ -2846,17 +2846,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Upload: _Upload_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    file_path: {
-      type: String,
-      "default": null
-    },
+    // file_path: {
+    //     type: String,
+    //     default: null
+    // },
     user: {
       type: Object
     }
@@ -3104,10 +3103,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    file_path: {
-      type: String,
-      "default": null
-    },
     user: {
       type: Object
     }
@@ -3141,9 +3136,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   formData = new FormData();
                   formData.append('file', file); // 画像のアップロード
 
-                  axios.post('/api/fileupload/' + _this.user.id, formData).then(function (response) {}); // vue側のファイル名を記載
-
-                  _this.file_name = file.name;
+                  axios.post('/api/fileupload/' + _this.user.id, formData).then(function (response) {
+                    _this.file_name = response.data.path;
+                  });
                 }
 
               case 3:
@@ -41358,7 +41353,7 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "app" } },
-    [_c("upload", { attrs: { file_path: _vm.file_path, user: _vm.user } })],
+    [_c("upload", { attrs: { user: _vm.user } })],
     1
   )
 }
@@ -41669,7 +41664,7 @@ var render = function() {
           _vm._v(" "),
           _c("img", {
             staticClass: "rounded-circle",
-            attrs: { width: "100px", height: "100px", src: _vm.profileimage }
+            attrs: { width: "100px", height: "100px", src: _vm.file_name }
           })
         ]),
         _vm._v(" "),

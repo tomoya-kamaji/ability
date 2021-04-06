@@ -7,7 +7,7 @@
         <div v-show="file_name">
             <label>
                 <input ref="file" class="file-button" type="file" @change="upload" />
-                <img class="rounded-circle" width="100px" height="100px" :src="profileimage" />
+                <img class="rounded-circle" width="100px" height="100px" :src="file_name" />
             </label>
             <button type="button" class="btn btn-danger m-3" @click="deleteImage">
                 削除
@@ -24,10 +24,6 @@
 <script>
  export default {
   props: {
-    file_path: {
-      type: String,
-      default: null
-    },
     user: {
       type: Object,
     },
@@ -54,11 +50,12 @@
 
         const formData = new FormData()
         formData.append('file',file)
-        
+
         // 画像のアップロード
-        axios.post('/api/fileupload/' + this.user.id ,formData).then(response =>{});
-        // vue側のファイル名を記載
-        this.file_name = file.name;
+        axios.post('/api/fileupload/' + this.user.id ,formData).then(response =>{
+            this.file_name = response.data.path;
+        });
+
       }
     },
 

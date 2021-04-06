@@ -3,14 +3,13 @@
         <div class="d-flex flex -row">
             <div class ="col-md-2">
                 @if ($user->path)
-                    <figure>
-                        <img src={{ asset('storage').'/'.$user->path}} class="rounded-circle" width="80px" height="80px">
-                    </figure>
+                <figure>
+                    <img src="{{ $user->path }}" class="rounded-circle d-block mx-auto" width="80px" height="80px">
+                </figure>
                 @else
-                    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-                        <i class="fas fa-user-circle fa-3x"></i>
-                    </a>
+                    <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
                 @endif
+
             </div>
             <div class="col-md-3">
                 <h2>{{ $user->name }}</h2>
