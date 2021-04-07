@@ -6,6 +6,7 @@
     </div>
 @endif
 @if ($errors->any())
+
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
@@ -21,7 +22,6 @@
             <figure>
 
                 <image-upload
-                    {{-- :file_path="{{ json_encode(asset('storage/')) }}" --}}
                     :user="{{ json_encode($user) }}"
                 >
                 </image-upload>
@@ -140,55 +140,41 @@
         </form>
     </div>
 </div>
+@endsection
 
-
-{{-- <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="photo">
-    <input type="submit">
-</form>
-
-@if ($is_image)
-<figure>
-    <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="rounded-circle" width="80px" height="80px">
-</figure>
-@else
-<i class="fas fa-user-circle fa-3x"></i>
-@endif --}}
-
-
-
+@section('js')
 
 
 @endsection
 
+
 @section('css')
-<style>
-    blockquote {
-        position: relative;
-        padding: 0px 0px 0px 15px;
-        box-sizing: border-box;
-        font-style: italic;
-        /* background: #dfebf7; */
-        color: #555;
-        border-radius: 5px;
-        border-left: 7px solid blue;
+    <style>
+        blockquote {
+            position: relative;
+            padding: 0px 0px 0px 15px;
+            box-sizing: border-box;
+            font-style: italic;
+            /* background: #dfebf7; */
+            color: #555;
+            border-radius: 5px;
+            border-left: 7px solid blue;
 
-        /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);; */
-    }
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);; */
+        }
 
-    blockquote p {
-        padding: 0;
-        margin: 5px 0;
-        font-size: 1.5em;
-        line-height: 1.7;
-    }
+        blockquote p {
+            padding: 0;
+            margin: 5px 0;
+            font-size: 1.5em;
+            line-height: 1.7;
+        }
 
-    .jumbotron {
-        background-image: none;
-        background-color: #59d4f0;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
+        .jumbotron {
+            background-image: none;
+            background-color: #59d4f0;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 @endsection

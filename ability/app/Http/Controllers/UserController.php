@@ -24,6 +24,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $is_image = false;
+        
         if (Storage::disk('local')->exists('public/profile_images/' . Auth::id() . '.jpg')) {
             $is_image = true;
         }
