@@ -7,7 +7,7 @@
                     <img src="{{ $user->path }}" class="rounded-circle d-block mx-auto" width="80px" height="80px">
                 </figure>
                 @else
-                    <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                    <i class="fas fa-user-circle fa-5x d-flex align-items-center justify-content-center"></i>
                 @endif
 
             </div>

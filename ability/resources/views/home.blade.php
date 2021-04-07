@@ -15,14 +15,6 @@
                         <div class="input-group input-group-lg col-md-8">
                             <input class="form-control" name="search" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
                         </div>
-                        {{-- <div class="input-group input-group-lg col-md-2">
-                            <select class="form-control" name="reviw" type="search" placeholder="例) Slack,Trelloなど" aria-label="Search" value="">
-                                <option>☆4以上</option>
-                                <option>☆3以上</option>
-                                <option>☆2以上</option>
-                                <option>☆1以上</option>
-                            </select>
-                        </div> --}}
                         <div class="input-group input-group-lg col-md-2">
                             <button class="btn bg-success text-white" type="submit">検索</button>
                         </div>
@@ -33,10 +25,6 @@
                             <h3 class="text-white">オススメのアプリ</h3>
                             <p class="text-white">レビューを投稿したアプリに沿ってあなたのオススメが見つかる</p>
                         </div>
-                        {{-- <div class="col align-self-end">
-                            <h3 class="text-white">目的にあったアプリ</h3>
-                            <p class="text-white">あなたの目的に沿ったアプリを探せる</p>
-                        </div> --}}
                         <div class="col align-self-end">
                             <h3 class="text-white">人気ユーザのアプリ</h3>
                             <p class="text-white">人気のユーザがレビューアプリを閲覧できる</p>
@@ -87,7 +75,6 @@
                                 @else
                                     <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
                                 @endif
-
 
                             </a>
                             <h4 class="card-title text-center">{{ $user->name }}</h4>
@@ -148,7 +135,13 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a href="{{ route('users.show', ['name' => $manyfollower_user->name]) }}" class="text-dark">
-                                            <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                                            @if ($manyfollower_user->path)
+                                                <figure>
+                                                    <img src="{{ $manyfollower_user->path }}" class="rounded-circle d-block mx-auto" width="60px" height="60px">
+                                                </figure>
+                                            @else
+                                                <i class="fas fa-user-circle fa-3x d-flex align-items-center justify-content-center"></i>
+                                            @endif
                                         </a>
                                     </div>
                                     <div class="col-md-6">

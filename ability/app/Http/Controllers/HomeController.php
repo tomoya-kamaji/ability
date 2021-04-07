@@ -44,7 +44,7 @@ class HomeController extends Controller
 
         $manyfollower_users = DB::table('users')
         ->join('follows', 'users.id', '=', 'follows.followee_id')
-        ->select(DB::raw('count(*) as follwer_count, users.id ,users.name'))
+        ->select(DB::raw('count(*) as follwer_count, users.id ,users.name,users.path'))
         ->groupBy('users.id', 'users.name')
         ->orderBy('follwer_count', 'desc')
         ->take(10)
