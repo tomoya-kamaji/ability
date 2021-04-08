@@ -38,7 +38,34 @@ class ApplicationsTableSeeder extends Seeder
                 'categorys_id' => 2,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
-            ]
+            ],
+            [
+                'trackId' =>  489969512,
+                'trackName' => 'Asana: あなたの仕事マネージャー',
+                'artworkURL512' => 'https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/0f/9f/49/0f9f494d-3c4a-3c0d-619c-faf9fe2da48c/source/512x512bb.jpg',
+                'artistName' => 'Asana, Inc',
+                'categorys_id' => 2,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ],
+            [
+                'trackId' =>  1113153706,
+                'trackName' => 'Microsoft Teams',
+                'artworkURL512' => 'https://is4-ssl.mzstatic.com/image/thumb/Purple114/v4/ed/bb/3c/edbb3c36-134f-a0ed-bc1e-78030adc3a4a/source/512x512bb.jpg',
+                'artistName' => 'Microsoft Corporation',
+                'categorys_id' => 2,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ],
+            [
+                'trackId' =>  546505307,
+                'trackName' => 'Zoom',
+                'artworkURL512' => 'https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/00/d2/11/00d211b2-094e-6619-f229-790e76d9fabb/source/512x512bb.jpg',
+                'artistName' => 'Zoom',
+                'categorys_id' => 2,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ],
         ]);
     }
 }
