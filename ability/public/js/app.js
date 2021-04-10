@@ -2468,6 +2468,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2476,6 +2481,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     id: Number,
     name: String,
+    path: String,
     email: String,
     email_verified_at: String,
     created_at: String,
@@ -2486,10 +2492,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  computed: {
-    imagelink: function imagelink() {
-      return "/storage/profile_images/" + this.id + ".jpg";
-    }
+  computed: {//   imagelink: function () {
+    //     return "/storage/profile_images/" + this.id + ".jpg"
+    //   }
   }
 });
 
@@ -40996,10 +41001,19 @@ var render = function() {
           { staticClass: "card col-md-3", staticStyle: { width: "18rem" } },
           [
             _c("div", { staticClass: "card-body" }, [
-              _c("img", {
-                staticClass: "d-block mx-auto rounded-circle mt-3",
-                attrs: { src: _vm.imagelink, width: "100px", height: "100px" }
-              }),
+              _vm.path !== null
+                ? _c("div", [
+                    _c("img", {
+                      staticClass: "d-block mx-auto rounded-circle mt-3",
+                      attrs: { src: _vm.path, width: "100px", height: "100px" }
+                    })
+                  ])
+                : _c("div", [
+                    _c("i", {
+                      staticClass:
+                        "fas fa-user-circle fa-5x d-flex align-items-center justify-content-center"
+                    })
+                  ]),
               _vm._v(" "),
               _c("h5", { staticClass: "card-title  text-center" }, [
                 _vm._v(_vm._s(_vm.name))
@@ -41066,8 +41080,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ul", { staticStyle: { "list-style": "none" } }, [
-      _c("li", [_vm._v("年齢：20~25歳")]),
-      _vm._v(" "),
       _c("li", [_vm._v("職業：エンジニア")])
     ])
   },
