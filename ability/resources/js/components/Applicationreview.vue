@@ -6,10 +6,15 @@
             <div class="row no-gutters">
                 <div class="card col-md-3" style="width: 18rem;">
                     <div class="card-body">
-                        <img :src="imagelink" class="d-block mx-auto rounded-circle mt-3" width="100px" height="100px">
+                        <div v-if="path !== null">
+                            <img :src="path" class="d-block mx-auto rounded-circle mt-3" width="100px" height="100px">
+                        </div>
+                        <div v-else>
+                            <i class="fas fa-user-circle fa-5x d-flex align-items-center justify-content-center"></i>
+                        </div>
+
                         <h5 class="card-title  text-center">{{ name }}</h5>
                         <ul style="list-style: none;">
-                            <li>年齢：20~25歳</li>
                             <li>職業：エンジニア</li>
                         </ul>
                     </div>
@@ -61,6 +66,7 @@ export default {
   props: {
     id: Number,
     name: String,
+    path: String,
     email: String,
     email_verified_at: String,
     created_at: String,
@@ -74,9 +80,9 @@ export default {
     };
   },
   computed:{
-      imagelink: function () {
-        return "/storage/profile_images/" + this.id + ".jpg"
-      }
+    //   imagelink: function () {
+    //     return "/storage/profile_images/" + this.id + ".jpg"
+    //   }
   }
 
 

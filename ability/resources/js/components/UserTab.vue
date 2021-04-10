@@ -83,6 +83,7 @@ export default {
     edit_url: String,
     delete_url: String,
   },
+  
 
   data() {
     return {
