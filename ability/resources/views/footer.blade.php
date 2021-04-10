@@ -19,7 +19,6 @@
                     <dl>
                         <a class="text-white" href="{{ route('home')}}"><dd>ホーム</dd></a>
                         @guest
-                            自動デプロイOK
                         @else
                             <a class="text-white" href="{{ route("users.show", ["name" => Auth::user()->name]) }}"><dd>マイページ</dd></a>
                         @endguest
