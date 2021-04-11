@@ -26,7 +26,7 @@
             <p class="text-secondary" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">ここにはアプリの説明文を入れる。ここにはアプリの説明文を入れる。ここにはアプリの説明文を入れる</p>
         </div>
         <div class="col-md-2">
-                <button type="button" class="btn btn-danger m-4">　　削除　　</button>
+                <!-- <button type="button" class="btn btn-danger m-4">　　削除　　</button> -->
         </div>
         </div>
         <hr color="#797979">
