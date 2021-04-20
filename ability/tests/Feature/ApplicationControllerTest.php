@@ -22,12 +22,10 @@ class ApplicationControllerTest extends TestCase
         $response->assertStatus(200)->assertViewIs('application.index');
     }
 
-
     //未ログイン
     public function testGuestEdit()
     {
         $response = $this->get(route('application.edit', 1));
-
         $response->assertRedirect(route('login'));
     }
 
