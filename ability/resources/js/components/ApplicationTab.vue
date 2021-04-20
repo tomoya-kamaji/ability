@@ -191,11 +191,21 @@ export default {
   computed: {
     filteredApplicationReviews(){
         let returnReview = [];
-        for(let i in this.applicationreviews) {
-            let applicationreview = this.applicationreviews[i];
-
-            if(applicationreview.pivot.evaluation == this.checkStar) {
+        /*
+            フィルターにチェックが入っていないならが全て
+            チェックが入っていたら評価されているものだけ
+        */
+        if(this.checkStar == 0){
+            for(let i in this.applicationreviews) {
+                let applicationreview = this.applicationreviews[i];
                 returnReview.push(applicationreview);
+            }
+        }else{
+            for(let i in this.applicationreviews) {
+                let applicationreview = this.applicationreviews[i];
+                if(applicationreview.pivot.evaluation == this.checkStar) {
+                    returnReview.push(applicationreview);
+                }
             }
         }
         return returnReview;
