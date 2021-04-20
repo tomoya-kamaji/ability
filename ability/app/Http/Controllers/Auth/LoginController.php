@@ -37,7 +37,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $this->performLogout($request);
-        return redirect('/home')->with('msg_danger', 'ログアウトしました');
+        return redirect('/home')->with('msg_error', 'ログアウトしました');
     }
 
     // ゲストユーザー用のユーザーIDを定数として定義
