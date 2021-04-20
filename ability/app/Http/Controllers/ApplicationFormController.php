@@ -75,7 +75,7 @@ class ApplicationFormController extends Controller
                 'evaluation' => $request->evaluation
             ]
         );
-        return redirect('home');
+        return redirect('home')->with('msg_success', '投稿が完了しました。');
     }
 
 
@@ -144,7 +144,7 @@ class ApplicationFormController extends Controller
             ]);
         return redirect(route('users.show', [
             "name" => $user->name
-        ]));
+        ]))->with('msg_success', '編集が完了しました');
     }
 
 
@@ -177,13 +177,12 @@ class ApplicationFormController extends Controller
         ->where([
             ['user_id', '=', $user->id],
             ['application_id', '=', $request->id],
-        ])
-        ->delete();
+        ])->delete();
 
 
         return redirect(route('users.show', [
             "name" => $user->name
-        ]));
+        ]))->with('msg_error', '投稿を削除しました');
     }
 
     public function like(Request $request, Application $application)
