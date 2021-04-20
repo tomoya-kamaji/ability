@@ -37,7 +37,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $this->performLogout($request);
-        return redirect('/home')->with('flash_message', '投稿が完了しました');;
+        return redirect('/home')->with('msg_danger', 'ログアウトしました');
     }
 
     // ゲストユーザー用のユーザーIDを定数として定義
@@ -48,7 +48,7 @@ class LoginController extends Controller
     {
         // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする
         if (Auth::loginUsingId(self::GUEST_USER_ID)) {
-            return redirect('/home');
+            return redirect('/home')->with('msg_success','ゲストユーザでログインしました');
         }
 
         return redirect('/home');
