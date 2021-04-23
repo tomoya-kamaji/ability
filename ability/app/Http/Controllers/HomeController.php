@@ -85,14 +85,16 @@ class HomeController extends Controller
 
             //オススメアプリのID
             $recommended_applicationsid = array_diff($application_id1,$application_id3);
+
+            //オススメのアプリ
+            $recommended_applications = DB::table('applications')
+            ->select('*')
+            ->where('id', $recommended_applicationsid)
+            ->take(4)
+            ->get();
         }
 
-        //オススメのアプリ
-        $recommended_applications = DB::table('applications')
-        ->select('*')
-        ->where('id', $recommended_applicationsid)
-        ->take(4)
-        ->get();
+
 
         // applicationsに平均値を持たせておこう
         $applications = ApplicationUser::all();
