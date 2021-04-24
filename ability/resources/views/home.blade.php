@@ -161,6 +161,17 @@
                 </div>
             </div>
             <div class="col-md-9">
+                    @if (isset( $recommended_applications ))
+                        <h2 class="mt-5 mb-3">あなたへのオススメ</h2>
+                        <div class="row">
+                            <?php $i = 0;?>
+                            @foreach ($recommended_applications as $recommended_application)
+                                @include('recommended_application')
+                                <?php $i++; ?>
+                            @endforeach
+                        </div>
+                    @endif
+
                     <h2 class="mt-4 mb-3">新着のレビュー</h2>
                     <div class="row mb-5">
                         @foreach ($recent_applications as $recent_application)
@@ -176,6 +187,8 @@
                             <?php $i++; ?>
                         @endforeach
                     </div>
+
+
 
                 <div class="row mt-0 mb-5 justify-content-center bg-white shadow">
 
