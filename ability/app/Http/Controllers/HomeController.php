@@ -52,6 +52,7 @@ class HomeController extends Controller
 
 
         // applicationsに平均値を持たせておこう
+        // git戻し作業
         $applications = ApplicationUser::all();
         $register_users = User::all();
 
