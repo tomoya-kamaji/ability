@@ -50,8 +50,47 @@ class HomeController extends Controller
         ->take(10)
         ->get();
 
-
         // applicationsに平均値を持たせておこう
+        $applications = ApplicationUser::all();
+        $register_users = User::all();
+
+        if (!empty($user->application_user)) {
+            //ユーザIDからアプリを取得
+            $applications_usersarr = $applications_users->toArray();
+            $application_id1 = array_column($applications_usersarr, 'id');
+            $register_users = User::all();
+            $jaccard = [];
+            foreach ($register_users as $register_user) {
+                //自分以外
+                if ($user->id != $register_user->id) {
+                    $application_id2 = array_column($register_user->application_user->toArray(), 'id');
+                    /*
+                        和集合
+                        積集合
+                        ジャッジカード指数 = 和集合 / 積集合
+                    */
+                    $application_union = array_union($application_id1, $application_id2);
+                    $application_intersect = array_intersect($application_id1, $application_id2);
+                    $jaccardindex = count($application_intersect) / count($application_union);
+                    $jaccardindex = array($register_user->id, $jaccardindex);
+                    array_push($jaccard, $jaccardindex);
+                }
+            }
+            // ジャッジカード指数が最大を抽出
+            $high_correlation_user = collect($jaccard)->where('1', collect($jaccard)->max(1))->all();
+            // 相関が高いユーザを取得
+            $high_correlation_user = User::where('id', array_shift($high_correlation_user)[0])->get();
+            $application_id3 = array_column($high_correlation_user[0]->application_user->toArray(), 'id');
+            //オススメアプリのID
+            $recommended_applicationsid = array_diff($application_id1, $application_id3);
+        }
+        //オススメのアプリ
+        $recommended_applications = DB::table('applications')
+        ->select('*')
+        ->where('id', $recommended_applicationsid)
+        ->take(4)
+        ->get();
+        
         $applications = ApplicationUser::all();
         $register_users = User::all();
 
