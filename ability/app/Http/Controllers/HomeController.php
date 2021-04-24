@@ -54,6 +54,8 @@ class HomeController extends Controller
         $applications = ApplicationUser::all();
         $register_users = User::all();
 
+
+
         if (!empty($user->application_user)) {
             //ユーザIDからアプリを取得
             $applications_usersarr = $applications_users->toArray();
@@ -61,7 +63,8 @@ class HomeController extends Controller
             $register_users = User::all();
             $jaccard = [];
             foreach ($register_users as $register_user) {
-                //自分以外
+
+                //自分以外 自分は1になる
                 if ($user->id != $register_user->id) {
                     $application_id2 = array_column($register_user->application_user->toArray(), 'id');
                     /*
@@ -76,24 +79,44 @@ class HomeController extends Controller
                     array_push($jaccard, $jaccardindex);
                 }
             }
-            // ジャッジカード指数が最大を抽出
+            /*
+                ジャッジカード指数が最大を抽出
+                相関が高いユーザを取得
+                相関が高いユーザのアプリを取得する
+            */
             $high_correlation_user = collect($jaccard)->where('1', collect($jaccard)->max(1))->all();
-            // 相関が高いユーザを取得
             $high_correlation_user = User::where('id', array_shift($high_correlation_user)[0])->get();
             $application_id3 = array_column($high_correlation_user[0]->application_user->toArray(), 'id');
+
             //オススメアプリのID
-            $recommended_applicationsid = array_diff($application_id1, $application_id3);
+            $recommended_applicationsid = array_diff($application_id3, $application_id1);
+
+            if (empty($recommended_applicationsid)) {
+                $recommended_applications = NULL;
+            }else{
+                //オススメのアプリ
+                $recommended_applications = DB::table('applications')
+                ->select('*')
+                ->whereIn('id', $recommended_applicationsid)
+                ->take(4)
+                ->get();
+            }
+        }else{
+            $recommended_applications = NULL;
         }
-        //オススメのアプリ
-        $recommended_applications = DB::table('applications')
-        ->select('*')
-        ->where('id', $recommended_applicationsid)
-        ->take(4)
-        ->get();
-        
         $applications = ApplicationUser::all();
         $register_users = User::all();
 
-        return view('home', compact('applications','user', 'applications_users', 'register_users','manyreview_applications', 'recent_applications', 'manyfollower_users'));
+        return view('home', compact('applications','user', 'applications_users', 'register_users','manyreview_applications', 'recent_applications', 'manyfollower_users', 'recommended_applications'));
     }
+}
+
+//配列２つの和集合
+function array_union(array $a, array $b)
+{
+    foreach ($b as $val) {
+        $a[] = $val;
+    }
+
+    return array_unique($a);
 }
