@@ -1,9 +1,6 @@
 # 💻 アプリ概要
 
 ### タイトル名：Ability
-URL
-**[https://ability-applications.com/home](https://ability-applications.com/home) (PC推奨)**
-
 Github
 **[https://github.com/tomoya-kamaji/ability](https://github.com/tomoya-kamaji/ability)**
 
